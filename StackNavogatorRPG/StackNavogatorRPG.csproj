@@ -88,6 +88,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Resources\Item Images\" />
+    <Folder Include="Resources\Background Images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -107,10 +109,71 @@
     <Compile Include="VC_BattleRoom.designer.cs">
       <DependentUpon>VC_BattleRoom.cs</DependentUpon>
     </Compile>
+    <Compile Include="ItemClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="VC_DungeonRoom.xib" />
     <InterfaceDefinition Include="VC_BattleRoom.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Item Images\bronzeSword.png" />
+    <BundleResource Include="Resources\Item Images\chestClosed.png" />
+    <BundleResource Include="Resources\Item Images\chestOpen.png" />
+    <BundleResource Include="Resources\Item Images\clothBoots.png" />
+    <BundleResource Include="Resources\Item Images\clothChest.png" />
+    <BundleResource Include="Resources\Item Images\clothGloves.png" />
+    <BundleResource Include="Resources\Item Images\clothHelmet.png" />
+    <BundleResource Include="Resources\Item Images\clothLeg.png" />
+    <BundleResource Include="Resources\Item Images\druidCloak.png" />
+    <BundleResource Include="Resources\Item Images\druidStaff.png" />
+    <BundleResource Include="Resources\Item Images\enchantedBoots.png" />
+    <BundleResource Include="Resources\Item Images\enchantedChest.png" />
+    <BundleResource Include="Resources\Item Images\enchantedGloves.png" />
+    <BundleResource Include="Resources\Item Images\enchantedHelmet.png" />
+    <BundleResource Include="Resources\Item Images\enchantedLeg.png" />
+    <BundleResource Include="Resources\Item Images\enchantedSword.png" />
+    <BundleResource Include="Resources\Item Images\enchantEffect.png" />
+    <BundleResource Include="Resources\Item Images\HealthPotion.png" />
+    <BundleResource Include="Resources\Item Images\ironBoots.png" />
+    <BundleResource Include="Resources\Item Images\ironChest.png" />
+    <BundleResource Include="Resources\Item Images\ironGloves.png" />
+    <BundleResource Include="Resources\Item Images\ironHelmet.png" />
+    <BundleResource Include="Resources\Item Images\ironLeg.png" />
+    <BundleResource Include="Resources\Item Images\ironSword.png" />
+    <BundleResource Include="Resources\Item Images\leatherBoots.png" />
+    <BundleResource Include="Resources\Item Images\leatherChest.png" />
+    <BundleResource Include="Resources\Item Images\leatherGloves.png" />
+    <BundleResource Include="Resources\Item Images\leatherHelmet.png" />
+    <BundleResource Include="Resources\Item Images\leatherLeg.png" />
+    <BundleResource Include="Resources\Item Images\magicCloak.png" />
+    <BundleResource Include="Resources\Item Images\magicStaff.png" />
+    <BundleResource Include="Resources\Item Images\ManaPotion.png" />
+    <BundleResource Include="Resources\Item Images\masterCloak.png" />
+    <BundleResource Include="Resources\Item Images\masterStaff.png" />
+    <BundleResource Include="Resources\Item Images\rustySword.png" />
+    <BundleResource Include="Resources\Item Images\sorcererCloak.png" />
+    <BundleResource Include="Resources\Item Images\sorcererStaff.png" />
+    <BundleResource Include="Resources\Item Images\statue.png" />
+    <BundleResource Include="Resources\Item Images\statueBroken.png" />
+    <BundleResource Include="Resources\Item Images\steelBoots.png" />
+    <BundleResource Include="Resources\Item Images\steelChest.png" />
+    <BundleResource Include="Resources\Item Images\steelGloves.png" />
+    <BundleResource Include="Resources\Item Images\steelHelmet.png" />
+    <BundleResource Include="Resources\Item Images\steelLeg.png" />
+    <BundleResource Include="Resources\Item Images\steelSword.png" />
+    <BundleResource Include="Resources\Item Images\WarriorBrew.png" />
+    <BundleResource Include="Resources\Background Images\bg-000.png" />
+    <BundleResource Include="Resources\Background Images\bg-001.png" />
+    <BundleResource Include="Resources\Background Images\bg-010.png" />
+    <BundleResource Include="Resources\Background Images\bg-011.png" />
+    <BundleResource Include="Resources\Background Images\bg-100.png" />
+    <BundleResource Include="Resources\Background Images\bg-101.png" />
+    <BundleResource Include="Resources\Background Images\bg-110.png" />
+    <BundleResource Include="Resources\Background Images\bg-111.png" />
+    <BundleResource Include="Resources\Background Images\bg-boss.png" />
+    <BundleResource Include="Resources\Background Images\bg-menu.png" />
+    <BundleResource Include="Resources\Background Images\bg-pause.png" />
+    <BundleResource Include="Resources\Background Images\TitleBackground.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
