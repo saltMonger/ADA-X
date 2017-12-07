@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainMenu">
+            <connections>
+                <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
+                <outlet property="StartGameButton" destination="719" id="name-outlet-719"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="152" translatesAutoresizingMaskIntoConstraints="NO" ambiguous="YES" misplaced="YES">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                    <variation key="heightClass=regular-widthClass=compact" image="Background Images/TitleBackground.png">
+                        <mask key="constraints">
+                            <include reference="222"/>
+                            <include reference="226"/>
+                        </mask>
+                    </variation>
+                    <constraints>
+                        <constraint id="222" firstItem="152" firstAttribute="height" constant="736"/>
+                        <constraint id="226" firstItem="152" firstAttribute="width" constant="414"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="222"/>
+                            <exclude reference="226"/>
+                        </mask>
+                    </variation>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advanced Dungeon Assault" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="230" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="3" misplaced="YES" ambiguous="YES">
+                    <rect key="frame" x="53" y="15" width="176" height="114"/>
+                    <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="24"/>
+                    <color key="textColor" colorSpace="calibratedRGB" red="0.984313725490196" green="0" blue="0.023529411764705882" alpha="1"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="649"/>
+                            <include reference="653"/>
+                        </mask>
+                    </variation>
+                    <constraints>
+                        <constraint id="649" firstItem="230" firstAttribute="width" constant="176"/>
+                        <constraint id="653" firstItem="230" firstAttribute="height" constant="114"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="649"/>
+                            <exclude reference="653"/>
+                        </mask>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="593" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES" ambiguous="YES">
+                    <rect key="frame" x="248" y="30" width="72" height="84"/>
+                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="80"/>
+                    <color key="textColor" colorSpace="calibratedRGB" red="0.984313725490196" green="0" blue="0.023529411764705882" alpha="1"/>
+                    <nil key="highlightedColor"/>
+                    <constraints>
+                        <constraint id="676" firstItem="593" firstAttribute="width" constant="72"/>
+                        <constraint id="680" firstItem="593" firstAttribute="height" constant="84"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="676"/>
+                            <exclude reference="680"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="676"/>
+                            <include reference="680"/>
+                        </mask>
+                    </variation>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="719" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES" ambiguous="YES">
+                    <rect key="frame" x="53" y="621" width="105" height="30"/>
+                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                    <state key="normal" title="Start Game">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" colorSpace="calibratedRGB" red="0.68235294117647061" green="0.68235294117647061" blue="0.68235294117647061" alpha="1"/>
+                    </state>
+                    <constraints>
+                        <constraint id="773" firstItem="719" firstAttribute="width" constant="105"/>
+                        <constraint id="777" firstItem="719" firstAttribute="height" constant="30"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="773"/>
+                            <exclude reference="777"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="773"/>
+                            <include reference="777"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="StartGameButton_TouchUpInside:" destination="-1" id="784" eventType="touchUpInside"/>
+                    </connections>
+                </button>
+            </subviews>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="152"/>
+                    <exclude reference="230"/>
+                    <exclude reference="593"/>
+                    <exclude reference="719"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="657"/>
+                    <exclude reference="684"/>
+                    <exclude reference="691"/>
+                    <exclude reference="698"/>
+                    <exclude reference="709"/>
+                    <exclude reference="765"/>
+                    <exclude reference="769"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="152"/>
+                    <include reference="230"/>
+                    <include reference="593"/>
+                    <include reference="719"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="657"/>
+                    <include reference="684"/>
+                    <include reference="691"/>
+                    <include reference="698"/>
+                    <include reference="709"/>
+                    <include reference="765"/>
+                    <include reference="769"/>
+                </mask>
+            </variation>
+            <constraints>
+                <constraint id="657" firstItem="593" firstAttribute="centerY" secondItem="230" secondAttribute="centerY"/>
+                <constraint id="684" firstItem="593" firstAttribute="centerY" secondItem="230" secondAttribute="centerY"/>
+                <constraint id="691" firstItem="152" firstAttribute="centerX" secondItem="2" secondAttribute="centerX"/>
+                <constraint id="698" firstItem="230" firstAttribute="top" secondItem="152" secondAttribute="top" constant="15"/>
+                <constraint id="709" firstItem="230" firstAttribute="trailing" secondItem="152" secondAttribute="centerX" constant="22"/>
+                <constraint id="765" firstItem="719" firstAttribute="leading" secondItem="152" secondAttribute="leading" constant="53"/>
+                <constraint id="769" firstItem="152" firstAttribute="bottom" secondItem="719" secondAttribute="bottom" constant="85"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="Item Images/bronzeSword.png" width="480" height="480"/>
+        <image name="Item Images/chestClosed.png" width="480" height="480"/>
+        <image name="Item Images/chestOpen.png" width="480" height="480"/>
+        <image name="Item Images/clothBoots.png" width="480" height="480"/>
+        <image name="Item Images/clothChest.png" width="480" height="480"/>
+        <image name="Item Images/clothGloves.png" width="480" height="480"/>
+        <image name="Item Images/clothHelmet.png" width="480" height="480"/>
+        <image name="Item Images/clothLeg.png" width="480" height="480"/>
+        <image name="Item Images/druidCloak.png" width="480" height="480"/>
+        <image name="Item Images/druidStaff.png" width="480" height="480"/>
+        <image name="Item Images/enchantedBoots.png" width="480" height="480"/>
+        <image name="Item Images/enchantedChest.png" width="480" height="480"/>
+        <image name="Item Images/enchantedGloves.png" width="480" height="480"/>
+        <image name="Item Images/enchantedHelmet.png" width="480" height="480"/>
+        <image name="Item Images/enchantedLeg.png" width="480" height="480"/>
+        <image name="Item Images/enchantedSword.png" width="480" height="480"/>
+        <image name="Item Images/enchantEffect.png" width="480" height="480"/>
+        <image name="Item Images/HealthPotion.png" width="480" height="480"/>
+        <image name="Item Images/ironBoots.png" width="480" height="480"/>
+        <image name="Item Images/ironChest.png" width="480" height="480"/>
+        <image name="Item Images/ironGloves.png" width="480" height="480"/>
+        <image name="Item Images/ironHelmet.png" width="480" height="480"/>
+        <image name="Item Images/ironLeg.png" width="480" height="480"/>
+        <image name="Item Images/ironSword.png" width="480" height="480"/>
+        <image name="Item Images/leatherBoots.png" width="480" height="480"/>
+        <image name="Item Images/leatherChest.png" width="480" height="480"/>
+        <image name="Item Images/leatherGloves.png" width="480" height="480"/>
+        <image name="Item Images/leatherHelmet.png" width="480" height="480"/>
+        <image name="Item Images/leatherLeg.png" width="480" height="480"/>
+        <image name="Item Images/magicCloak.png" width="480" height="480"/>
+        <image name="Item Images/magicStaff.png" width="480" height="480"/>
+        <image name="Item Images/ManaPotion.png" width="480" height="480"/>
+        <image name="Item Images/masterCloak.png" width="480" height="480"/>
+        <image name="Item Images/masterStaff.png" width="480" height="480"/>
+        <image name="Item Images/rustySword.png" width="480" height="480"/>
+        <image name="Item Images/sorcererCloak.png" width="480" height="480"/>
+        <image name="Item Images/sorcererStaff.png" width="480" height="480"/>
+        <image name="Item Images/statue.png" width="1080" height="1920"/>
+        <image name="Item Images/statueBroken.png" width="1080" height="1920"/>
+        <image name="Item Images/steelBoots.png" width="480" height="480"/>
+        <image name="Item Images/steelChest.png" width="480" height="480"/>
+        <image name="Item Images/steelGloves.png" width="480" height="480"/>
+        <image name="Item Images/steelHelmet.png" width="480" height="480"/>
+        <image name="Item Images/steelLeg.png" width="480" height="480"/>
+        <image name="Item Images/steelSword.png" width="480" height="480"/>
+        <image name="Item Images/WarriorBrew.png" width="480" height="480"/>
+        <image name="Background Images/bg-000.png" width="1080" height="1920"/>
+        <image name="Background Images/bg-001.png" width="1080" height="1920"/>
+        <image name="Background Images/bg-010.png" width="1080" height="1920"/>
+        <image name="Background Images/bg-011.png" width="1080" height="1920"/>
+        <image name="Background Images/bg-100.png" width="1080" height="1920"/>
+        <image name="Background Images/bg-101.png" width="1080" height="1920"/>
+        <image name="Background Images/bg-110.png" width="1080" height="1920"/>
+        <image name="Background Images/bg-111.png" width="1080" height="1920"/>
+        <image name="Background Images/bg-boss.png" width="1080" height="1920"/>
+        <image name="Background Images/bg-menu.png" width="1080" height="1920"/>
+        <image name="Background Images/bg-pause.png" width="1080" height="1920"/>
+        <image name="Background Images/TitleBackground.png" width="1080" height="1920"/>
+        <image name="Enemy Images/DemonKing.png" width="810" height="810"/>
+        <image name="Enemy Images/gargoyle.png" width="810" height="810"/>
+        <image name="Enemy Images/goblin.png" width="810" height="810"/>
+        <image name="Enemy Images/hamadryad.png" width="810" height="810"/>
+        <image name="Enemy Images/insectoid.png" width="810" height="810"/>
+        <image name="Enemy Images/minotaur.png" width="810" height="810"/>
+        <image name="Enemy Images/rat.png" width="810" height="810"/>
+        <image name="Enemy Images/scorpion.png" width="810" height="810"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedScreenMetrics key="destination" type="retina55"/>
+    </simulatedMetricsContainer>
+</document>

@@ -113,10 +113,15 @@
     <Compile Include="ItemClass.cs" />
     <Compile Include="EnemyCharacter.cs" />
     <Compile Include="Enemies\Enemy_Goblin.cs" />
+    <Compile Include="MainMenu.cs" />
+    <Compile Include="MainMenu.designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="VC_DungeonRoom.xib" />
     <InterfaceDefinition Include="VC_BattleRoom.xib" />
+    <InterfaceDefinition Include="MainMenu.xib" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Item Images\bronzeSword.png" />

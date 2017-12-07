@@ -21,7 +21,7 @@ namespace StackNavogatorRPG
             // create a new window instance based on the screen size
             Window = new UIWindow(UIScreen.MainScreen.Bounds);
 
-            var controller = new VC_DungeonRoom();
+            var controller = new MainMenu();
 
             Window.RootViewController = controller;
 
