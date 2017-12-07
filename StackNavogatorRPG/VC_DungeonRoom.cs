@@ -34,6 +34,8 @@ namespace StackNavogatorRPG
             chr1.attacks.Add(new Attack_Magic());
             chr1.attacks.Add(new Attack_Healing());
 
+
+
             for (int i = 0; i < 4; i++)
             {
                 //chr1.Attack(new Attack_Punch(), chr2);
@@ -51,7 +53,9 @@ namespace StackNavogatorRPG
             chr1.attacks.Add(new Attack_Magic());
             chr1.attacks.Add(new Attack_Healing());
 
-            VC_BattleRoom battle = new VC_BattleRoom(chr1);
+            Enemies.Enemy_Goblin enemy = new Enemies.Enemy_Goblin();
+
+            VC_BattleRoom battle = new VC_BattleRoom(chr1, enemy);
             PresentViewController(battle, true, null);
         }
     }

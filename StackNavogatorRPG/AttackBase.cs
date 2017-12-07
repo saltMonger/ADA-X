@@ -8,16 +8,18 @@ namespace StackNavogatorRPG
         {
         }
 
+        public string ActionDescription;
         abstract public string GetName();
-        abstract public int Action(CharacterBase source, CharacterBase target); //returns damage/healing done
+        abstract public int Action(CharacterBase source, CharacterBase target, out string message); //returns damage/healing done
     }
 
     public class Attack_Punch: AttackBase{
-        public override int Action(CharacterBase source, CharacterBase target)
+        public override int Action(CharacterBase source, CharacterBase target, out string message)
         {
             int damage = 0;
             damage = source.PhysicalAttack - target.PhysicalDefense;
             target.Health -= damage;
+            message = source.GetName() + " punched " + target.GetName() + " and dealt " + damage + " damage!";
             return damage;
         }
         public override string GetName()
@@ -28,11 +30,12 @@ namespace StackNavogatorRPG
 
     public class Attack_Magic : AttackBase
     {
-        public override int Action(CharacterBase source, CharacterBase target)
+        public override int Action(CharacterBase source, CharacterBase target, out string message)
         {
             int damage = 0;
             damage = source.MagicAttack - target.MagicDefense;
             target.Health -= damage;
+            message = source.GetName() + " cast a spell on " + target.GetName() + " and dealt " + damage + " damage!";
             return damage;
         }
         public override string GetName()
@@ -43,12 +46,13 @@ namespace StackNavogatorRPG
 
     public class Attack_Healing : AttackBase
     {
-        public override int Action(CharacterBase source, CharacterBase target)
+        public override int Action(CharacterBase source, CharacterBase target, out string message)
         {
-            int damage = 0;
-            damage = source.PhysicalAttack - target.PhysicalDefense;
-            target.Health -= damage;
-            return damage;
+            int heal = 0;
+            heal = (source.MagicAttack + source.MagicDefense) / 2;
+            target.Health += heal;
+            message = source.GetName() + " recovered " + heal + " health!";
+            return heal;
         }
         public override string GetName()
         {

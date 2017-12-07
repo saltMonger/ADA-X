@@ -7,17 +7,21 @@ namespace StackNavogatorRPG
     public partial class VC_BattleRoom : UIViewController
     {
         PlayerCharacter playerCharacter;
+        EnemyCharacter enemyCharacter;
 
-        public VC_BattleRoom(PlayerCharacter chr) : base("VC_BattleRoom", null)
+        public VC_BattleRoom(PlayerCharacter chr, EnemyCharacter enemy) : base("VC_BattleRoom", null)
         {
             Console.WriteLine("Battle Started");
             playerCharacter = chr;
+            enemyCharacter = enemy;
         }
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
             Tbl_AttackList.Source = new AttackListScource(playerCharacter);
+            Btn_Enemy1.SetBackgroundImage(enemyCharacter.GetImage(), UIControlState.Normal);
+
             // Perform any additional setup after loading the view, typically from a nib.
         }
 
@@ -27,7 +31,8 @@ namespace StackNavogatorRPG
             // Release any cached data, images, etc that aren't in use.
         }
 
-        class AttackListScource : UITableViewSource{
+        class AttackListScource : UITableViewSource
+        {
             PlayerCharacter playerCharacter;
 
             public AttackListScource(PlayerCharacter player)
@@ -46,6 +51,40 @@ namespace StackNavogatorRPG
             public override nint RowsInSection(UITableView tableview, nint section)
             {
                 return playerCharacter.attacks.Count;
+            }
+        }
+
+        partial void TouchEvent_AttackEnemy(UIButton sender)
+        {
+            int attackIndex = -1;
+            try
+            {
+                attackIndex = Tbl_AttackList.IndexPathForSelectedRow.Row;
+            }catch(System.NullReferenceException){
+                attackIndex = -1;
+            }
+
+            if (attackIndex >= 0)
+            {
+                AttackBase playerAttack = playerCharacter.attacks[attackIndex];
+                AttackBase enemyAttack = enemyCharacter.GetRandomAttack();
+
+                string msg1;
+                string msg2;
+
+                //perform battle
+                int damage1 = playerCharacter.Attack(playerAttack, enemyCharacter, out msg1);
+                int damage2 = enemyCharacter.Attack(enemyAttack, playerCharacter, out msg2);
+
+                Txt_BattleSummary.Text = "";
+                Txt_BattleSummary.Text += msg1 + '\n';
+                Txt_BattleSummary.Text += msg2 + '\n';
+            }else{
+                Txt_BattleSummary.Text = "Select an attack!";
+            }
+
+            if(enemyCharacter.Health <= 0){
+                this.DismissViewController(true,null);
             }
         }
     }

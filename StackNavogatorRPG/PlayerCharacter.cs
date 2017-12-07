@@ -12,7 +12,6 @@ namespace StackNavogatorRPG
             attacks.Add(new Attack_Punch());
             attacks.Add(new Attack_Magic());
             attacks.Add(new Attack_Healing());
-            Name = "Test Boi";
         }
 
         public override void LevelUp()
@@ -20,10 +19,9 @@ namespace StackNavogatorRPG
             //increase stats
         }
 
-        public override void Attack(AttackBase attack, CharacterBase target)
+        public override string GetName()
         {
-            int damage = attack.Action(this, target);
-            Console.WriteLine(Name + ": " + PhysicalAttack + " -> " + target.Name + ": " + target.PhysicalDefense + ": " + damage);
+            return "You";
         }
     }
 }

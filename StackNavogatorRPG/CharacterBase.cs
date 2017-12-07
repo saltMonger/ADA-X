@@ -42,7 +42,7 @@ namespace StackNavogatorRPG
         #endregion
 
         #region public
-        public string Name;
+        public abstract string GetName();
         public int Health
         {
             get { return _health; }
@@ -104,9 +104,14 @@ namespace StackNavogatorRPG
 
         }
 
+        public int Attack(AttackBase attack, CharacterBase target, out string message)
+        {
+            int damage = attack.Action(this, target, out message);
+            return damage;
+        }
+
         #region abstract methods
         abstract public void LevelUp();
-        abstract public void Attack(AttackBase attack, CharacterBase target);
         #endregion
     }
 }

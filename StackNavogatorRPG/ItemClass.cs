@@ -34,7 +34,7 @@ namespace StackNavogatorRPG
          *  6 - boots
          */
 
-        public Item(int id) // spawn specific item based on ID
+        public void SetItem(int id) // spawn specific item based on ID
         {
             id = itemID;
             setStats();
@@ -64,7 +64,7 @@ namespace StackNavogatorRPG
         {
             target.Health += effectStats[0];
             target.Stamina += effectStats[1];
-            target.PhysicalAttack = effectsStats[2];
+            target.PhysicalAttack = effectStats[2];
             target.PhysicalDefense = effectStats[3];
             target.MagicAttack = effectStats[4];
             target.MagicDefense = effectStats[5];

@@ -90,6 +90,7 @@
     <Folder Include="Resources\" />
     <Folder Include="Resources\Item Images\" />
     <Folder Include="Resources\Background Images\" />
+    <Folder Include="Enemies\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -110,6 +111,8 @@
       <DependentUpon>VC_BattleRoom.cs</DependentUpon>
     </Compile>
     <Compile Include="ItemClass.cs" />
+    <Compile Include="EnemyCharacter.cs" />
+    <Compile Include="Enemies\Enemy_Goblin.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="VC_DungeonRoom.xib" />
@@ -174,6 +177,14 @@
     <BundleResource Include="Resources\Background Images\bg-menu.png" />
     <BundleResource Include="Resources\Background Images\bg-pause.png" />
     <BundleResource Include="Resources\Background Images\TitleBackground.png" />
+    <BundleResource Include="Resources\Enemy Images\DemonKing.png" />
+    <BundleResource Include="Resources\Enemy Images\gargoyle.png" />
+    <BundleResource Include="Resources\Enemy Images\goblin.png" />
+    <BundleResource Include="Resources\Enemy Images\hamadryad.png" />
+    <BundleResource Include="Resources\Enemy Images\insectoid.png" />
+    <BundleResource Include="Resources\Enemy Images\minotaur.png" />
+    <BundleResource Include="Resources\Enemy Images\rat.png" />
+    <BundleResource Include="Resources\Enemy Images\scorpion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
