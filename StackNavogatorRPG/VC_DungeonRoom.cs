@@ -26,22 +26,7 @@ namespace StackNavogatorRPG
 
         void main()
         {
-            #region test
-            PlayerCharacter chr1 = new PlayerCharacter();
-            chr1.PhysicalAttack = 10;
-            chr1.MagicDefense = 5;
-            chr1.attacks.Add(new Attack_Punch());
-            chr1.attacks.Add(new Attack_Magic());
-            chr1.attacks.Add(new Attack_Healing());
 
-
-
-            for (int i = 0; i < 4; i++)
-            {
-                //chr1.Attack(new Attack_Punch(), chr2);
-                //chr2.Attack(new Attack_Magic(), chr1);
-            }
-            #endregion
         }
 
         partial void UIButton547_TouchUpInside(UIButton sender)

@@ -118,11 +118,14 @@
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="GameManager.cs" />
+    <Compile Include="VC_Inventory.cs" />
+    <Compile Include="VC_Inventory.designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="VC_DungeonRoom.xib" />
     <InterfaceDefinition Include="VC_BattleRoom.xib" />
     <InterfaceDefinition Include="MainMenu.xib" />
+    <InterfaceDefinition Include="VC_Inventory.xib" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Item Images\bronzeSword.png" />
@@ -191,6 +194,18 @@
     <BundleResource Include="Resources\Enemy Images\minotaur.png" />
     <BundleResource Include="Resources\Enemy Images\rat.png" />
     <BundleResource Include="Resources\Enemy Images\scorpion.png" />
+    <BundleResource Include="Resources\Map Images\mapBackground.jpg" />
+    <BundleResource Include="Resources\Map Images\mapBossIcon.png" />
+    <BundleResource Include="Resources\Map Images\mapPlayerIconE.png" />
+    <BundleResource Include="Resources\Map Images\mapPlayerIconN.png" />
+    <BundleResource Include="Resources\Map Images\mapPlayerIconS.png" />
+    <BundleResource Include="Resources\Map Images\mapPlayerIconW.png" />
+    <BundleResource Include="Resources\Map Images\mapRoomIcon.png" />
+    <BundleResource Include="Resources\Map Images\mapSample.png" />
+    <BundleResource Include="Resources\Tab Icon Images\MapTabIcon.png" />
+    <BundleResource Include="Resources\Tab Icon Images\PauseTabIcon.png" />
+    <BundleResource Include="Resources\Tab Icon Images\ViewTabIcon.png" />
+    <BundleResource Include="Resources\Tab Icon Images\itemsTabIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

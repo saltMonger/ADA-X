@@ -12,7 +12,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="2">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="547">
@@ -99,13 +99,17 @@
         <image name="Enemy Images/minotaur.png" width="810" height="810"/>
         <image name="Enemy Images/rat.png" width="810" height="810"/>
         <image name="Enemy Images/scorpion.png" width="810" height="810"/>
-        <image name="Tab Icon Images/itemsTabIcon.png" width="32" height="32"/>
+        <image name="Map Images/mapBackground.jpg" width="500" height="500"/>
+        <image name="Map Images/mapBossIcon.png" width="128" height="128"/>
+        <image name="Map Images/mapPlayerIconE.png" width="128" height="128"/>
+        <image name="Map Images/mapPlayerIconN.png" width="128" height="128"/>
+        <image name="Map Images/mapPlayerIconS.png" width="128" height="128"/>
+        <image name="Map Images/mapPlayerIconW.png" width="128" height="128"/>
+        <image name="Map Images/mapRoomIcon.png" width="128" height="128"/>
+        <image name="Map Images/mapSample.png" width="500" height="500"/>
         <image name="Tab Icon Images/MapTabIcon.png" width="32" height="32"/>
         <image name="Tab Icon Images/PauseTabIcon.png" width="32" height="32"/>
         <image name="Tab Icon Images/ViewTabIcon.png" width="32" height="32"/>
-        <image name="Background Images/bg-battle.png" width="810" height="1440"/>
+        <image name="Tab Icon Images/itemsTabIcon.png" width="32" height="32"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedScreenMetrics key="destination" type="retina55"/>
-    </simulatedMetricsContainer>
 </document>
