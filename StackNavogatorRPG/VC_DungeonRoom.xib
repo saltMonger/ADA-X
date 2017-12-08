@@ -91,5 +91,13 @@
         <image name="Background Images/bg-menu.png" width="1080" height="1920"/>
         <image name="Background Images/bg-pause.png" width="1080" height="1920"/>
         <image name="Background Images/TitleBackground.png" width="1080" height="1920"/>
+        <image name="Enemy Images/DemonKing.png" width="810" height="810"/>
+        <image name="Enemy Images/gargoyle.png" width="810" height="810"/>
+        <image name="Enemy Images/goblin.png" width="810" height="810"/>
+        <image name="Enemy Images/hamadryad.png" width="810" height="810"/>
+        <image name="Enemy Images/insectoid.png" width="810" height="810"/>
+        <image name="Enemy Images/minotaur.png" width="810" height="810"/>
+        <image name="Enemy Images/rat.png" width="810" height="810"/>
+        <image name="Enemy Images/scorpion.png" width="810" height="810"/>
     </resources>
 </document>
