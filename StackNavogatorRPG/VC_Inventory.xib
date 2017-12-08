@@ -10,6 +10,18 @@
                 <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
                 <outlet property="PackTableView" destination="189" id="name-outlet-189"/>
                 <outlet property="EquipmentTableView" destination="495" id="name-outlet-495"/>
+                <outlet property="StatsLevelText" destination="9118" id="name-outlet-9118"/>
+                <outlet property="StatsMaxHPText" destination="9363" id="name-outlet-9363"/>
+                <outlet property="StatsMaxStamText" destination="9608" id="name-outlet-9608"/>
+                <outlet property="StatsPAttackText" destination="9792" id="name-outlet-9792"/>
+                <outlet property="StatsPDefenseText" destination="9976" id="name-outlet-9976"/>
+                <outlet property="StatsMAttackText" destination="10160" id="name-outlet-10160"/>
+                <outlet property="StatsMDefenseText" destination="10283" id="name-outlet-10283"/>
+                <outlet property="ItemPreviewImage" destination="3923" id="name-outlet-3923"/>
+                <outlet property="ItemPreviewTitle" destination="10467" id="name-outlet-10467"/>
+                <outlet property="ItemPreviewEffect1Text" destination="35041" id="name-outlet-35041"/>
+                <outlet property="ItemPreviewEffect2Text" destination="11262" id="name-outlet-11262"/>
+                <outlet property="EquipUseButton" destination="4229" id="name-outlet-4229"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -116,6 +128,9 @@
                             <exclude reference="18010"/>
                         </mask>
                     </variation>
+                    <connections>
+                        <action selector="EquipUseButton_TouchUpInside:" destination="-1" id="51038" eventType="touchUpInside"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Stats" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5633" translatesAutoresizingMaskIntoConstraints="NO">
                     <rect key="frame" x="191.5" y="44" width="158" height="38"/>
@@ -897,7 +912,14 @@
         <image name="Tab Icon Images/MapTabIcon.png" width="32" height="32"/>
         <image name="Tab Icon Images/PauseTabIcon.png" width="32" height="32"/>
         <image name="Tab Icon Images/ViewTabIcon.png" width="32" height="32"/>
-        <image name="Background Images/bg-battle.png" width="810" height="1440"/>
+        <image name="Map Images/mapBackground.jpg" width="500" height="500"/>
+        <image name="Map Images/mapBossIcon.png" width="128" height="128"/>
+        <image name="Map Images/mapPlayerIconE.png" width="128" height="128"/>
+        <image name="Map Images/mapPlayerIconN.png" width="128" height="128"/>
+        <image name="Map Images/mapPlayerIconS.png" width="128" height="128"/>
+        <image name="Map Images/mapPlayerIconW.png" width="128" height="128"/>
+        <image name="Map Images/mapRoomIcon.png" width="128" height="128"/>
+        <image name="Map Images/mapSample.png" width="500" height="500"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedScreenMetrics key="destination" type="retina47"/>

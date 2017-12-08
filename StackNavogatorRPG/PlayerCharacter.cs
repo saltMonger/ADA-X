@@ -5,6 +5,7 @@ namespace StackNavogatorRPG
     public class PlayerCharacter : CharacterBase
     {
         public List<AttackBase> attacks = new List<AttackBase>();
+        public Item[] equipmentSlots = new Item[7];
 
         public PlayerCharacter()
         {
