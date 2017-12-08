@@ -118,11 +118,16 @@
     <Compile Include="MainMenu.designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="VC_Inventory.cs" />
+    <Compile Include="VC_Inventory.designer.cs">
+      <DependentUpon>VC_Inventory.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="VC_DungeonRoom.xib" />
     <InterfaceDefinition Include="VC_BattleRoom.xib" />
     <InterfaceDefinition Include="MainMenu.xib" />
+    <InterfaceDefinition Include="VC_Inventory.xib" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Item Images\bronzeSword.png" />

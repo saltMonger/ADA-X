@@ -29,7 +29,7 @@ namespace StackNavogatorRPG
 
             var dungeonRoom = new VC_DungeonRoom();
             var mapView = new UIViewController();
-            var inventoryView = new UIViewController();
+            var inventoryView = new VC_Inventory();
 
             List<UIViewController> tabs = new List<UIViewController>();
 
