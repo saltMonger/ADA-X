@@ -89,12 +89,16 @@ namespace StackNavogatorRPG
         public int Experience{
             get { return _experience; }
             set {
-                _experience += value;
+                _experience = value;
                 while (_experience >= _experienceToNextLevel){
                     _experience -= _experienceToNextLevel;
                     LevelUp();
                 }
             }
+        }
+        public int ExperienceToNextLevel{
+            get { return Math.Max(1,_experienceToNextLevel); }
+            set { _experienceToNextLevel = value; }
         }
         #endregion
         #endregion

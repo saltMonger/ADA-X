@@ -30,6 +30,14 @@ namespace StackNavogatorRPG
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextView Txt_BattleSummary { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField Txt_EnemyHealth { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField Txt_PlayerHealth { get; set; }
+
         [Action ("TouchEvent_AttackEnemy:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void TouchEvent_AttackEnemy (UIKit.UIButton sender);
@@ -54,6 +62,16 @@ namespace StackNavogatorRPG
             if (Txt_BattleSummary != null) {
                 Txt_BattleSummary.Dispose ();
                 Txt_BattleSummary = null;
+            }
+
+            if (Txt_EnemyHealth != null) {
+                Txt_EnemyHealth.Dispose ();
+                Txt_EnemyHealth = null;
+            }
+
+            if (Txt_PlayerHealth != null) {
+                Txt_PlayerHealth.Dispose ();
+                Txt_PlayerHealth = null;
             }
         }
     }

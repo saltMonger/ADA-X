@@ -46,16 +46,9 @@ namespace StackNavogatorRPG
 
         partial void UIButton547_TouchUpInside(UIButton sender)
         {
-            PlayerCharacter chr1 = new PlayerCharacter();
-            chr1.PhysicalAttack = 10;
-            chr1.MagicDefense = 5;
-            chr1.attacks.Add(new Attack_Punch());
-            chr1.attacks.Add(new Attack_Magic());
-            chr1.attacks.Add(new Attack_Healing());
-
             Enemies.Enemy_Goblin enemy = new Enemies.Enemy_Goblin();
 
-            VC_BattleRoom battle = new VC_BattleRoom(chr1, enemy);
+            VC_BattleRoom battle = new VC_BattleRoom(GameManager.Instance.playerCharacter, enemy);
             PresentViewController(battle, true, null);
         }
     }

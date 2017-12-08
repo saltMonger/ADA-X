@@ -21,7 +21,7 @@ namespace StackNavogatorRPG
             base.ViewDidLoad();
             Tbl_AttackList.Source = new AttackListScource(playerCharacter);
             Btn_Enemy1.SetBackgroundImage(enemyCharacter.GetImage(), UIControlState.Normal);
-
+            UpdateStats();
             // Perform any additional setup after loading the view, typically from a nib.
         }
 
@@ -54,6 +54,11 @@ namespace StackNavogatorRPG
             }
         }
 
+        void UpdateStats(){
+            Txt_EnemyHealth.Text = "[Lv " + enemyCharacter.Level + "] " + enemyCharacter.GetName() + ": " + enemyCharacter.Health + "/" + enemyCharacter.MaxHealth;
+            Txt_PlayerHealth.Text = "[Lv " + playerCharacter.Level + "] " + playerCharacter.GetName() + ": " + playerCharacter.Health + "/" + playerCharacter.MaxHealth;
+        }
+
         partial void TouchEvent_AttackEnemy(UIButton sender)
         {
             int attackIndex = -1;
@@ -75,6 +80,8 @@ namespace StackNavogatorRPG
                 //perform battle
                 int damage1 = playerCharacter.Attack(playerAttack, enemyCharacter, out msg1);
                 int damage2 = enemyCharacter.Attack(enemyAttack, playerCharacter, out msg2);
+
+                UpdateStats();
 
                 Txt_BattleSummary.Text = "";
                 Txt_BattleSummary.Text += msg1 + '\n';

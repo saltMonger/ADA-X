@@ -11,58 +11,85 @@
                 <outlet property="Txt_BattleSummary" destination="154" id="name-outlet-154"/>
                 <outlet property="Btn_Enemy1" destination="4681" id="name-outlet-4681"/>
                 <outlet property="Img_Backroung" destination="5738" id="name-outlet-5738"/>
+                <outlet property="Txt_EnemyHealth" destination="7059" id="name-outlet-7059"/>
+                <outlet property="Txt_PlayerHealth" destination="7542" id="name-outlet-7542"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="2">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="5738" translatesAutoresizingMaskIntoConstraints="NO" image="Background Images/bg-000.png">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="128" translatesAutoresizingMaskIntoConstraints="NO">
-                    <rect key="frame" x="16" y="392" width="568" height="192"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="128" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                    <rect key="frame" x="16" y="459" width="343" height="192"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint id="132" firstItem="128" firstAttribute="height" constant="192"/>
+                        <constraint id="9271" firstItem="128" firstAttribute="height" constant="192"/>
                     </constraints>
                 </tableView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="154" translatesAutoresizingMaskIntoConstraints="NO" text="There is text here" editable="NO" selectable="NO">
-                    <rect key="frame" x="8" y="296" width="584" height="88"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="154" translatesAutoresizingMaskIntoConstraints="NO" text="There is text here" editable="NO" selectable="NO" misplaced="YES">
+                    <rect key="frame" x="16" y="371" width="343" height="80"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <constraints>
+                        <constraint id="9324" firstItem="154" firstAttribute="height" constant="120">
+                            <variation key="heightClass=regular-widthClass=compact" constant="80"/>
+                        </constraint>
+                    </constraints>
                 </textView>
                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4681" translatesAutoresizingMaskIntoConstraints="NO">
-                    <rect key="frame" x="8" y="8" width="584" height="280"/>
+                    <rect key="frame" x="50" y="48" width="275" height="275"/>
                     <state key="normal" backgroundImage="Item Images/bronzeSword.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="TouchEvent_AttackEnemy:" destination="-1" id="4682" eventType="touchUpInside"/>
+                        <action selector="TouchEvent_AttackEnemy:" destination="-1" id="9013" eventType="touchUpInside"/>
                     </connections>
-                    <constraints>
-                        <constraint id="4698" firstItem="4681" firstAttribute="height" constant="280"/>
-                    </constraints>
                     <rect key="contentStretch" x="0.0" y="0.0" width="1" height="1"/>
+                    <variation key="heightClass=regular-widthClass=compact"/>
+                    <constraints>
+                        <constraint id="9400" firstAttribute="width" secondItem="4681" secondAttribute="height" multiplier="1:1"/>
+                    </constraints>
                 </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="12" id="7059" translatesAutoresizingMaskIntoConstraints="NO" text="Enemy: 100/100" enabled="NO" userInteractionEnabled="NO" misplaced="YES">
+                    <rect key="frame" x="59" y="325" width="300" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <constraints>
+                        <constraint id="9348" firstItem="7059" firstAttribute="width" constant="300"/>
+                    </constraints>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="12" id="7542" translatesAutoresizingMaskIntoConstraints="NO" text="Enemy: 100/100" enabled="NO" userInteractionEnabled="NO">
+                    <rect key="frame" x="16" y="16" width="300" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <constraints>
+                        <constraint id="9336" firstItem="7542" firstAttribute="width" constant="300"/>
+                    </constraints>
+                </textField>
             </subviews>
             <constraints>
-                <constraint id="130" firstItem="128" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="16"/>
-                <constraint id="131" firstItem="2" firstAttribute="bottom" secondItem="128" secondAttribute="bottom" constant="16"/>
-                <constraint id="145" firstItem="2" firstAttribute="trailing" secondItem="128" secondAttribute="trailing" constant="16"/>
-                <constraint id="179" firstItem="128" firstAttribute="top" secondItem="154" secondAttribute="bottom" constant="8"/>
-                <constraint id="181" firstItem="154" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="8"/>
-                <constraint id="182" firstItem="2" firstAttribute="trailing" secondItem="154" secondAttribute="trailing" constant="8"/>
-                <constraint id="4695" firstItem="4681" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="8"/>
-                <constraint id="4696" firstItem="4681" firstAttribute="top" secondItem="2" secondAttribute="top" constant="8"/>
-                <constraint id="4697" firstItem="2" firstAttribute="trailing" secondItem="4681" secondAttribute="trailing" constant="8"/>
-                <constraint id="5010" firstItem="154" firstAttribute="top" secondItem="4681" secondAttribute="bottom" constant="8"/>
                 <constraint id="5739" firstItem="5738" firstAttribute="leading" secondItem="2" secondAttribute="leading"/>
                 <constraint id="5740" firstItem="5738" firstAttribute="top" secondItem="2" secondAttribute="top"/>
                 <constraint id="5741" firstItem="2" firstAttribute="trailing" secondItem="5738" secondAttribute="trailing"/>
                 <constraint id="5742" firstItem="2" firstAttribute="bottom" secondItem="5738" secondAttribute="bottom"/>
+                <constraint id="9263" firstItem="128" firstAttribute="leading" secondItem="5738" secondAttribute="leading" constant="16"/>
+                <constraint id="9267" firstItem="5738" firstAttribute="bottom" secondItem="128" secondAttribute="bottom" constant="16"/>
+                <constraint id="9275" firstItem="5738" firstAttribute="trailing" secondItem="128" secondAttribute="trailing" constant="16"/>
+                <constraint id="9279" firstItem="154" firstAttribute="leading" secondItem="5738" secondAttribute="leading" constant="16"/>
+                <constraint id="9286" firstItem="154" firstAttribute="trailing" secondItem="5738" secondAttribute="trailing" constant="-16"/>
+                <constraint id="9290" firstItem="128" firstAttribute="top" secondItem="154" secondAttribute="bottom" constant="8"/>
+                <constraint id="9328" firstItem="7542" firstAttribute="leading" secondItem="5738" secondAttribute="leading" constant="16"/>
+                <constraint id="9332" firstItem="7542" firstAttribute="top" secondItem="5738" secondAttribute="top" constant="16"/>
+                <constraint id="9340" firstItem="154" firstAttribute="top" secondItem="7059" secondAttribute="bottom" constant="16"/>
+                <constraint id="9344" firstItem="5738" firstAttribute="trailing" secondItem="7059" secondAttribute="trailing" constant="16"/>
+                <constraint id="9352" firstItem="4681" firstAttribute="top" secondItem="5738" secondAttribute="top" constant="48"/>
+                <constraint id="9356" firstItem="4681" firstAttribute="centerX" secondItem="5738" secondAttribute="centerX"/>
+                <constraint id="9383" firstItem="154" firstAttribute="top" secondItem="4681" secondAttribute="bottom" constant="48"/>
             </constraints>
         </view>
     </objects>
@@ -134,4 +161,7 @@
         <image name="Enemy Images/rat.png" width="810" height="810"/>
         <image name="Enemy Images/scorpion.png" width="810" height="810"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedScreenMetrics key="destination" type="retina47"/>
+    </simulatedMetricsContainer>
 </document>
