@@ -123,6 +123,8 @@
                     <exclude reference="709"/>
                     <exclude reference="765"/>
                     <exclude reference="769"/>
+                    <exclude reference="1188"/>
+                    <exclude reference="1213"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -140,6 +142,8 @@
                     <include reference="709"/>
                     <include reference="765"/>
                     <include reference="769"/>
+                    <include reference="1188"/>
+                    <include reference="1213"/>
                 </mask>
             </variation>
             <constraints>
@@ -150,6 +154,8 @@
                 <constraint id="709" firstItem="230" firstAttribute="trailing" secondItem="152" secondAttribute="centerX" constant="22"/>
                 <constraint id="765" firstItem="719" firstAttribute="leading" secondItem="152" secondAttribute="leading" constant="53"/>
                 <constraint id="769" firstItem="152" firstAttribute="bottom" secondItem="719" secondAttribute="bottom" constant="85"/>
+                <constraint id="1188" firstItem="593" firstAttribute="leading" secondItem="230" secondAttribute="trailing" constant="19"/>
+                <constraint id="1213" firstItem="593" firstAttribute="top" secondItem="230" secondAttribute="top" constant="15"/>
             </constraints>
         </view>
     </objects>
@@ -220,6 +226,11 @@
         <image name="Enemy Images/minotaur.png" width="810" height="810"/>
         <image name="Enemy Images/rat.png" width="810" height="810"/>
         <image name="Enemy Images/scorpion.png" width="810" height="810"/>
+        <image name="Tab Icon Images/itemsTabIcon.png" width="32" height="32"/>
+        <image name="Tab Icon Images/MapTabIcon.png" width="32" height="32"/>
+        <image name="Tab Icon Images/PauseTabIcon.png" width="32" height="32"/>
+        <image name="Tab Icon Images/ViewTabIcon.png" width="32" height="32"/>
+        <image name="Background Images/bg-battle.png" width="810" height="1440"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedScreenMetrics key="destination" type="retina55"/>
