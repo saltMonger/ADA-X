@@ -37,13 +37,13 @@ namespace StackNavogatorRPG
             tabs.Add(mapView);
             tabs.Add(inventoryView);
 
-            UIImage GameViewIcon = UIImage.FromBundle("Item Images/bronzeSword");
-            UIImage MapViewIcon = UIImage.FromBundle("Item Images/bronzeSword");
-            UIImage InventoryViewIcon = UIImage.FromBundle("Item Images/bronzeSword");
+            UIImage GameViewIcon = UIImage.FromBundle("Tab Icon Images/ViewTabIcon.png");
+            UIImage MapViewIcon = UIImage.FromBundle("Tab Icon Images/MapTabIcon.png");
+            UIImage InventoryViewIcon = UIImage.FromBundle("Tab Icon Images/itemsTabIcon.png");
 
-            tabs[0].TabBarItem = new UITabBarItem("Game View", GameViewIcon, GameViewIcon);
-            tabs[1].TabBarItem = new UITabBarItem("Map View", MapViewIcon, MapViewIcon);
-            tabs[2].TabBarItem = new UITabBarItem("Inventory View", InventoryViewIcon, InventoryViewIcon);
+            tabs[0].TabBarItem = new UITabBarItem("Game", GameViewIcon, GameViewIcon);
+            tabs[1].TabBarItem = new UITabBarItem("Map", MapViewIcon, MapViewIcon);
+            tabs[2].TabBarItem = new UITabBarItem("Inventory", InventoryViewIcon, InventoryViewIcon);
             TabView.SetViewControllers(tabs.ToArray(),true);
 
 

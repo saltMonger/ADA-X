@@ -91,6 +91,7 @@
     <Folder Include="Resources\Item Images\" />
     <Folder Include="Resources\Background Images\" />
     <Folder Include="Enemies\" />
+    <Folder Include="Resources\Tab Icon Images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -190,6 +191,11 @@
     <BundleResource Include="Resources\Enemy Images\minotaur.png" />
     <BundleResource Include="Resources\Enemy Images\rat.png" />
     <BundleResource Include="Resources\Enemy Images\scorpion.png" />
+    <BundleResource Include="Resources\Tab Icon Images\itemsTabIcon.png" />
+    <BundleResource Include="Resources\Tab Icon Images\MapTabIcon.png" />
+    <BundleResource Include="Resources\Tab Icon Images\PauseTabIcon.png" />
+    <BundleResource Include="Resources\Tab Icon Images\ViewTabIcon.png" />
+    <BundleResource Include="Resources\Background Images\bg-battle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

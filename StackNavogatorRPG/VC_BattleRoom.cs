@@ -22,6 +22,9 @@ namespace StackNavogatorRPG
             Tbl_AttackList.Source = new AttackListScource(playerCharacter);
             Btn_Enemy1.SetBackgroundImage(enemyCharacter.GetImage(), UIControlState.Normal);
 
+            EnemyHPBar.Progress = ((float)enemyCharacter.Health / (float)enemyCharacter.MaxHealth);
+            PlayerHPBar.Progress = ((float)playerCharacter.Health / (float)playerCharacter.MaxHealth);
+
             // Perform any additional setup after loading the view, typically from a nib.
         }
 
@@ -79,6 +82,9 @@ namespace StackNavogatorRPG
                 Txt_BattleSummary.Text = "";
                 Txt_BattleSummary.Text += msg1 + '\n';
                 Txt_BattleSummary.Text += msg2 + '\n';
+
+                EnemyHPBar.Progress = ((float)enemyCharacter.Health / (float)enemyCharacter.MaxHealth);
+                PlayerHPBar.Progress = ((float)playerCharacter.Health / (float)playerCharacter.MaxHealth);
             }else{
                 Txt_BattleSummary.Text = "Select an attack!";
             }

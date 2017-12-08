@@ -20,7 +20,15 @@ namespace StackNavogatorRPG
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIProgressView EnemyHPBar { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIImageView Img_Backroung { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIProgressView PlayerHPBar { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -41,9 +49,19 @@ namespace StackNavogatorRPG
                 Btn_Enemy1 = null;
             }
 
+            if (EnemyHPBar != null) {
+                EnemyHPBar.Dispose ();
+                EnemyHPBar = null;
+            }
+
             if (Img_Backroung != null) {
                 Img_Backroung.Dispose ();
                 Img_Backroung = null;
+            }
+
+            if (PlayerHPBar != null) {
+                PlayerHPBar.Dispose ();
+                PlayerHPBar = null;
             }
 
             if (Tbl_AttackList != null) {
