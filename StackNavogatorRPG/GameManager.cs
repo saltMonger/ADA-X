@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using StackNavogatorRPG.Enemies;
+
 namespace StackNavogatorRPG
 {
     public class GameManager
@@ -32,6 +35,14 @@ namespace StackNavogatorRPG
 
         //Player
         public PlayerCharacter playerCharacter;
+
+        //Enemies
+        public List<EnemyCharacter> enemyList;
+        public EnemyCharacter bossEnemy;
+
+        public EnemyCharacter GetRandomEnemy(){
+            return enemyList[0];
+        }
 
         //Rooms
 
