@@ -53,13 +53,19 @@ namespace MapGenAgentBased
                 {
                     RoomCell rm = Map[x, y];
 
+                    //int[] coords = TranslateCoords(x, y, MaxSizeX, MaxSizeY);
+
                     if(rm == null)
                     {
-                        PlotPixel(x, y, PixelMaker(Markers.Wall));
+                        //PlotPixel(coords[0], coords[1], PixelMaker(Markers.Wall));
+                        PlotPixel(y, x, PixelMaker(Markers.Wall));
+
                     }
                     else
                     {
-                        PlotPixel(x, y, PixelMaker(Markers.Explored));
+                        //PlotPixel(coords[0], coords[1], PixelMaker(Markers.Explored));
+                        PlotPixel(y, x, PixelMaker(Markers.Explored));
+
                     }
                 }
             }
@@ -76,6 +82,13 @@ namespace MapGenAgentBased
             }
         }
 
+
+        public int[] TranslateCoords(int x, int y, int bx, int by)
+        {
+            int newX = (bx - 1) - x;
+            int newY = (by - 1) - y;
+            return new int[] { newX, newY };
+        }
 
         public void PlotPixel(int x, int y, byte[] pixel)
         {
