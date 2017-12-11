@@ -8,9 +8,6 @@ namespace StackNavogatorRPG
         public List<Item> equipment = new List<Item>();
         public List<Item> bag = new List<Item>();
 
-        public EquipableBase[] Equipment;
-        public List<ItemBase> Inventory;
-
         public PlayerCharacter()
         {
             //test
@@ -18,11 +15,59 @@ namespace StackNavogatorRPG
             attacks.Add(new Attack_Magic());
             attacks.Add(new Attack_Healing());
 
-            Equipment = new EquipableBase[6];
+            Equipment = new List<EquipableBase>();
+            for (int i = 0; i < 6; i++) {
+                Equipment.Add(null);
+            }
             Inventory = new List<ItemBase>();
 
             //test inventory
             Inventory.Add(new Item_RustySword());
+        }
+
+        void swapEquipment(int targetSlot, int sourceSlot){
+            if(Equipment[targetSlot] == null){
+                Equipment[targetSlot] = (EquipableBase)Inventory[sourceSlot];
+                Inventory.RemoveAt(sourceSlot);
+            }else{
+                var temp = Equipment[targetSlot];
+                Equipment[targetSlot] = (EquipableBase)Inventory[sourceSlot];
+                Inventory[sourceSlot] = temp;
+            }
+        }
+
+        public string UseItem(int itemSlot, CharacterBase source, CharacterBase target = null)
+        {
+            string str = Inventory[itemSlot].Use(source);
+            if (Inventory[itemSlot].itemType == ItemBase.ItemType.Consumable)
+            {
+                Inventory.RemoveAt(itemSlot);
+            }
+            else if (Inventory[itemSlot].itemType == ItemBase.ItemType.Boots)
+            {
+                swapEquipment((int)ItemBase.ItemType.Boots, itemSlot);
+            }
+            else if (Inventory[itemSlot].itemType == ItemBase.ItemType.Weapon)
+            {
+                swapEquipment((int)ItemBase.ItemType.Weapon, itemSlot);
+
+            }
+            else if (Inventory[itemSlot].itemType == ItemBase.ItemType.Chest)
+            {
+                swapEquipment((int)ItemBase.ItemType.Chest, itemSlot);
+            }
+            else if (Inventory[itemSlot].itemType == ItemBase.ItemType.Gauntlets)
+            {
+                swapEquipment((int)ItemBase.ItemType.Gauntlets, itemSlot);
+            }
+            else if (Inventory[itemSlot].itemType == ItemBase.ItemType.Helm)
+            {
+                swapEquipment((int)ItemBase.ItemType.Helm, itemSlot);
+            }else{
+                swapEquipment((int)ItemBase.ItemType.Leg, itemSlot);
+            }
+
+            return str;
         }
 
         public override void LevelUp()

@@ -40,8 +40,8 @@ namespace StackNavogatorRPG
 			return "Rusty Sword";
 		}
 		public override string Use(CharacterBase target) {
-			//Equip to sword Slot
-			throw new NotImplementedException();
+            //Equip to sword Slot
+            return target.GetName() + " equipped the " + GetName() + "!";
 		}
 		public override string GetDescription() {
 			return "A rusty sword. +15 P. Atk";

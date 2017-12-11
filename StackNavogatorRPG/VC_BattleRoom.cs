@@ -97,34 +97,49 @@ namespace StackNavogatorRPG
         partial void TouchEvent_AttackEnemy(UIButton sender)
         {
             int attackIndex = -1;
+            int tableSection = -1;
             try
             {
                 attackIndex = Tbl_AttackList.IndexPathForSelectedRow.Row;
+                tableSection = Tbl_AttackList.IndexPathForSelectedRow.Section;
             }catch(System.NullReferenceException){
                 attackIndex = -1;
+                tableSection = -1;
             }
 
-            if (attackIndex >= 0)
+            if (attackIndex >= 0 && tableSection >= 0)
             {
-                AttackBase playerAttack = playerCharacter.attacks[attackIndex];
-                AttackBase enemyAttack = enemyCharacter.GetRandomAttack();
+                if (tableSection == 0)
+                {
+                    AttackBase playerAttack = playerCharacter.attacks[attackIndex];
+                    AttackBase enemyAttack = enemyCharacter.GetRandomAttack();
 
-                string msg1;
-                string msg2;
+                    string msg1;
+                    string msg2;
 
-                //perform battle
-                int damage2 = playerCharacter.Attack(playerAttack, enemyCharacter, out msg1);
-                int damage1 = enemyCharacter.Attack(enemyAttack, playerCharacter, out msg2);
+                    //perform battle
+                    int damage2 = playerCharacter.Attack(playerAttack, enemyCharacter, out msg1);
+                    int damage1 = enemyCharacter.Attack(enemyAttack, playerCharacter, out msg2);
 
-                UpdateStats();
-                UpdateHPBars();
+                    UpdateStats();
+                    UpdateHPBars();
 
-                Txt_BattleSummary.Text = "";
-                Txt_BattleSummary.Text += msg1 + '\n';
-                Txt_BattleSummary.Text += msg2 + '\n';
-            }else{
-                Txt_BattleSummary.Text = "Select an attack!";
+                    Txt_BattleSummary.Text = "";
+                    Txt_BattleSummary.Text += msg1 + '\n';
+                    Txt_BattleSummary.Text += msg2 + '\n';
+                }else{
+                    ItemBase playerItem = playerCharacter.Inventory[attackIndex];
+                    string str = playerCharacter.UseItem(attackIndex, playerCharacter);
+                    Txt_BattleSummary.Text = "";
+                    Txt_BattleSummary.Text += str + '\n';
+                }
             }
+            else
+            {
+                Txt_BattleSummary.Text = "Select an attack or item!";
+            }
+
+            Tbl_AttackList.ReloadData();
 
             if(enemyCharacter.Health <= 0){
                 this.DismissViewController(true,null);

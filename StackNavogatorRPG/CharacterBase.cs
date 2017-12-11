@@ -41,6 +41,11 @@ namespace StackNavogatorRPG
         int _experienceToNextLevel; //when this is reahced, the character levels up
         #endregion
 
+        #region inventory
+        public List<EquipableBase> Equipment;
+        public List<ItemBase> Inventory;
+        #endregion
+
         #region public
         public abstract string GetName();
         public int Health
@@ -65,23 +70,76 @@ namespace StackNavogatorRPG
         }
         public int PhysicalAttack
         {
-            get;
-            set;
+            get{
+                int atk = _physicalAttack;
+                foreach (EquipableBase e in Equipment){
+                    if (e != null)
+                    {
+                        atk += e.physicalAttackBoost;
+                    }
+                }
+                return atk;
+            }
+            set{
+                _physicalAttack = value;
+            }
         }
         public int PhysicalDefense
         {
-            get;
-            set;
+            get
+            {
+                int def = _physicalDefense;
+                foreach (EquipableBase e in Equipment)
+                {
+                    if (e != null)
+                    {
+                        def += e.physicalDefenseBoost;
+                    }
+                }
+                return def;
+            }
+            set
+            {
+                _physicalDefense = value;
+            }
         }
         public int MagicAttack
         {
-            get;
-            set;
+            get
+            {
+                int atk = _magicAttack;
+                foreach (EquipableBase e in Equipment)
+                {
+                    if (e != null)
+                    {
+                        atk += e.MagicAttackBoost;
+                    }
+                }
+                return atk;
+            }
+            set
+            {
+                _magicAttack = value;
+            }
         }
         public int MagicDefense
         {
-            get;
-            set;
+            get
+            {
+                int def = _magicDefense;
+                foreach (EquipableBase e in Equipment)
+                {
+                    if (e != null)
+                    {
+                        def += e.MagicDefenseBoost;
+                    }
+                }
+                return def;
+            }
+            set
+            {
+                _magicDefense = value;
+            }
         }
         public int Level{
             get { return _level; }
@@ -105,7 +163,8 @@ namespace StackNavogatorRPG
 
         public CharacterBase()
         {
-
+            Equipment = new List<EquipableBase>(6);
+            Inventory = new List<ItemBase>();
         }
 
         public int Attack(AttackBase attack, CharacterBase target, out string message)
