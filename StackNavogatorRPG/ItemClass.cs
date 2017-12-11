@@ -4,6 +4,50 @@ using UIKit;
 
 namespace StackNavogatorRPG
 {
+	public abstract class ItemBase {
+		public int itemID;
+		public enum ItemType { 
+			Consumable, Weapon, Helm, Chest, Gauntlets, Leg, Boots
+		}
+		public ItemType itemType;
+
+		public UIImage Sprite;
+		public abstract string GetName();
+		public abstract string Use(CharacterBase target);
+		public abstract string GetDescription();
+	}
+
+	public abstract class EquipableBase : ItemBase {
+		public int physicalDefenseBoost = 0;
+		public int physicalAttackBoost = 0;
+		public int MagicDefenseBoost = 0;
+		public int MagicAttackBoost = 0;
+
+		public virtual AttackBase GetAttack() {
+			//If the weapon supplies a unique attack, it goes here
+			return null;
+		}
+	}
+
+	public class Item_RustySword : EquipableBase {
+		public Item_RustySword() {
+			itemID = 0;
+			itemType = ItemType.Weapon;
+			Sprite = UIImage.FromBundle("Item Images/rustySword");
+			physicalAttackBoost = 15;
+		}
+		public override string GetName() {
+			return "Rusty Sword";
+		}
+		public override string Use(CharacterBase target) {
+			//Equip to sword Slot
+			throw new NotImplementedException();
+		}
+		public override string GetDescription() {
+			return "A rusty sword. +15 P. Atk";
+		}
+	}
+
     public class Item
     {
         private int itemID;         //0-40
@@ -15,24 +59,6 @@ namespace StackNavogatorRPG
         public int slot;
         public int[] effectStats = new int[6];
 
-        /*
-         * effect stats:
-         *  [0] - HP
-         *  [1] - Stamina
-         *  [2] - Phys Attack
-         *  [3] - Phys Defense
-         *  [4] - Mag Attack
-         *  [5] - Mag Defense
-         *  
-         * slot:
-         *  0 - potion
-         *  1 - weapon
-         *  2 - helm
-         *  3 - chest
-         *  4 - gauntlets
-         *  5 - leg
-         *  6 - boots
-         */
 
         public void SetItem(int id) // spawn specific item based on ID
         {
