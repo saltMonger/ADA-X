@@ -23,6 +23,12 @@ namespace MapGenAgentBased
         public RoomCell South { get; set; }
         public RoomCell East { get; set; }
 
+        public int[2] RoomCoords
+        {
+            get;
+            set;
+        }
+
         public Treasure Treasure { get; set; }
         public Statue Statue { get; set; }
 

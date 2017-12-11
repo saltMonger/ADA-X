@@ -186,13 +186,16 @@ namespace MapGenAgentBased
         {
             for(int x=0; x <= MapSizeX - 1; x++)
             {
-                for(int y=0; y <= MapSizeY - 1; y++)
+                for (int y = 0; y <= MapSizeY - 1; y++)
                 {
                     //skip link step for null room
                     if (RoomCells[x, y] == null)
                     {
                         continue;
                     }
+
+                    //set room coordinates
+                    RoomCells[x, y].RoomCoords = new int[2] { x, y };
 
                     //begin linking rooms
                     int px;
