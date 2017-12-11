@@ -8,17 +8,27 @@ namespace StackNavogatorRPG
         public List<Item> equipment = new List<Item>();
         public List<Item> bag = new List<Item>();
 
+        public EquipableBase[] Equipment;
+        public List<ItemBase> Inventory;
+
         public PlayerCharacter()
         {
             //test
             attacks.Add(new Attack_Punch());
             attacks.Add(new Attack_Magic());
             attacks.Add(new Attack_Healing());
+
+            Equipment = new EquipableBase[6];
+            Inventory = new List<ItemBase>();
+
+            //test inventory
+            Inventory.Add(new Item_RustySword());
         }
 
         public override void LevelUp()
         {
             //increase stats
+
         }
 
         public override string GetName()

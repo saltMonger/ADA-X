@@ -43,16 +43,41 @@ namespace StackNavogatorRPG
 
             public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
             {
+                int section = indexPath.Section;
                 int id = indexPath.Row;
                 UITableViewCell cell = new UITableViewCell(UITableViewCellStyle.Subtitle, "reuse");
-                cell.TextLabel.Text = playerCharacter.attacks[id].GetName();
-                cell.DetailTextLabel.Text = "Mana cost: " + playerCharacter.attacks[id].GetManaCost();
+                if (section == 0)
+                {
+                    
+                    cell.TextLabel.Text = playerCharacter.attacks[id].GetName();
+                    cell.DetailTextLabel.Text = "Mana cost: " + playerCharacter.attacks[id].GetManaCost();
+                }else{
+                    cell.TextLabel.Text = playerCharacter.Inventory[id].GetName();
+                    cell.DetailTextLabel.Text = playerCharacter.Inventory[id].GetDescription();
+                }
                 return cell;
             }
-
+            public override nint NumberOfSections(UITableView tableView)
+            {
+                return 2;
+            }
             public override nint RowsInSection(UITableView tableview, nint section)
             {
-                return playerCharacter.attacks.Count;
+                if (section == 0)
+                {
+                    return playerCharacter.attacks.Count;
+                }else{
+                    return playerCharacter.Inventory.Count;
+                }
+            }
+            public override string TitleForHeader(UITableView tableView, nint section)
+            {
+                if (section == 0)
+                {
+                    return "Attacks";
+                }else{
+                    return "Items";
+                }
             }
         }
 

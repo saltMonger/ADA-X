@@ -7,7 +7,7 @@ namespace StackNavogatorRPG
 	public abstract class ItemBase {
 		public int itemID;
 		public enum ItemType { 
-			Consumable, Weapon, Helm, Chest, Gauntlets, Leg, Boots
+			Weapon, Helm, Chest, Gauntlets, Leg, Boots, Consumable
 		}
 		public ItemType itemType;
 
