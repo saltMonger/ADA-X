@@ -5,7 +5,8 @@ namespace StackNavogatorRPG
     public class PlayerCharacter : CharacterBase
     {
         public List<AttackBase> attacks = new List<AttackBase>();
-        public Item[] equipmentSlots = new Item[7];
+        public List<Item> equipment = new List<Item>();
+        public List<Item> bag = new List<Item>();
 
         public PlayerCharacter()
         {
@@ -24,5 +25,29 @@ namespace StackNavogatorRPG
         {
             return "You";
         }
+
+        public void addEquipment(Item item)
+        {
+            bool replaced = false;
+            foreach (var i in equipment)
+            {
+                if (i.slot == item.slot)
+                {
+                    bag.Add(item);
+                    equipment.Remove(i);
+                    equipment.Add(item);
+                    replaced = true;
+                    bag.Remove(item);
+                    break;
+                }
+            }
+            if (!replaced)
+            {
+                equipment.Add(item);
+                bag.Remove(item);
+            }
+                
+        }
+
     }
 }

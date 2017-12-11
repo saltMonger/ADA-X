@@ -8,12 +8,12 @@ namespace StackNavogatorRPG
     {
         private int itemID;         //0-40
         private int itemTier;       //1-3
-        private bool equipped;
+        public bool equipped;
 
-        private string name;
-        private string image;
-        private int slot;
-        private int[] effectStats = new int[6];
+        public string name;
+        public string image;
+        public int slot;
+        public int[] effectStats = new int[6];
 
         /*
          * effect stats:
@@ -36,7 +36,7 @@ namespace StackNavogatorRPG
 
         public void SetItem(int id) // spawn specific item based on ID
         {
-            id = itemID;
+            itemID = id;
             setStats();
         }
 
@@ -45,15 +45,15 @@ namespace StackNavogatorRPG
             itemTier = tier;
             if (tier == 1)
             {
-                randomBetween(0, 24);
+                itemID = randomBetween(0, 24);
             }
             else if (tier == 2)
             {
-                randomBetween(10, 32);
+                itemID = randomBetween(10, 32);
             }
             else if (tier == 3)
             {
-                randomBetween(19, 40);
+                itemID = randomBetween(19, 40);
             }
 
             setStats();
@@ -62,12 +62,7 @@ namespace StackNavogatorRPG
         //restores hp/stamina or equips items and boosts character stats
         void Use(CharacterBase target)
         {
-            target.Health += effectStats[0];
-            target.Stamina += effectStats[1];
-            target.PhysicalAttack = effectStats[2];
-            target.PhysicalDefense = effectStats[3];
-            target.MagicAttack = effectStats[4];
-            target.MagicDefense = effectStats[5];
+            //
         }
 
         private int randomBetween(int x, int y)

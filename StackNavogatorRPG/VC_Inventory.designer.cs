@@ -44,6 +44,10 @@ namespace StackNavogatorRPG
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel StatsHPText { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel StatsLevelText { get; set; }
 
         [Outlet]
@@ -69,6 +73,18 @@ namespace StackNavogatorRPG
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel StatsPDefenseText { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel StatsStamText { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel StatsXPNextText { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel StatsXPText { get; set; }
 
         [Action ("EquipUseButton_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -111,6 +127,11 @@ namespace StackNavogatorRPG
                 PackTableView = null;
             }
 
+            if (StatsHPText != null) {
+                StatsHPText.Dispose ();
+                StatsHPText = null;
+            }
+
             if (StatsLevelText != null) {
                 StatsLevelText.Dispose ();
                 StatsLevelText = null;
@@ -144,6 +165,21 @@ namespace StackNavogatorRPG
             if (StatsPDefenseText != null) {
                 StatsPDefenseText.Dispose ();
                 StatsPDefenseText = null;
+            }
+
+            if (StatsStamText != null) {
+                StatsStamText.Dispose ();
+                StatsStamText = null;
+            }
+
+            if (StatsXPNextText != null) {
+                StatsXPNextText.Dispose ();
+                StatsXPNextText = null;
+            }
+
+            if (StatsXPText != null) {
+                StatsXPText.Dispose ();
+                StatsXPText = null;
             }
         }
     }
