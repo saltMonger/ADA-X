@@ -91,6 +91,7 @@
     <Folder Include="Resources\Item Images\" />
     <Folder Include="Resources\Background Images\" />
     <Folder Include="Enemies\" />
+    <Folder Include="Map\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -120,6 +121,10 @@
     <Compile Include="GameManager.cs" />
     <Compile Include="VC_Inventory.cs" />
     <Compile Include="VC_Inventory.designer.cs" />
+    <Compile Include="Map\DebugDrawer.cs" />
+    <Compile Include="Map\DiggerAgent.cs" />
+    <Compile Include="Map\MapCharter.cs" />
+    <Compile Include="Map\RoomCell.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="VC_DungeonRoom.xib" />

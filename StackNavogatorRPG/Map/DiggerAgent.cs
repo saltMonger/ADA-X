@@ -256,6 +256,9 @@ namespace MapGenAgentBased
 
                 }
             }
+
+            //spin the png
+            MapCharter mapc = new MapCharter(RoomCells, MapSizeX, MapSizeY);
         }
 
         //send map coords and map upper boundaries
