@@ -16,6 +16,10 @@ namespace StackNavogatorRPG
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIProgressView Bar_Mana { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton Btn_Enemy1 { get; set; }
 
         [Outlet]
@@ -44,6 +48,10 @@ namespace StackNavogatorRPG
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField Txt_Mana { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField Txt_PlayerHealth { get; set; }
 
         [Action ("TouchEvent_AttackEnemy:")]
@@ -52,6 +60,11 @@ namespace StackNavogatorRPG
 
         void ReleaseDesignerOutlets ()
         {
+            if (Bar_Mana != null) {
+                Bar_Mana.Dispose ();
+                Bar_Mana = null;
+            }
+
             if (Btn_Enemy1 != null) {
                 Btn_Enemy1.Dispose ();
                 Btn_Enemy1 = null;
@@ -85,6 +98,11 @@ namespace StackNavogatorRPG
             if (Txt_EnemyHealth != null) {
                 Txt_EnemyHealth.Dispose ();
                 Txt_EnemyHealth = null;
+            }
+
+            if (Txt_Mana != null) {
+                Txt_Mana.Dispose ();
+                Txt_Mana = null;
             }
 
             if (Txt_PlayerHealth != null) {

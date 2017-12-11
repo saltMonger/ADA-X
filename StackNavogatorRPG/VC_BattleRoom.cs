@@ -44,8 +44,9 @@ namespace StackNavogatorRPG
             public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
             {
                 int id = indexPath.Row;
-                UITableViewCell cell = new UITableViewCell();
+                UITableViewCell cell = new UITableViewCell(UITableViewCellStyle.Subtitle, "reuse");
                 cell.TextLabel.Text = playerCharacter.attacks[id].GetName();
+                cell.DetailTextLabel.Text = "Mana cost: " + playerCharacter.attacks[id].GetManaCost();
                 return cell;
             }
 
@@ -58,12 +59,14 @@ namespace StackNavogatorRPG
         void UpdateStats(){
             Txt_EnemyHealth.Text = "[Lv " + enemyCharacter.Level + "] " + enemyCharacter.GetName() + ": " + enemyCharacter.Health + "/" + enemyCharacter.MaxHealth;
             Txt_PlayerHealth.Text = "[Lv " + playerCharacter.Level + "] " + playerCharacter.GetName() + ": " + playerCharacter.Health + "/" + playerCharacter.MaxHealth;
+            Txt_Mana.Text = "Mana: " + playerCharacter.Stamina + "/" + playerCharacter.MaxStamina;
         }
 
         void UpdateHPBars()
         {
             HPBar_Enemy.Progress = (float)enemyCharacter.Health / (float)enemyCharacter.MaxHealth;
             HPBar_Player.Progress = (float)playerCharacter.Health / (float)playerCharacter.MaxHealth;
+            Bar_Mana.Progress = (float)playerCharacter.Stamina / (float)playerCharacter.MaxStamina;
         }
 
         partial void TouchEvent_AttackEnemy(UIButton sender)

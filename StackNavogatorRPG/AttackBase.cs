@@ -11,6 +11,9 @@ namespace StackNavogatorRPG
         public string ActionDescription;
         abstract public string GetName();
         abstract public int Action(CharacterBase source, CharacterBase target, out string message); //returns damage/healing done
+        public virtual int GetManaCost(){
+            return 0;
+        }
     }
 
     public class Attack_Punch: AttackBase{
@@ -42,6 +45,10 @@ namespace StackNavogatorRPG
         {
             return "Basic Magic";
         }
+        public override int GetManaCost()
+        {
+            return 3;
+        }
     }
 
     public class Attack_Healing : AttackBase
@@ -49,14 +56,18 @@ namespace StackNavogatorRPG
         public override int Action(CharacterBase source, CharacterBase target, out string message)
         {
             int heal = 0;
-            heal = (source.MagicAttack + source.MagicDefense) / 2;
-            target.Health += heal;
+            heal = source.MagicAttack + 5;
+            source.Health += heal;
             message = source.GetName() + " recovered " + heal + " health!";
             return heal;
         }
         public override string GetName()
         {
             return "Basic Heal";
+        }
+        public override int GetManaCost()
+        {
+            return 5;
         }
     }
 }
