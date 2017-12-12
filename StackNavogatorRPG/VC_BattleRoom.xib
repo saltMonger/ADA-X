@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -8,17 +11,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VC_BattleRoom">
             <connections>
+                <outlet property="Bar_Mana" destination="24208" id="name-outlet-24208"/>
                 <outlet property="Btn_Enemy1" destination="4681" id="name-outlet-4681"/>
+                <outlet property="HPBar_Enemy" destination="14995" id="name-outlet-14995"/>
+                <outlet property="HPBar_Player" destination="20077" id="name-outlet-20077"/>
                 <outlet property="Img_Backroung" destination="5738" id="name-outlet-5738"/>
                 <outlet property="Tbl_AttackList" destination="128" id="name-outlet-128"/>
                 <outlet property="Txt_BattleSummary" destination="154" id="name-outlet-154"/>
-                <outlet property="Txt_PlayerHealth" destination="7059" id="name-outlet-7059"/>
                 <outlet property="Txt_EnemyHealth" destination="7542" id="name-outlet-7542"/>
-                <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
-                <outlet property="HPBar_Enemy" destination="14995" id="name-outlet-14995"/>
-                <outlet property="HPBar_Player" destination="20077" id="name-outlet-20077"/>
-                <outlet property="Bar_Mana" destination="24208" id="name-outlet-24208"/>
                 <outlet property="Txt_Mana" destination="24206" id="name-outlet-24206"/>
+                <outlet property="Txt_PlayerHealth" destination="7059" id="name-outlet-7059"/>
+                <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -26,7 +29,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background Images/bg-000.png" translatesAutoresizingMaskIntoConstraints="NO" id="5738">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background Images/bg-battle.png" translatesAutoresizingMaskIntoConstraints="NO" id="5738">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="128">
@@ -78,10 +81,10 @@
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="14995">
                     <rect key="frame" x="169" y="24" width="137" height="15"/>
                     <constraints>
-                        <constraint id="15304" firstItem="14995" firstAttribute="height" constant="2">
+                        <constraint firstAttribute="height" constant="2" id="15304">
                             <variation key="heightClass=regular-widthClass=compact" constant="15"/>
                         </constraint>
-                        <constraint id="19165" firstItem="14995" firstAttribute="width" constant="160">
+                        <constraint firstAttribute="width" constant="160" id="19165">
                             <variation key="heightClass=regular-widthClass=compact" constant="137"/>
                         </constraint>
                     </constraints>
@@ -97,16 +100,15 @@
                             <include reference="15304"/>
                             <include reference="19165"/>
                         </mask>
-                        <color key="progressTintColor" colorSpace="calibratedRGB" red="0.984313725490196" green="0.00392156862745098" blue="0.023529411764705882" alpha="1"/>
                     </variation>
                 </progressView>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="20077">
                     <rect key="frame" x="212" y="301" width="137" height="15"/>
                     <constraints>
-                        <constraint id="20078" firstItem="20077" firstAttribute="height" constant="2">
+                        <constraint firstAttribute="height" constant="2" id="20078">
                             <variation key="heightClass=regular-widthClass=compact" constant="15"/>
                         </constraint>
-                        <constraint id="22714" firstItem="20077" firstAttribute="width" constant="137"/>
+                        <constraint firstAttribute="width" constant="137" id="22714"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
@@ -120,7 +122,6 @@
                             <include reference="20078"/>
                             <include reference="22714"/>
                         </mask>
-                        <color key="progressTintColor" colorSpace="calibratedRGB" red="0.984313725490196" green="0.00392156862745098" blue="0.023529411764705882" alpha="1"/>
                     </variation>
                 </progressView>
                 <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enemy: 100/100" borderStyle="roundedRect" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="24206">
@@ -134,10 +135,10 @@
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="24208">
                     <rect key="frame" x="212" y="339" width="137" height="15"/>
                     <constraints>
-                        <constraint id="24209" firstItem="24208" firstAttribute="height" constant="2">
+                        <constraint firstAttribute="height" constant="2" id="24209">
                             <variation key="heightClass=regular-widthClass=compact" constant="15"/>
                         </constraint>
-                        <constraint id="24210" firstItem="24208" firstAttribute="width" constant="137"/>
+                        <constraint firstAttribute="width" constant="137" id="24210"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
@@ -146,11 +147,11 @@
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
+                        <color key="progressTintColor" colorSpace="calibratedRGB" red="0" green="0" blue="0.996078431372549" alpha="1"/>
                         <mask key="constraints">
                             <include reference="24209"/>
                             <include reference="24210"/>
                         </mask>
-                        <color key="progressTintColor" colorSpace="calibratedRGB" red="0.12941176470588237" green="1" blue="0.023529411764705882" alpha="1"/>
                     </variation>
                 </progressView>
             </subviews>
@@ -175,18 +176,18 @@
                 <constraint firstItem="4681" firstAttribute="top" secondItem="5738" secondAttribute="top" constant="48" id="9352"/>
                 <constraint firstItem="4681" firstAttribute="centerX" secondItem="5738" secondAttribute="centerX" id="9356"/>
                 <constraint firstItem="154" firstAttribute="top" secondItem="4681" secondAttribute="bottom" constant="48" id="9383"/>
-                <constraint id="17930" firstItem="14995" firstAttribute="top" secondItem="7542" secondAttribute="top" constant="9">
+                <constraint firstItem="14995" firstAttribute="top" secondItem="7542" secondAttribute="top" constant="9" id="17930">
                     <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                 </constraint>
-                <constraint id="20546" firstItem="20077" firstAttribute="top" secondItem="7059" secondAttribute="top" constant="7">
+                <constraint firstItem="20077" firstAttribute="top" secondItem="7059" secondAttribute="top" constant="7" id="20546">
                     <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                 </constraint>
-                <constraint id="22869" firstItem="7059" firstAttribute="trailing" secondItem="20077" secondAttribute="trailing" constant="10"/>
-                <constraint id="23178" firstItem="7542" firstAttribute="trailing" secondItem="14995" secondAttribute="trailing" constant="10"/>
-                <constraint id="24220" firstItem="24208" firstAttribute="top" secondItem="24206" secondAttribute="top" constant="8"/>
-                <constraint id="24224" firstItem="24206" firstAttribute="trailing" secondItem="24208" secondAttribute="trailing" constant="10"/>
-                <constraint id="24244" firstItem="24206" firstAttribute="top" secondItem="7059" secondAttribute="bottom" constant="8"/>
-                <constraint id="24248" firstItem="5738" firstAttribute="trailing" secondItem="24206" secondAttribute="trailing" constant="16"/>
+                <constraint firstItem="7059" firstAttribute="trailing" secondItem="20077" secondAttribute="trailing" constant="10" id="22869"/>
+                <constraint firstItem="7542" firstAttribute="trailing" secondItem="14995" secondAttribute="trailing" constant="10" id="23178"/>
+                <constraint firstItem="24208" firstAttribute="top" secondItem="24206" secondAttribute="top" constant="8" id="24220"/>
+                <constraint firstItem="24206" firstAttribute="trailing" secondItem="24208" secondAttribute="trailing" constant="10" id="24224"/>
+                <constraint firstItem="24206" firstAttribute="top" secondItem="7059" secondAttribute="bottom" constant="8" id="24244"/>
+                <constraint firstItem="5738" firstAttribute="trailing" secondItem="24206" secondAttribute="trailing" constant="16" id="24248"/>
             </constraints>
             <variation key="default">
                 <mask key="subviews">
@@ -197,13 +198,13 @@
                 </mask>
                 <mask key="constraints">
                     <exclude reference="17930"/>
-                    <exclude reference="20546"/>
-                    <exclude reference="22869"/>
+                    <exclude reference="24248"/>
                     <exclude reference="23178"/>
-                    <exclude reference="24220"/>
                     <exclude reference="24224"/>
                     <exclude reference="24244"/>
-                    <exclude reference="24248"/>
+                    <exclude reference="20546"/>
+                    <exclude reference="24220"/>
+                    <exclude reference="22869"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -215,13 +216,13 @@
                 </mask>
                 <mask key="constraints">
                     <include reference="17930"/>
-                    <include reference="20546"/>
-                    <include reference="22869"/>
+                    <include reference="24248"/>
                     <include reference="23178"/>
-                    <include reference="24220"/>
                     <include reference="24224"/>
                     <include reference="24244"/>
-                    <include reference="24248"/>
+                    <include reference="20546"/>
+                    <include reference="24220"/>
+                    <include reference="22869"/>
                 </mask>
             </variation>
         </view>
@@ -305,8 +306,6 @@
         <image name="Tab Icon Images/PauseTabIcon.png" width="32" height="32"/>
         <image name="Tab Icon Images/ViewTabIcon.png" width="32" height="32"/>
         <image name="Tab Icon Images/itemsTabIcon.png" width="32" height="32"/>
+        <image name="Background Images/bg-battle.png" width="810" height="1440"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedScreenMetrics key="destination" type="retina47"/>
-    </simulatedMetricsContainer>
 </document>

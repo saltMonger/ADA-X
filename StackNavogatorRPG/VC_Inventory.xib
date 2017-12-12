@@ -1119,5 +1119,6 @@
         <image name="Tab Icon Images/PauseTabIcon.png" width="32" height="32"/>
         <image name="Tab Icon Images/ViewTabIcon.png" width="32" height="32"/>
         <image name="Tab Icon Images/itemsTabIcon.png" width="32" height="32"/>
+        <image name="Background Images/bg-battle.png" width="810" height="1440"/>
     </resources>
 </document>

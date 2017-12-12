@@ -51,10 +51,10 @@ namespace StackNavogatorRPG
                     
                     cell.TextLabel.Text = playerCharacter.attacks[id].GetName();
                     cell.DetailTextLabel.Text = "Mana cost: " + playerCharacter.attacks[id].GetManaCost();
-                }else{
+                }/*else{
                     cell.TextLabel.Text = playerCharacter.Inventory[id].GetName();
                     cell.DetailTextLabel.Text = playerCharacter.Inventory[id].GetDescription();
-                }
+                }*/
                 return cell;
             }
             public override nint NumberOfSections(UITableView tableView)
