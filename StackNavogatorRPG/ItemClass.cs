@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Foundation;
 using UIKit;
 
@@ -29,6 +30,12 @@ namespace StackNavogatorRPG
 			return null;
 		}
 	}
+
+    public abstract class ConsumableBase : ItemBase
+    {
+        public int restoreHealth = 0;
+        public int restoreMana = 0;
+    }
 
 	public class Item_RustySword : EquipableBase {
 		public Item_RustySword() {
@@ -966,7 +973,7 @@ namespace StackNavogatorRPG
             itemType = ItemType.Chest;
             Sprite = UIImage.FromBundle("Item Images/magicCloak");
             physicalDefenseBoost = 5;
-            MagicDefenseBoost = 15;
+            MagicDefenseBoost = 10;
         }
         public override string GetName()
         {
@@ -982,7 +989,7 @@ namespace StackNavogatorRPG
         }
         public override string GetDescription2()
         {
-            return "+15 Mag Def";
+            return "+10 Mag Def";
         }
     }
 
@@ -994,7 +1001,7 @@ namespace StackNavogatorRPG
             itemType = ItemType.Chest;
             Sprite = UIImage.FromBundle("Item Images/sorcererCloak");
             physicalDefenseBoost = 7;
-            MagicDefenseBoost = 20;
+            MagicDefenseBoost = 15;
         }
         public override string GetName()
         {
@@ -1010,53 +1017,160 @@ namespace StackNavogatorRPG
         }
         public override string GetDescription2()
         {
+            return "+15 Mag Def";
+        }
+    }
+
+    public class Item_DruidCloak : EquipableBase
+    {
+        public Item_DruidCloak()
+        {
+            itemID = 1;
+            itemType = ItemType.Chest;
+            Sprite = UIImage.FromBundle("Item Images/sorcererCloak");
+            physicalDefenseBoost = 9;
+            MagicDefenseBoost = 20;
+        }
+        public override string GetName()
+        {
+            return "Druid Cloak";
+        }
+        public override string Use(CharacterBase target)
+        {
+            return target.GetName() + " equipped the " + GetName() + "!";
+        }
+        public override string GetDescription1()
+        {
+            return "+9 Phys Def";
+        }
+        public override string GetDescription2()
+        {
             return "+20 Mag Def";
         }
     }
 
-    //TODO: druid's cloak, master's cloak, potions 
-
-    public class Item
+    public class Item_MasterCloak : EquipableBase
     {
-        private int itemID;         //0-40
-        private int itemTier;       //1-3
-        public bool equipped;
-
-        public string name;
-        public string image;
-        public int slot;
-        public int[] effectStats = new int[6];
-
-
-        public void SetItem(int id) // spawn specific item based on ID
+        public Item_MasterCloak()
         {
-            itemID = id;
-            setStats();
+            itemID = 1;
+            itemType = ItemType.Chest;
+            Sprite = UIImage.FromBundle("Item Images/masterCloak");
+            physicalDefenseBoost = 11;
+            MagicDefenseBoost = 25;
         }
-
-        public Item(int tier) //spawn a random item in a tier bracket
+        public override string GetName()
         {
-            itemTier = tier;
-            if (tier == 1)
-            {
-                itemID = randomBetween(0, 24);
-            }
-            else if (tier == 2)
-            {
-                itemID = randomBetween(10, 32);
-            }
-            else if (tier == 3)
-            {
-                itemID = randomBetween(19, 40);
-            }
-
-            setStats();
+            return "Master Cloak";
         }
-
-        //restores hp/stamina or equips items and boosts character stats
-        void Use(CharacterBase target)
+        public override string Use(CharacterBase target)
         {
-            //
+            return target.GetName() + " equipped the " + GetName() + "!";
+        }
+        public override string GetDescription1()
+        {
+            return "+11 Phys Def";
+        }
+        public override string GetDescription2()
+        {
+            return "+25 Mag Def";
+        }
+    }
+
+    public class Item_HealthPotion : ConsumableBase
+    {
+        public Item_HealthPotion()
+        {
+            itemID = 1;
+            itemType = ItemType.Consumable;
+            Sprite = UIImage.FromBundle("Item Images/HealthPotion");
+            restoreHealth = 20;
+        }
+        public override string GetName()
+        {
+            return "Health Potion";
+        }
+        public override string Use(CharacterBase target)
+        {
+            return target.GetName() + " equipped the " + GetName() + "!";
+        }
+        public override string GetDescription1()
+        {
+            return "+20 Health";
+        }
+        public override string GetDescription2()
+        {
+            return "";
+        }
+    }
+
+    public class Item_ManaPotion : ConsumableBase
+    {
+        public Item_ManaPotion()
+        {
+            itemID = 1;
+            itemType = ItemType.Consumable;
+            Sprite = UIImage.FromBundle("Item Images/ManaPotion");
+            restoreMana = 10;
+        }
+        public override string GetName()
+        {
+            return "Mana Potion";
+        }
+        public override string Use(CharacterBase target)
+        {
+            return target.GetName() + " equipped the " + GetName() + "!";
+        }
+        public override string GetDescription1()
+        {
+            return "+10 Mana";
+        }
+        public override string GetDescription2()
+        {
+            return "";
+        }
+    }
+
+    public class Item_WarriorBrew : ConsumableBase
+    {
+        public Item_WarriorBrew()
+        {
+            itemID = 1;
+            itemType = ItemType.Consumable;
+            Sprite = UIImage.FromBundle("Item Images/WarriorBrew");
+            restoreHealth = 20;
+            restoreMana = 10;
+        }
+        public override string GetName()
+        {
+            return "Warrior's Brew";
+        }
+        public override string Use(CharacterBase target)
+        {
+            return target.GetName() + " equipped the " + GetName() + "!";
+        }
+        public override string GetDescription1()
+        {
+            return "+20 Health";
+        }
+        public override string GetDescription2()
+        {
+            return "+10 Mana";
+        }
+    }
+
+    public class ItemGenerator
+    {
+        public List<ItemBase> Tier1 = new List<ItemBase>();
+        public List<ItemBase> Tier2 = new List<ItemBase>();
+        public List<ItemBase> Tier3 = new List<ItemBase>();
+
+        //TODO: Generate tier lists
+
+        public ItemBase GenerateItem(int tier) //spawn a random item in a tier bracket
+        {
+            var generatedItem = new Item_RustySword();
+            return generatedItem;
         }
 
         private int randomBetween(int x, int y)
@@ -1066,263 +1180,5 @@ namespace StackNavogatorRPG
             return rInt;
         }
 
-        private void setStats() // item library hardcoded stats
-        {
-            switch (itemID)
-            {
-                //Tier 1:
-                case 0:
-                    name = "Rusty Sword";
-                    image = "rustySword.png";
-                    slot = 1;
-                    effectStats = new int[] {0, 0, 15, 0, 0, 0};
-                    break;
-                case 1:
-                    name = "Cloth Hat";
-                    image = "clothHelmet.png";
-                    slot = 2;
-                    effectStats = new int[] { 0, 0, 0, 15, 0, 0 };
-                    break;
-                case 2:
-                    name = "Cloth Vest";
-                    image = "clothChest.png";
-                    slot = 3;
-                    effectStats = new int[] { 0, 0, 0, 10, 0, 0 };
-                    break;
-                case 3:
-                    name = "Cloth Gloves";
-                    image = "clothGloves.png";
-                    slot = 4;
-                    effectStats = new int[] { 0, 0, 0, 5, 0, 0 };
-                    break;
-                case 4:
-                    name = "Cloth Leg Padding";
-                    image = "clothLeg.png";
-                    slot = 5;
-                    effectStats = new int[] { 0, 0, 0, 5, 0, 0 };
-                    break;
-                case 5:
-                    name = "Cloth Boots";
-                    image = "clothBoots.png";
-                    slot = 6;
-                    effectStats = new int[] { 0, 0, 0, 5, 0, 0 };
-                    break;
-                case 6:
-                    name = "Magic Staff";
-                    image = "magicStaff.png";
-                    slot = 1;
-                    effectStats = new int[] { 0, 0, 0, 0, 30, 0 };
-                    break;
-                case 7:
-                    name = "Magic Cloak";
-                    image = "magicCloak.png";
-                    slot = 3;
-                    effectStats = new int[] { 0, 0, 0, 2, 0, 10 };
-                    break;
-                case 8:
-                    name = "Health Potion";
-                    image = "HealthPotion.png";
-                    slot = 0;
-                    effectStats = new int[] { 50, 0, 0, 0, 0, 0 };
-                    break;
-                case 9:
-                    name = "Mana Potion";
-                    image = "ManaPotion.png";
-                    slot = 0;
-                    effectStats = new int[] { 0, 50, 0, 0, 0, 0 };
-                    break;
-                //Tier 2:
-                case 10:
-                    name = "Bronze Sword";
-                    image = "bronzeSword.png";
-                    slot = 1;
-                    effectStats = new int[] { 0, 0, 20, 0, 0, 0 };
-                    break;
-                case 11:
-                    name = "Leather Hat";
-                    image = "leatherHelmet.png";
-                    slot = 2;
-                    effectStats = new int[] { 0, 0, 0, 15, 0, 0 };
-                    break;
-                case 12:
-                    name = "Leather Vest";
-                    image = "leatherChest.png";
-                    slot = 3;
-                    effectStats = new int[] { 0, 0, 0, 15, 0, 0 };
-                    break;
-                case 13:
-                    name = "Leather Gloves";
-                    image = "leatherGloves.png";
-                    slot = 4;
-                    effectStats = new int[] { 0, 0, 0, 7, 0, 0 };
-                    break;
-                case 14:
-                    name = "Leather Leg Padding";
-                    image = "leatherLeg.png";
-                    slot = 5;
-                    effectStats = new int[] { 0, 0, 0, 7, 0, 0 };
-                    break;
-                case 15:
-                    name = "Leather Boots";
-                    image = "leatherBoots.png";
-                    slot = 6;
-                    effectStats = new int[] { 0, 0, 0, 7, 0, 0 };
-                    break;
-                case 16:
-                    name = "Warrior's Brew";
-                    image = "WarriorBrew.png";
-                    slot = 0;
-                    effectStats = new int[] { 50, 50, 0, 0, 0, 0 };
-                    break;
-                case 17:
-                    name = "Sorcerer's Staff";
-                    image = "sorcererStaff.png";
-                    slot = 1;
-                    effectStats = new int[] { 0, 0, 0, 0, 40, 0 };
-                    break;
-                case 18:
-                    name = "Sorcerer's Cloak";
-                    image = "sorcererCloak.png";
-                    slot = 3;
-                    effectStats = new int[] { 0, 0, 0, 4, 0, 20 };
-                    break;
-                //Tier 3:
-                case 19:
-                    name = "Iron Sword";
-                    image = "ironSword.png";
-                    slot = 1;
-                    effectStats = new int[] { 0, 0, 25, 0, 0, 0 };
-                    break;
-                case 20:
-                    name = "Iron Helmet";
-                    image = "ironSword.png";
-                    slot = 2;
-                    effectStats = new int[] { 0, 0, 0, 20, 0, 0 };
-                    break;
-                case 21:
-                    name = "Iron Chest Plate";
-                    image = "ironChest.png";
-                    slot = 3;
-                    effectStats = new int[] { 0, 0, 0, 20, 0, 0 };
-                    break;
-                case 22:
-                    name = "Iron Gauntlets";
-                    image = "ironGloves.png";
-                    slot = 4;
-                    effectStats = new int[] { 0, 0, 0, 9, 0, 0 };
-                    break;
-                case 23:
-                    name = "Iron Leg Armor";
-                    image = "ironLeg.png";
-                    slot = 5;
-                    effectStats = new int[] { 0, 0, 0, 9, 0, 0 };
-                    break;
-                case 24:
-                    name = "Iron Boots";
-                    image = "ironBoots.png";
-                    slot = 6;
-                    effectStats = new int[] { 0, 0, 0, 9, 0, 0 };
-                    break;
-                //End of Tier 1
-                case 25:
-                    name = "Druid's Staff";
-                    image = "druidStaff.png";
-                    slot = 1;
-                    effectStats = new int[] { 0, 0, 0, 0, 50, 0 };
-                    break;
-                case 26:
-                    name = "Druid's Cloak";
-                    image = "druidStaff.png";
-                    slot = 3;
-                    effectStats = new int[] { 0, 0, 0, 6, 0, 30 };
-                    break;
-                case 27:
-                    name = "Steel Sword";
-                    image = "steelSword.png";
-                    slot = 1;
-                    effectStats = new int[] { 0, 0, 30, 0, 0, 0 };
-                    break;
-                case 28:
-                    name = "Steel Helmet";
-                    image = "steelHelmet.png";
-                    slot = 2;
-                    effectStats = new int[] { 0, 0, 0, 25, 0, 0 };
-                    break;
-                case 29:
-                    name = "Steel Chest Plate";
-                    image = "steelChest.png";
-                    slot = 3;
-                    effectStats = new int[] { 0, 0, 0, 25, 0, 0 };
-                    break;
-                case 30:
-                    name = "Steel Gauntlets";
-                    image = "steelGloves.png";
-                    slot = 4;
-                    effectStats = new int[] { 0, 0, 0, 11, 0, 0 };
-                    break;
-                case 31:
-                    name = "Steel Leg Armor";
-                    image = "steelLeg.png";
-                    slot = 5;
-                    effectStats = new int[] { 0, 0, 0, 11, 0, 0 };
-                    break;
-                case 32:
-                    name = "Steel Boots";
-                    image = "steelBoots.png";
-                    slot = 6;
-                    effectStats = new int[] { 0, 0, 0, 11, 0, 0 };
-                    break;
-                //End of Tier 2
-                case 33:
-                    name = "Master's Staff";
-                    image = "masterStaff.png";
-                    slot = 1;
-                    effectStats = new int[] { 0, 0, 0, 0, 60, 0 };
-                    break;
-                case 34:
-                    name = "Master's Cloak";
-                    image = "masterCloak.png";
-                    slot = 3;
-                    effectStats = new int[] { 0, 0, 0, 8, 0, 40 };
-                    break;
-                case 35:
-                    name = "Enchanted Sword";
-                    image = "enchantedSword.png";
-                    slot = 1;
-                    effectStats = new int[] { 0, 0, 25, 0, 15, 0 };
-                    break;
-                case 36:
-                    name = "Enchanted Helmet";
-                    image = "enchantedHelmet.png";
-                    slot = 2;
-                    effectStats = new int[] { 0, 0, 0, 20, 0, 10 };
-                    break;
-                case 37:
-                    name = "Enchanted Chest Plate";
-                    image = "enchantedChest.png";
-                    slot = 3;
-                    effectStats = new int[] { 0, 0, 0, 20, 0, 10 };
-                    break;
-                case 38:
-                    name = "Enchanted Gauntlets";
-                    image = "enchantedGloves.png";
-                    slot = 4;
-                    effectStats = new int[] { 0, 0, 0, 9, 0, 5 };
-                    break;
-                case 39:
-                    name = "Enchanted Leg Armor";
-                    image = "enchantedLeg.png";
-                    slot = 5;
-                    effectStats = new int[] { 0, 0, 0, 9, 0, 5 };
-                    break;
-                case 40:
-                    name = "Enchanted Boots";
-                    image = "enchantedBoots.png";
-                    slot = 6;
-                    effectStats = new int[] { 0, 0, 0, 9, 0, 5 };
-                    break;
-                //End of Tier 3
-            }
-        }        
     }
 }

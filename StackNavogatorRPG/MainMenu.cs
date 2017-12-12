@@ -46,16 +46,13 @@ namespace StackNavogatorRPG
             tabs[2].TabBarItem = new UITabBarItem("Inventory", InventoryViewIcon, InventoryViewIcon);
             TabView.SetViewControllers(tabs.ToArray(),true);
 
-            Item rustySword = new Item(1);
-            rustySword.SetItem(0);
+            Item_RustySword rustySword = new Item_RustySword();
             GameManager.Instance.playerCharacter.addEquipment(rustySword);
 
-            Item bronzeSword = new Item(1);
-            bronzeSword.SetItem(10);
+            Item_BronzeSword bronzeSword = new Item_BronzeSword();
             GameManager.Instance.playerCharacter.bag.Add(bronzeSword);
 
-            Item HPPotion = new Item(1);
-            HPPotion.SetItem(8);
+            Item_HealthPotion HPPotion = new Item_HealthPotion();
             GameManager.Instance.playerCharacter.bag.Add(HPPotion);
 
 
