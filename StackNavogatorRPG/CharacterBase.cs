@@ -143,6 +143,7 @@ namespace StackNavogatorRPG
         }
         public int Level{
             get { return _level; }
+            set { _level = value; }
         }
         public int Experience{
             get { return _experience; }

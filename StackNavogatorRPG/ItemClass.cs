@@ -42,7 +42,7 @@ namespace StackNavogatorRPG
 			itemID = 0;
 			itemType = ItemType.Weapon;
 			Sprite = UIImage.FromBundle("Item Images/rustySword");
-			physicalAttackBoost = 15;
+			physicalAttackBoost = 10;
 		}
 		public override string GetName() {
 			return "Rusty Sword";
@@ -1165,10 +1165,142 @@ namespace StackNavogatorRPG
         public List<ItemBase> Tier2 = new List<ItemBase>();
         public List<ItemBase> Tier3 = new List<ItemBase>();
 
-        //TODO: Generate tier lists
+        Item_HealthPotion healthPotion = new Item_HealthPotion();
+        Item_ManaPotion manaPotion = new Item_ManaPotion();
+        Item_WarriorBrew warriorBrew = new Item_WarriorBrew();
+        Item_BronzeSword bronzeSwd = new Item_BronzeSword();
+        Item_IronSword ironSwd = new Item_IronSword();
+        Item_SteelSword steelSwd = new Item_SteelSword();
+        Item_EnchantedSword enchantedSwd = new Item_EnchantedSword();
+        Item_ClothHat clothHat = new Item_ClothHat();
+        Item_LeatherHat leatherHat = new Item_LeatherHat();
+        Item_IronHelm ironHat = new Item_IronHelm();
+        Item_SteelHelm steelHat = new Item_SteelHelm();
+        Item_EnchantedHelm enchantedHat = new Item_EnchantedHelm();
+        Item_ClothVest clothChest = new Item_ClothVest();
+        Item_LeatherVest leatherChest = new Item_LeatherVest();
+        Item_IronChest ironChset = new Item_IronChest();
+        Item_SteelChest steelChest = new Item_SteelChest();
+        Item_EnchantedChest enchantedChest = new Item_EnchantedChest();
+        Item_ClothGloves clothGloves = new Item_ClothGloves();
+        Item_LeatherGloves leatherGloves = new Item_LeatherGloves();
+        Item_IronGauntlets ironGloves = new Item_IronGauntlets();
+        Item_SteelGauntlets steelGloves = new Item_SteelGauntlets();
+        Item_EnchantedGauntlets enchantedGloves = new Item_EnchantedGauntlets();
+        Item_ClothLegs clothLegs = new Item_ClothLegs();
+        Item_LeatherLegs leatherLegs = new Item_LeatherLegs();
+        Item_IronLegs ironLegs = new Item_IronLegs();
+        Item_SteelLegs steelLegs = new Item_SteelLegs();
+        Item_EnchantedLegs enchantedLegs = new Item_EnchantedLegs();
+        Item_ClothBoots clothBoots = new Item_ClothBoots();
+        Item_LeatherBoots leatherBoots = new Item_LeatherBoots();
+        Item_IronBoots ironBoots = new Item_IronBoots();
+        Item_SteelBoots steelBoots = new Item_SteelBoots();
+        Item_EnchantedBoots enchantedBoots = new Item_EnchantedBoots();
+        Item_MagicCloak magCloak = new Item_MagicCloak();
+        Item_SorcererCloak sorcCloak = new Item_SorcererCloak();
+        Item_DruidCloak druidCloak = new Item_DruidCloak();
+        Item_MasterCloak masterCloak = new Item_MasterCloak();
+        Item_MagicStaff magStaff = new Item_MagicStaff();
+        Item_SorcererStaff sorcStaff = new Item_SorcererStaff();
+        Item_DruidStaff druidStaff = new Item_DruidStaff();
+        Item_MasterStaff masterStaff = new Item_MasterStaff();
+
+        public ItemGenerator()
+        {
+            Tier1.Add(healthPotion);
+            Tier1.Add(manaPotion);
+            Tier1.Add(bronzeSwd);
+            Tier1.Add(ironSwd);
+            Tier1.Add(clothHat);
+            Tier1.Add(leatherHat);
+            Tier1.Add(ironHat);
+            Tier1.Add(clothChest);
+            Tier1.Add(leatherChest);
+            Tier1.Add(ironChset);
+            Tier1.Add(clothGloves);
+            Tier1.Add(leatherGloves);
+            Tier1.Add(ironGloves);
+            Tier1.Add(clothLegs);
+            Tier1.Add(leatherLegs);
+            Tier1.Add(ironLegs);
+            Tier1.Add(clothBoots);
+            Tier1.Add(leatherBoots);
+            Tier1.Add(ironBoots);
+            Tier1.Add(magCloak);
+            Tier1.Add(sorcCloak);
+            Tier1.Add(magStaff);
+            Tier1.Add(sorcStaff);
+
+            Tier2.Add(healthPotion);
+            Tier2.Add(manaPotion);
+            Tier2.Add(warriorBrew);
+            Tier1.Add(ironSwd);
+            Tier2.Add(steelSwd);
+            Tier2.Add(leatherHat);
+            Tier2.Add(ironHat);
+            Tier2.Add(steelHat);
+            Tier2.Add(leatherChest);
+            Tier2.Add(ironChset);
+            Tier2.Add(steelChest);
+            Tier2.Add(leatherGloves);
+            Tier2.Add(ironGloves);
+            Tier2.Add(steelGloves);
+            Tier2.Add(leatherLegs);
+            Tier2.Add(ironLegs);
+            Tier2.Add(steelLegs);
+            Tier2.Add(leatherBoots);
+            Tier2.Add(ironBoots);
+            Tier2.Add(steelBoots);
+            Tier2.Add(sorcCloak);
+            Tier2.Add(druidCloak);
+            Tier2.Add(sorcStaff);
+            Tier2.Add(druidStaff);
+
+            Tier3.Add(healthPotion);
+            Tier3.Add(manaPotion);
+            Tier3.Add(warriorBrew);
+            Tier3.Add(steelSwd);
+            Tier3.Add(enchantedSwd);
+            Tier3.Add(ironHat);
+            Tier3.Add(steelHat);
+            Tier3.Add(enchantedHat);
+            Tier3.Add(ironChset);
+            Tier3.Add(steelChest);
+            Tier3.Add(enchantedChest);
+            Tier3.Add(ironGloves);
+            Tier3.Add(steelGloves);
+            Tier3.Add(enchantedGloves);
+            Tier3.Add(ironLegs);
+            Tier3.Add(steelLegs);
+            Tier3.Add(enchantedLegs);
+            Tier3.Add(ironBoots);
+            Tier3.Add(steelBoots);
+            Tier3.Add(enchantedBoots);
+            Tier3.Add(druidCloak);
+            Tier3.Add(masterCloak);
+            Tier3.Add(druidStaff);
+            Tier3.Add(masterStaff);
+        }
 
         public ItemBase GenerateItem(int tier) //spawn a random item in a tier bracket
         {
+            int index = 1;
+            switch (tier)
+            {
+                case 1:
+                    index = randomBetween(0, Tier1.Count - 1);
+                    return Tier1[index];
+
+                case 2:
+                    index = randomBetween(0, Tier2.Count - 1);
+                    return Tier2[index];
+
+                case 3:
+                    index = randomBetween(0, Tier3.Count - 1);
+                    return Tier3[index];
+            }
+
             var generatedItem = new Item_RustySword();
             return generatedItem;
         }

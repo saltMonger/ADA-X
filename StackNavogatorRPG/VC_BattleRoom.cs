@@ -51,10 +51,9 @@ namespace StackNavogatorRPG
                     
                     cell.TextLabel.Text = playerCharacter.attacks[id].GetName();
                     cell.DetailTextLabel.Text = "Mana cost: " + playerCharacter.attacks[id].GetManaCost();
-                }/*else{
-                    cell.TextLabel.Text = playerCharacter.Inventory[id].GetName();
-                    cell.DetailTextLabel.Text = playerCharacter.Inventory[id].GetDescription();
-                }*/
+                }else{
+                    cell.TextLabel.Text = playerCharacter.bag[id].GetName();
+                }
                 return cell;
             }
             public override nint NumberOfSections(UITableView tableView)
@@ -67,7 +66,7 @@ namespace StackNavogatorRPG
                 {
                     return playerCharacter.attacks.Count;
                 }else{
-                    return playerCharacter.Inventory.Count;
+                    return playerCharacter.bag.Count;
                 }
             }
             public override string TitleForHeader(UITableView tableView, nint section)
@@ -128,7 +127,7 @@ namespace StackNavogatorRPG
                     Txt_BattleSummary.Text += msg1 + '\n';
                     Txt_BattleSummary.Text += msg2 + '\n';
                 }else{
-                    ItemBase playerItem = playerCharacter.Inventory[attackIndex];
+                    ItemBase playerItem = playerCharacter.bag[attackIndex];
                     string str = playerCharacter.UseItem(attackIndex, playerCharacter);
                     Txt_BattleSummary.Text = "";
                     Txt_BattleSummary.Text += str + '\n';
@@ -142,6 +141,7 @@ namespace StackNavogatorRPG
             Tbl_AttackList.ReloadData();
 
             if(enemyCharacter.Health <= 0){
+                playerCharacter.Experience += enemyCharacter.GetExpValue();
                 this.DismissViewController(true,null);
             }
         }

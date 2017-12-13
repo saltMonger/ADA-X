@@ -53,7 +53,45 @@ namespace StackNavogatorRPG
 
         partial void EquipUseButton_TouchUpInside(UIButton sender)
         {
-            //player.addEquipment(player.bag[PackTableView.IndexPathForSelectedRow.Row]);
+            ItemBase item = player.bag[PackTableView.IndexPathForSelectedRow.Row];
+
+            if (item.itemType != ItemBase.ItemType.Consumable)
+            {
+                bool replaced = false;
+                foreach (var i in player.equipment)
+                {
+                    if (i.itemType == item.itemType)
+                    {
+                        replaced = true;
+
+                        player.bag.Add(i);
+                        player.equipment.Remove(i);
+                        player.equipment.Add(item);
+                        player.bag.Remove(item);
+
+                        EquipmentTableView.ReloadData();
+                        PackTableView.ReloadData();
+                        break;
+                    }
+                }
+                if (!replaced)
+                {
+                    player.equipment.Add(item);
+                    EquipmentTableView.ReloadData();
+
+                    player.bag.Remove(item);
+                    PackTableView.ReloadData();
+                }
+            }
+            else
+            {
+                player.bag.Remove(item);
+                PackTableView.ReloadData();
+                player.drinkPotion((ConsumableBase)item);
+            }
+            UpdatePreview(0);
+            player.UpdateStats();
+            UpdateStatsDisplay();
         }
 
         public void UpdatePreview(int table)
