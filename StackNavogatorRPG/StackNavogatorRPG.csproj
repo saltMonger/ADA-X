@@ -81,6 +81,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="OpenTK-1.0" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -91,6 +92,7 @@
     <Folder Include="Resources\Item Images\" />
     <Folder Include="Resources\Background Images\" />
     <Folder Include="Enemies\" />
+    <Folder Include="Map\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -120,12 +122,22 @@
     <Compile Include="GameManager.cs" />
     <Compile Include="VC_Inventory.cs" />
     <Compile Include="VC_Inventory.designer.cs" />
+    <Compile Include="Map\DebugDrawer.cs" />
+    <Compile Include="Map\DiggerAgent.cs" />
+    <Compile Include="Map\MapCharter.cs" />
+    <Compile Include="Map\RoomCell.cs" />
+    <Compile Include="VC_MapView.cs" />
+    <Compile Include="VC_MapView.designer.cs">
+      <DependentUpon>VC_MapView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Map\MapManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="VC_DungeonRoom.xib" />
     <InterfaceDefinition Include="VC_BattleRoom.xib" />
     <InterfaceDefinition Include="MainMenu.xib" />
     <InterfaceDefinition Include="VC_Inventory.xib" />
+    <InterfaceDefinition Include="VC_MapView.xib" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Item Images\bronzeSword.png" />
