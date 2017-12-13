@@ -27,6 +27,8 @@ namespace StackNavogatorRPG
             base.ViewDidAppear(animated);
             UpdatePreview(0);
             UpdateStatsDisplay();
+            EquipmentTableView.ReloadData();
+            PackTableView.ReloadData();
         }
 
         public override void DidReceiveMemoryWarning()
@@ -92,6 +94,8 @@ namespace StackNavogatorRPG
             UpdatePreview(0);
             player.UpdateStats();
             UpdateStatsDisplay();
+            EquipmentTableView.ReloadData();
+            PackTableView.ReloadData();
         }
 
         public void UpdatePreview(int table)

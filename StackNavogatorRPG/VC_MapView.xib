@@ -22,17 +22,17 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="2">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background Images/bg-menu.png" translatesAutoresizingMaskIntoConstraints="NO" id="128">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="3252" translatesAutoresizingMaskIntoConstraints="NO" image="Map Images/mapBackground.jpg">
-                    <rect key="frame" x="34" y="41" width="307" height="585"/>
+                    <rect key="frame" x="34" y="41" width="532" height="518"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="798">
-                    <rect key="frame" x="34" y="41" width="307" height="585"/>
+                    <rect key="frame" x="34" y="41" width="532" height="518"/>
                     <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="18"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
