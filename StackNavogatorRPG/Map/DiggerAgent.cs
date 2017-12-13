@@ -213,6 +213,7 @@ namespace MapGenAgentBased
         {
             int playerY = 0;
             int playerX = 0;
+            bool bossSet = false;
             for(int x=0; x <= MapSizeX - 1; x++)
             {
                 for (int y = 0; y <= MapSizeY - 1; y++)
@@ -223,13 +224,20 @@ namespace MapGenAgentBased
                         continue;
                     }
 
-                    //max coord set
-                    if(x > playerX && y > playerY){
-                        playerX = x;
-                        playerY = y;
-
+                    if (!bossSet)
+                    {
+                        bossSet = true;
+                        RoomCells[x, y].Boss = true;
+                        RoomCells[x, y].Visited = true;
+                        BossLocation = new int[2] { x, y };
                     }
 
+                    RoomCells[x, y].Treasure = false;
+                    //determine if treasure
+                    int tChance = rng.Next(0, 8);
+                    if(tChance == 0){
+                        RoomCells[x, y].Treasure = true;
+                    }
 
                     //set room coordinates
                     RoomCells[x, y].RoomCoords = new int[2] { x, y };
@@ -293,6 +301,9 @@ namespace MapGenAgentBased
                     {
                         RoomCells[x, y].West = null;
                     }
+
+                    playerX = x;
+                    playerY = y;
 
                 }
             }

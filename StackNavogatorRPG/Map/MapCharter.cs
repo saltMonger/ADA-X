@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using UIKit;
 using Foundation;
+using StackNavogatorRPG.Map;
 
 namespace MapGenAgentBased
 {
@@ -22,6 +23,12 @@ namespace MapGenAgentBased
         public int MaxSizeX { get; set; }
         public int MaxSizeY { get; set; }
         public byte[] imageBuffer { get; set; }
+        public string MapString
+        {
+            get;
+            set;
+        
+        }
 
 
         public MapCharter(RoomCell[,] map, int maxX, int maxY)
@@ -48,28 +55,43 @@ namespace MapGenAgentBased
         {
             int resBytes = (MaxSizeX * 4) * MaxSizeY;
             imageBuffer = new byte[resBytes];
-
+            StringBuilder sb = new StringBuilder();
+            MapManager man = MapManager.Instance;
             for(int x = 0; x < MaxSizeX; x++)
             {
                 for(int y = 0; y < MaxSizeY; y++)
                 {
-                    RoomCell rm = Map[x, y];
+                    RoomCell rm = Map[y, x];
 
-                    //int[] coords = TranslateCoords(x, y, MaxSizeX, MaxSizeY);
+                    ////int[] coords = TranslateCoords(x, y, MaxSizeX, MaxSizeY);
 
-                    if(rm == null)
-                    {
-                        //PlotPixel(coords[0], coords[1], PixelMaker(Markers.Wall));
-                        PlotPixel(y, x, PixelMaker(Markers.Wall));
+                    //if(rm == null)
+                    //{
+                    //    //PlotPixel(coords[0], coords[1], PixelMaker(Markers.Wall));
+                    //    PlotPixel(y, x, PixelMaker(Markers.Wall));
 
+                    //}
+                    //else
+                    //{
+                    //    //PlotPixel(coords[0], coords[1], PixelMaker(Markers.Explored));
+                    //    PlotPixel(y, x, PixelMaker(Markers.Explored));
+
+                    //}
+                    if(rm == null || !rm.Visited){
+                        sb.Append(" ");
                     }
-                    else
-                    {
-                        //PlotPixel(coords[0], coords[1], PixelMaker(Markers.Explored));
-                        PlotPixel(y, x, PixelMaker(Markers.Explored));
-
+                    else if(rm.Boss){
+                        sb.Append("B");
                     }
+                    else if (x == man.PlayerCoords[1] && y == man.PlayerCoords[0]){
+                        sb.Append("O");
+                    }
+                    else{
+                        sb.Append("X");
+                    }
+
                 }
+                sb.AppendLine();
             }
 
             //unsafe
@@ -87,7 +109,7 @@ namespace MapGenAgentBased
             //instead of relying on gfx, we'll make a string array
 
             //TODO: Implement string array
-
+            MapString = sb.ToString();
 
         }
 

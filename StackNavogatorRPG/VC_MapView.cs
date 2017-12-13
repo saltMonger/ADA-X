@@ -1,5 +1,5 @@
 ﻿using System;
-
+using StackNavogatorRPG.Map;
 using UIKit;
 
 namespace StackNavogatorRPG
@@ -13,7 +13,15 @@ namespace StackNavogatorRPG
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+
             // Perform any additional setup after loading the view, typically from a nib.
+        }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+            MapManager man = MapManager.Instance;
+            MapLabel.Text = man.WriteMap();
         }
 
         public override void DidReceiveMemoryWarning()

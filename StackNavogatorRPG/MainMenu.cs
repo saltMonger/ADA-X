@@ -39,7 +39,7 @@ namespace StackNavogatorRPG
 
 
             //var dungeonRoom = mapman.GetFirstRoom();
-            var mapView = new UIViewController();
+            var mapView = new VC_MapView();
             var inventoryView = new VC_Inventory();
 
             List<UIViewController> tabs = new List<UIViewController>();

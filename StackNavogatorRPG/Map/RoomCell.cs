@@ -32,7 +32,7 @@ namespace MapGenAgentBased
             set;
         }
 
-        public Treasure Treasure { get; set; }
+        public bool Treasure { get; set; }
         public Statue Statue { get; set; }
 
         //NEED TO ACTUALLY IMPLEMENT THE IMAGE

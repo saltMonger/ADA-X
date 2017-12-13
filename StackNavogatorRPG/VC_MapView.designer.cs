@@ -18,11 +18,20 @@ namespace StackNavogatorRPG
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIImageView MapImage { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel MapLabel { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
             if (MapImage != null) {
                 MapImage.Dispose ();
                 MapImage = null;
+            }
+
+            if (MapLabel != null) {
+                MapLabel.Dispose ();
+                MapLabel = null;
             }
         }
     }

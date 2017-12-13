@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
                 <outlet property="MapImage" destination="128" id="name-outlet-128"/>
+                <outlet property="MapLabel" destination="798" id="name-outlet-798"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -15,15 +16,25 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="128" translatesAutoresizingMaskIntoConstraints="NO">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="128" translatesAutoresizingMaskIntoConstraints="NO" image="Map Images/mapBackground.jpg">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="798" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="0">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <constraints>
                 <constraint id="367" firstItem="128" firstAttribute="leading" secondItem="2" secondAttribute="leading"/>
                 <constraint id="374" firstItem="128" firstAttribute="top" secondItem="2" secondAttribute="top"/>
                 <constraint id="387" firstItem="2" firstAttribute="trailing" secondItem="128" secondAttribute="trailing"/>
                 <constraint id="394" firstItem="2" firstAttribute="bottom" secondItem="128" secondAttribute="bottom"/>
+                <constraint id="2077" firstItem="798" firstAttribute="leading" secondItem="128" secondAttribute="leading"/>
+                <constraint id="2078" firstItem="798" firstAttribute="top" secondItem="128" secondAttribute="top"/>
+                <constraint id="2079" firstItem="128" firstAttribute="trailing" secondItem="798" secondAttribute="trailing"/>
+                <constraint id="2080" firstItem="128" firstAttribute="bottom" secondItem="798" secondAttribute="bottom"/>
             </constraints>
         </view>
     </objects>

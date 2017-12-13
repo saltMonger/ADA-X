@@ -103,23 +103,24 @@ namespace StackNavogatorRPG.Map
             //set room settings
             Direction dir;
             if(Map[PlayerCoords[0], PlayerCoords[1]].North != null){
-                dir = Direction.North;
+                dir = Direction.South;
             }
             else if(Map[PlayerCoords[0], PlayerCoords[1]].East != null)
             {
-                dir = Direction.East;
-            }
-            else if(Map[PlayerCoords[0], PlayerCoords[1]].West != null){
                 dir = Direction.West;
             }
+            else if(Map[PlayerCoords[0], PlayerCoords[1]].West != null){
+                dir = Direction.East;
+            }
             else{
-                dir = Direction.South;
+                dir = Direction.North;
             }
 
             byte roomDesc = Map[PlayerCoords[0], PlayerCoords[1]].AssignRoomCellImage(dir);
 
-            VC_DungeonRoom nRoom = new VC_DungeonRoom();
+            VC_DungeonRoom nRoom = new VC_DungeonRoom(true);
             nRoom.rc = Map[PlayerCoords[0], PlayerCoords[1]];
+            Map[PlayerCoords[0], PlayerCoords[1]].Visited = true;
 
             switch (roomDesc)
             {
@@ -307,9 +308,10 @@ namespace StackNavogatorRPG.Map
 
         }
 
-        public void WriteMap(){
+        public string WriteMap(){
             MapCharter charter = new MapCharter(Map, MapSizeX, MapSizeY);
             charter.ChartMap();
+            return charter.MapString;
         }
 
         //Manipulates MapManager's player coords, effectively moving the player through the map
@@ -328,8 +330,8 @@ namespace StackNavogatorRPG.Map
             //"enter" roomcell by deciding image and doors
             //get back the 
             byte roomDesc = Map[PlayerCoords[0], PlayerCoords[1]].AssignRoomCellImage(direction);
-
-            VC_DungeonRoom nRoom = new VC_DungeonRoom();
+            Map[PlayerCoords[0], PlayerCoords[1]].Visited = true;
+            VC_DungeonRoom nRoom = new VC_DungeonRoom(false);
             nRoom.rc = Map[PlayerCoords[0], PlayerCoords[1]];
 
             switch (roomDesc)

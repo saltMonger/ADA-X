@@ -8,6 +8,7 @@ namespace StackNavogatorRPG
     public partial class VC_DungeonRoom : UIViewController
     {
         public RoomCell rc;
+        public bool firstRoom;
 
         public Direction LeftButtonDuty
         {
@@ -34,8 +35,9 @@ namespace StackNavogatorRPG
         }
    
     
-        public VC_DungeonRoom() : base("VC_DungeonRoom", null)
+        public VC_DungeonRoom(bool first) : base("VC_DungeonRoom", null)
         {
+            firstRoom = first;
         }
 
         public override void ViewDidLoad()
@@ -69,6 +71,32 @@ namespace StackNavogatorRPG
 
         }
 
+        public override void ViewDidAppear(bool animated)
+        {
+            base.ViewDidAppear(animated);
+            if(rc.Treasure){
+                //RYAN DO TREASURE HERE
+            }
+
+            if (!firstRoom)
+            {
+                if (!rc.Boss)
+                {
+                    Random rng = new Random();
+                    int chance = rng.Next(0, 4);
+                    if (chance == 0)
+                    {
+                        GameManager gm = GameManager.Instance;
+                        gm.GetRandomEnemy();
+                    }
+                }
+                else
+                {
+                    //boss goes here
+                }
+            }
+        }
+
         partial void UIButton547_TouchUpInside(UIButton sender)
         {
             Enemies.Enemy_Goblin enemy = new Enemies.Enemy_Goblin();
@@ -84,7 +112,7 @@ namespace StackNavogatorRPG
                 MapManager man = MapManager.Instance;
                 VC_DungeonRoom vc = man.MoveRoom(LeftButtonDuty);
                 //TabBarController.ViewControllers[0].PresentViewController(vc, false, null);
-                MainMenu.dngNav.PushViewController(vc, false);
+                MainMenu.dngNav.PushViewController(vc, true);
 
             }
 
@@ -98,7 +126,7 @@ namespace StackNavogatorRPG
                 MapManager man = MapManager.Instance;
                 VC_DungeonRoom vc = man.MoveRoom(TopButtonDuty);
                 //TabBarController.ViewControllers[0].PresentViewController(vc, false, null);
-                MainMenu.dngNav.PushViewController(vc, false);
+                MainMenu.dngNav.PushViewController(vc, true);
 
 
             }
@@ -114,7 +142,7 @@ namespace StackNavogatorRPG
                 //TabBarController.PresentViewController(vc, false, null);
                 //PresentViewController(vc, false, null);
                 //TabBarController.ViewControllers[0].PresentViewController(vc, false, null);
-                MainMenu.dngNav.PushViewController(vc, false);
+                MainMenu.dngNav.PushViewController(vc, true);
             
             }
         }
@@ -127,7 +155,7 @@ namespace StackNavogatorRPG
                 MapManager man = MapManager.Instance;
                 VC_DungeonRoom vc = man.MoveRoom(BottomButtonDuty);
                 //TabBarController.ViewControllers[0].PresentViewController(vc, false, null);
-                MainMenu.dngNav.PushViewController(vc, false);
+                MainMenu.dngNav.PushViewController(vc, true);
 
 
             }
