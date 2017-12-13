@@ -131,6 +131,10 @@
       <DependentUpon>VC_MapView.cs</DependentUpon>
     </Compile>
     <Compile Include="Map\MapManager.cs" />
+    <Compile Include="Enemies\Enemy_Gargoyle.cs" />
+    <Compile Include="Enemies\Enemy_Rat.cs" />
+    <Compile Include="Enemies\Enemy_Hamadryid.cs" />
+    <Compile Include="Enemies\Enemy_FinalBoss.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="VC_DungeonRoom.xib" />

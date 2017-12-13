@@ -29,6 +29,13 @@ namespace StackNavogatorRPG
             playerCharacter.Stamina = 10;
             playerCharacter.ExperienceToNextLevel = 10;
             playerCharacter.Experience = 0;
+
+            //init enemies
+            enemyList = new List<EnemyCharacter>();
+            enemyList.Add(new Enemy_Goblin());
+            enemyList.Add(new Enemy_Gargoyle());
+            enemyList.Add(new Enemy_Hamadryid());
+            enemyList.Add(new Enemy_Rat());
         }
 
         //Game globals
@@ -38,10 +45,14 @@ namespace StackNavogatorRPG
 
         //Enemies
         public List<EnemyCharacter> enemyList;
-        public EnemyCharacter bossEnemy;
+        public EnemyCharacter bossEnemy = new Enemy_FinalBoss();
 
+        static Random r = new Random();
         public EnemyCharacter GetRandomEnemy(){
-            return enemyList[0];
+            int index = r.Next(0, enemyList.Count);
+            EnemyCharacter c = enemyList[index];
+            c.Reset();
+            return c;
         }
 
         //Rooms

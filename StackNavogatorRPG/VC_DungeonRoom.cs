@@ -87,7 +87,9 @@ namespace StackNavogatorRPG
                     if (chance == 0)
                     {
                         GameManager gm = GameManager.Instance;
-                        gm.GetRandomEnemy();
+                        EnemyCharacter enemy = gm.GetRandomEnemy();
+                        VC_BattleRoom battle = new VC_BattleRoom(gm.playerCharacter, enemy);
+                        PresentViewController(battle, true, null);
                     }
                 }
                 else

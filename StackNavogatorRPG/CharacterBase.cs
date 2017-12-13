@@ -51,7 +51,7 @@ namespace StackNavogatorRPG
         public int Health
         {
             get { return _health; }
-            set { _health = Clamp(value, 0, 100); }
+            set { _health = Clamp(value, 0, _maxHealth); }
         }
         public int MaxHealth
         {

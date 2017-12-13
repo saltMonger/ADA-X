@@ -1,20 +1,19 @@
-﻿using System;
-using UIKit;
+﻿using UIKit;
 
 namespace StackNavogatorRPG.Enemies
 {
-    public class Enemy_Goblin: EnemyCharacter
+    public class Enemy_FinalBoss : EnemyCharacter
     {
         UIImage sprite;
 
-        class Attack_GoblinScratch : AttackBase
+        class Attack_FinalBossScratch : AttackBase
         {
             public override int Action(CharacterBase source, CharacterBase target, out string message)
             {
                 float damage = 0;
                 damage = source.PhysicalAttack - source.PhysicalDefense;
                 target.Health -= (int)damage;
-                message = source.GetName() + " hit " + target.GetName() + " and dealt " + damage + " damage!";
+                message = source.GetName() + " burns you " + target.GetName() + " and deals " + damage + " damage!";
                 if (damage < 0)
                     damage = 0;
                 return (int)damage;
@@ -22,23 +21,24 @@ namespace StackNavogatorRPG.Enemies
 
             public override string GetName()
             {
-                return "Scratch";
+                return "Hellfire";
             }
         }
 
-        public Enemy_Goblin()
+        public Enemy_FinalBoss()
         {
-            sprite = UIImage.FromBundle("Enemy Images/goblin.png");
+            sprite = UIImage.FromBundle("Enemy Images/DemonKing.png");
             attacks.Add(new Attack_Punch());
-            attacks.Add(new Attack_GoblinScratch());
+            attacks.Add(new Attack_FinalBossScratch());
+            attacks.Add(new Attack_Healing());
 
             //set stats
-            PhysicalAttack = 5;
-            PhysicalDefense = 4;
-            MagicAttack = 0;
-            MagicDefense = 0;
-            MaxHealth = 25;
-            Health = 25;
+            PhysicalAttack = 30;
+            PhysicalDefense = 15;
+            MagicAttack = 40;
+            MagicDefense = 30;
+            MaxHealth = 200;
+            Health = 200;
             //Level = 1;
         }
 
@@ -49,7 +49,11 @@ namespace StackNavogatorRPG.Enemies
 
         public override string GetName()
         {
-            return "Goblin";
+            return "Demon King";
+        }
+        public override string GetIntro()
+        {
+            return GetName() + " appears before you...";
         }
     }
 }

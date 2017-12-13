@@ -21,6 +21,7 @@ namespace StackNavogatorRPG
             base.ViewDidLoad();
             Tbl_AttackList.Source = new AttackListScource(playerCharacter);
             Btn_Enemy1.SetBackgroundImage(enemyCharacter.GetImage(), UIControlState.Normal);
+            Txt_BattleSummary.Text = enemyCharacter.GetIntro();
             UpdateStats();
             UpdateHPBars();
             // Perform any additional setup after loading the view, typically from a nib.

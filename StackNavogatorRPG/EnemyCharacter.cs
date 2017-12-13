@@ -27,7 +27,17 @@ namespace StackNavogatorRPG
 
         public abstract UIImage GetImage();
 
-        public abstract int GetExpValue();
+        public virtual int GetExpValue(){
+            return (MaxHealth + PhysicalAttack + MagicAttack + PhysicalDefense + MagicDefense) / 4;
+        }
+
+        public void Reset(){
+            Health = MaxHealth;
+        }
+
+        public virtual string GetIntro(){
+            return GetName() + " has appeared!";
+        }
     }
 }
 

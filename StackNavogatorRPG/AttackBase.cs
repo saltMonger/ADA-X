@@ -20,7 +20,7 @@ namespace StackNavogatorRPG
         public override int Action(CharacterBase source, CharacterBase target, out string message)
         {
             float damage = 0;
-            damage = source.PhysicalAttack - source.PhysicalAttack/(target.PhysicalDefense*5);
+            damage = source.PhysicalAttack - source.PhysicalDefense;
             target.Health -= (int)damage;
             message = source.GetName() + " hit " + target.GetName() + " and dealt " + damage + " damage!";
             if (damage < 1)
@@ -38,7 +38,7 @@ namespace StackNavogatorRPG
         public override int Action(CharacterBase source, CharacterBase target, out string message)
         {
             float damage = 0;
-            damage = source.MagicAttack - source.MagicAttack / (target.MagicDefense * 5);
+            damage = source.MagicAttack - source.MagicDefense;
             target.Health -= (int)damage;
             message = source.GetName() + " cast a spell on " + target.GetName() + " and dealt " + damage + " damage!";
             if (damage < 1)

@@ -3,16 +3,16 @@ using UIKit;
 
 namespace StackNavogatorRPG.Enemies
 {
-    public class Enemy_Goblin: EnemyCharacter
+    public class Enemy_Gargoyle : EnemyCharacter
     {
         UIImage sprite;
 
-        class Attack_GoblinScratch : AttackBase
+        class Attack_GargoyleScratch : AttackBase
         {
             public override int Action(CharacterBase source, CharacterBase target, out string message)
             {
                 float damage = 0;
-                damage = source.PhysicalAttack - source.PhysicalDefense;
+                damage = source.PhysicalAttack - source.PhysicalAttack / (target.PhysicalDefense * 5);
                 target.Health -= (int)damage;
                 message = source.GetName() + " hit " + target.GetName() + " and dealt " + damage + " damage!";
                 if (damage < 0)
@@ -26,19 +26,32 @@ namespace StackNavogatorRPG.Enemies
             }
         }
 
-        public Enemy_Goblin()
+        class GargoyleWait:AttackBase{
+            public override int Action(CharacterBase source, CharacterBase target, out string message)
+            {
+                message = source.GetName() + " stands there... menacingly!";
+                return 0;
+            }
+
+            public override string GetName()
+            {
+                return "Wait";
+            }
+        }
+
+        public Enemy_Gargoyle()
         {
-            sprite = UIImage.FromBundle("Enemy Images/goblin.png");
-            attacks.Add(new Attack_Punch());
-            attacks.Add(new Attack_GoblinScratch());
+            sprite = UIImage.FromBundle("Enemy Images/gargoyle.png");
+            attacks.Add(new GargoyleWait());
+            attacks.Add(new Attack_GargoyleScratch());
 
             //set stats
             PhysicalAttack = 5;
-            PhysicalDefense = 4;
+            PhysicalDefense = 3;
             MagicAttack = 0;
-            MagicDefense = 0;
-            MaxHealth = 25;
-            Health = 25;
+            MagicDefense = 1;
+            MaxHealth = 20;
+            Health = 20;
             //Level = 1;
         }
 
@@ -49,7 +62,7 @@ namespace StackNavogatorRPG.Enemies
 
         public override string GetName()
         {
-            return "Goblin";
+            return "Gargoyle";
         }
     }
 }
