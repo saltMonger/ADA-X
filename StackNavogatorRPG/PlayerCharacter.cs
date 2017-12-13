@@ -27,50 +27,52 @@ namespace StackNavogatorRPG
 
         }
 
-        void swapEquipment(int targetSlot, int sourceSlot){
-            if(Equipment[targetSlot] == null){
-                Equipment[targetSlot] = (EquipableBase)bag[sourceSlot];
-                bag.RemoveAt(sourceSlot);
-            }else{
-                var temp = Equipment[targetSlot];
-                Equipment[targetSlot] = (EquipableBase)bag[sourceSlot];
-                bag[sourceSlot] = temp;
+        void equipItem(ItemBase item){
+            if (item.itemType != ItemBase.ItemType.Consumable)
+            {
+                bool replaced = false;
+                foreach (var i in equipment)
+                {
+                    if (i.itemType == item.itemType)
+                    {
+                        replaced = true;
+
+                        bag.Add(i);
+                        equipment.Remove(i);
+                        equipment.Add(item);
+                        bag.Remove(item);
+                        break;
+                    }
+                }
+                if (!replaced)
+                {
+                    equipment.Add(item);
+
+                    bag.Remove(item);
+                }
             }
+            else
+            {
+                bag.Remove(item);
+                drinkPotion(item as ConsumableBase);
+            }
+            UpdateStats();
         }
 
         public string UseItem(int itemSlot, CharacterBase source, CharacterBase target = null)
         {
-            string str = bag[itemSlot].Use(source);
+            string msg = "";
             if (bag[itemSlot].itemType == ItemBase.ItemType.Consumable)
             {
-                bag.RemoveAt(itemSlot);
-                drinkPotion((ConsumableBase)bag[itemSlot]);
+                msg = "You drank a " + bag[itemSlot].GetName() + "!";
             }
-            else if (bag[itemSlot].itemType == ItemBase.ItemType.Boots)
+            else
             {
-                swapEquipment((int)ItemBase.ItemType.Boots, itemSlot);
+                msg = "You equipped your " + bag[itemSlot].GetName() + "!";
             }
-            else if (bag[itemSlot].itemType == ItemBase.ItemType.Weapon)
-            {
-                swapEquipment((int)ItemBase.ItemType.Weapon, itemSlot);
+            equipItem(bag[itemSlot]);
 
-            }
-            else if (bag[itemSlot].itemType == ItemBase.ItemType.Chest)
-            {
-                swapEquipment((int)ItemBase.ItemType.Chest, itemSlot);
-            }
-            else if (bag[itemSlot].itemType == ItemBase.ItemType.Gauntlets)
-            {
-                swapEquipment((int)ItemBase.ItemType.Gauntlets, itemSlot);
-            }
-            else if (bag[itemSlot].itemType == ItemBase.ItemType.Helm)
-            {
-                swapEquipment((int)ItemBase.ItemType.Helm, itemSlot);
-            }else{
-                swapEquipment((int)ItemBase.ItemType.Leg, itemSlot);
-            }
-
-            return str;
+            return msg;
         }
 
         public override void LevelUp()

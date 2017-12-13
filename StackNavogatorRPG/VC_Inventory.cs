@@ -16,7 +16,6 @@ namespace StackNavogatorRPG
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            UpdatePreview(0);
             // Perform any additional setup after loading the view, typically from a nib.
             EquipmentTableView.Source = new EquipmentListSource(this);
             PackTableView.Source = new BagListSource(this);
@@ -26,6 +25,7 @@ namespace StackNavogatorRPG
         public override void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
+            UpdatePreview(0);
             UpdateStatsDisplay();
         }
 

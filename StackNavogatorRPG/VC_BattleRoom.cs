@@ -128,7 +128,9 @@ namespace StackNavogatorRPG
                     Txt_BattleSummary.Text += msg2 + '\n';
                 }else{
                     ItemBase playerItem = playerCharacter.bag[attackIndex];
+                    Console.WriteLine(attackIndex);
                     string str = playerCharacter.UseItem(attackIndex, playerCharacter);
+                    Tbl_AttackList.ReloadData();
                     Txt_BattleSummary.Text = "";
                     Txt_BattleSummary.Text += str + '\n';
                 }
