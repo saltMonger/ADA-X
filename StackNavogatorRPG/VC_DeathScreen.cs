@@ -30,6 +30,7 @@ namespace StackNavogatorRPG
         partial void UIButton19442_TouchUpInside(UIButton sender)
         {
             AppDelegate theApp = (AppDelegate)UIApplication.SharedApplication.Delegate;
+            GameManager.Instance.RestartGame();
             theApp.RestartGame();
         }
 

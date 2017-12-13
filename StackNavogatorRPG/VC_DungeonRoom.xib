@@ -22,7 +22,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="2">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="547">
@@ -35,10 +35,10 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2680" translatesAutoresizingMaskIntoConstraints="NO" image="Background Images/bg-111.png">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2690" translatesAutoresizingMaskIntoConstraints="NO">
-                    <rect key="frame" x="8" y="152" width="98" height="387"/>
+                    <rect key="frame" x="8" y="152" width="59" height="387"/>
                     <state key="normal" title="Button">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -61,7 +61,7 @@
                     </variation>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4120" translatesAutoresizingMaskIntoConstraints="NO">
-                    <rect key="frame" x="164" y="250" width="85" height="187"/>
+                    <rect key="frame" x="145" y="250" width="85" height="187"/>
                     <state key="normal" title="Button">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -86,7 +86,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4291" translatesAutoresizingMaskIntoConstraints="NO">
-                    <rect key="frame" x="326" y="196" width="74" height="301"/>
+                    <rect key="frame" x="287" y="196" width="74" height="301"/>
                     <state key="normal" title="Button">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -111,7 +111,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4472" translatesAutoresizingMaskIntoConstraints="NO">
-                    <rect key="frame" x="107" y="492" width="218" height="110"/>
+                    <rect key="frame" x="68" y="492" width="218" height="110"/>
                     <state key="normal" title="Button">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -133,7 +133,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="19254" translatesAutoresizingMaskIntoConstraints="NO" text="Loot Found!">
-                    <rect key="frame" x="103" y="391" width="226" height="72"/>
+                    <rect key="frame" x="83.5" y="356.5" width="226" height="37.5"/>
                     <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="24"/>
                     <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                     <nil key="highlightedColor"/>
@@ -142,7 +142,7 @@
                     </constraints>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="23827" translatesAutoresizingMaskIntoConstraints="NO">
-                    <rect key="frame" x="184" y="439" width="46" height="30"/>
+                    <rect key="frame" x="164.5" y="387.5" width="46" height="30"/>
                     <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
                     <state key="normal" title="OK"/>
                     <constraints>
