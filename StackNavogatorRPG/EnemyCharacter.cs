@@ -26,6 +26,8 @@ namespace StackNavogatorRPG
         }
 
         public abstract UIImage GetImage();
+
+        public abstract int GetExpValue();
     }
 }
 

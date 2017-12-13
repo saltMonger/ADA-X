@@ -16,7 +16,6 @@ namespace StackNavogatorRPG
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            UpdatePreview(0);
             // Perform any additional setup after loading the view, typically from a nib.
             EquipmentTableView.Source = new EquipmentListSource(this);
             PackTableView.Source = new BagListSource(this);
@@ -26,6 +25,7 @@ namespace StackNavogatorRPG
         public override void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
+            UpdatePreview(0);
             UpdateStatsDisplay();
         }
 
@@ -53,12 +53,49 @@ namespace StackNavogatorRPG
 
         partial void EquipUseButton_TouchUpInside(UIButton sender)
         {
-            //player.addEquipment(player.bag[PackTableView.IndexPathForSelectedRow.Row]);
+            ItemBase item = player.bag[PackTableView.IndexPathForSelectedRow.Row];
+
+            if (item.itemType != ItemBase.ItemType.Consumable)
+            {
+                bool replaced = false;
+                foreach (var i in player.equipment)
+                {
+                    if (i.itemType == item.itemType)
+                    {
+                        replaced = true;
+
+                        player.bag.Add(i);
+                        player.equipment.Remove(i);
+                        player.equipment.Add(item);
+                        player.bag.Remove(item);
+
+                        EquipmentTableView.ReloadData();
+                        PackTableView.ReloadData();
+                        break;
+                    }
+                }
+                if (!replaced)
+                {
+                    player.equipment.Add(item);
+                    EquipmentTableView.ReloadData();
+
+                    player.bag.Remove(item);
+                    PackTableView.ReloadData();
+                }
+            }
+            else
+            {
+                player.bag.Remove(item);
+                PackTableView.ReloadData();
+                player.drinkPotion((ConsumableBase)item);
+            }
+            UpdatePreview(0);
+            player.UpdateStats();
+            UpdateStatsDisplay();
         }
 
         public void UpdatePreview(int table)
         {
-            int effectNum = 0;
             int Index = -1;
             int equippedOrBagNum = table; // 0 for none, 1 for equipped, 2 for bag
             try
@@ -81,67 +118,13 @@ namespace StackNavogatorRPG
                 ItemPreviewEffect2Text.Hidden = false;
                 EquipUseButton.Hidden = true;
 
-                ItemPreviewImage.Image = UIImage.FromBundle("Item Images/" + player.equipment[Index].image);
-                ItemPreviewTitle.Text = player.equipment[Index].name;
+                ItemPreviewImage.Image = player.equipment[Index].Sprite;
+                ItemPreviewTitle.Text = player.equipment[Index].GetName();
 
-                for (int i = 0; i < 6; i++)
-                {
-                    if (player.equipment[Index].effectStats[i] != 0 && effectNum ==0)
-                    {
-                        switch (i)
-                        {
-                            case 0:
-                                ItemPreviewEffect1Text.Text = "+" + player.equipment[Index].effectStats[i] + " HP";
-                                break;
-                            case 1:
-                                ItemPreviewEffect1Text.Text = "+" + player.equipment[Index].effectStats[i] + " Stam";
-                                break;
-                            case 2:
-                                ItemPreviewEffect1Text.Text = "+" + player.equipment[Index].effectStats[i] + " Phys Att";
-                                break;
-                            case 3:
-                                ItemPreviewEffect1Text.Text = "+" + player.equipment[Index].effectStats[i] + " Phys Def";
-                                break;
-                            case 4:
-                                ItemPreviewEffect1Text.Text = "+" + player.equipment[Index].effectStats[i] + " Mag Att";
-                                break;
-                            case 5:
-                                ItemPreviewEffect1Text.Text = "+" + player.equipment[Index].effectStats[i] + " Mag Def";
-                                break;
-                        }
-                        effectNum++;
-                    }
-                    else if (player.equipment[Index].effectStats[i] != 0 && effectNum == 1)
-                    {
-                        switch (i)
-                        {
-                            case 0:
-                                ItemPreviewEffect2Text.Text = "+" + player.equipment[Index].effectStats[i] + " HP";
-                                break;
-                            case 1:
-                                ItemPreviewEffect2Text.Text = "+" + player.equipment[Index].effectStats[i] + " Stam";
-                                break;
-                            case 2:
-                                ItemPreviewEffect2Text.Text = "+" + player.equipment[Index].effectStats[i] + " Phys Att";
-                                break;
-                            case 3:
-                                ItemPreviewEffect2Text.Text = "+" + player.equipment[Index].effectStats[i] + " Phys Def";
-                                break;
-                            case 4:
-                                ItemPreviewEffect2Text.Text = "+" + player.equipment[Index].effectStats[i] + " Mag Att";
-                                break;
-                            case 5:
-                                ItemPreviewEffect2Text.Text = "+" + player.equipment[Index].effectStats[i] + " Mag Def";
-                                break;
-                        }
-                        effectNum++;
-                    }
-                }
+                ItemPreviewEffect1Text.Text = player.equipment[Index].GetDescription1();
+                ItemPreviewEffect2Text.Text = player.equipment[Index].GetDescription2();
 
-                if (effectNum == 1)
-                {
-                    ItemPreviewEffect2Text.Text = "";
-                }
+
             }
             else if (Index >= 0 && equippedOrBagNum == 2)
             {
@@ -151,67 +134,12 @@ namespace StackNavogatorRPG
                 ItemPreviewEffect2Text.Hidden = false;
                 EquipUseButton.Hidden = false;
 
-                ItemPreviewImage.Image = UIImage.FromBundle("Item Images/" + player.bag[Index].image);
-                ItemPreviewTitle.Text = player.bag[Index].name;
+                ItemPreviewImage.Image = player.bag[Index].Sprite;
+                ItemPreviewTitle.Text = player.bag[Index].GetName();
 
-                for (int i = 0; i < 6; i++)
-                {
-                    if (player.bag[Index].effectStats[i] != 0 && effectNum == 0)
-                    {
-                        switch (i)
-                        {
-                            case 0:
-                                ItemPreviewEffect1Text.Text = "+" + player.bag[Index].effectStats[i] + " HP";
-                                break;
-                            case 1:
-                                ItemPreviewEffect1Text.Text = "+" + player.bag[Index].effectStats[i] + " Stam";
-                                break;
-                            case 2:
-                                ItemPreviewEffect1Text.Text = "+" + player.bag[Index].effectStats[i] + " Phys Att";
-                                break;
-                            case 3:
-                                ItemPreviewEffect1Text.Text = "+" + player.bag[Index].effectStats[i] + " Phys Def";
-                                break;
-                            case 4:
-                                ItemPreviewEffect1Text.Text = "+" + player.bag[Index].effectStats[i] + " Mag Att";
-                                break;
-                            case 5:
-                                ItemPreviewEffect1Text.Text = "+" + player.bag[Index].effectStats[i] + " Mag Def";
-                                break;
-                        }
-                        effectNum++;
-                    }
-                    else if (player.bag[Index].effectStats[i] != 0 && effectNum == 1)
-                    {
-                        switch (i)
-                        {
-                            case 0:
-                                ItemPreviewEffect2Text.Text = "+" + player.bag[Index].effectStats[i] + " HP";
-                                break;
-                            case 1:
-                                ItemPreviewEffect2Text.Text = "+" + player.bag[Index].effectStats[i] + " Stam";
-                                break;
-                            case 2:
-                                ItemPreviewEffect2Text.Text = "+" + player.bag[Index].effectStats[i] + " Phys Att";
-                                break;
-                            case 3:
-                                ItemPreviewEffect2Text.Text = "+" + player.bag[Index].effectStats[i] + " Phys Def";
-                                break;
-                            case 4:
-                                ItemPreviewEffect2Text.Text = "+" + player.bag[Index].effectStats[i] + " Mag Att";
-                                break;
-                            case 5:
-                                ItemPreviewEffect2Text.Text = "+" + player.bag[Index].effectStats[i] + " Mag Def";
-                                break;
-                        }
-                        effectNum++;
-                    }
-                }
+                ItemPreviewEffect1Text.Text = player.bag[Index].GetDescription1();
+                ItemPreviewEffect2Text.Text = player.bag[Index].GetDescription2();
 
-                if (effectNum == 1)
-                {
-                    ItemPreviewEffect2Text.Text = "";
-                }
             }
             else
             {
@@ -238,7 +166,7 @@ namespace StackNavogatorRPG
             {
                 int id = indexPath.Row;
                 UITableViewCell cell = new UITableViewCell();
-                cell.TextLabel.Text = player.equipment[id].name;
+                cell.TextLabel.Text = player.equipment[id].GetName();
                 return cell;
             }
 
@@ -271,7 +199,7 @@ namespace StackNavogatorRPG
             {
                 int id = indexPath.Row;
                 UITableViewCell cell = new UITableViewCell();
-                cell.TextLabel.Text = player.bag[id].name;
+                cell.TextLabel.Text = player.bag[id].GetName();
                 return cell;
             }
 

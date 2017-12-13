@@ -218,6 +218,7 @@
     <BundleResource Include="Resources\Tab Icon Images\PauseTabIcon.png" />
     <BundleResource Include="Resources\Tab Icon Images\ViewTabIcon.png" />
     <BundleResource Include="Resources\Tab Icon Images\itemsTabIcon.png" />
+    <BundleResource Include="Resources\Background Images\bg-battle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

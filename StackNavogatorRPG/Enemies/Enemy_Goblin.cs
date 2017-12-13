@@ -11,11 +11,13 @@ namespace StackNavogatorRPG.Enemies
         {
             public override int Action(CharacterBase source, CharacterBase target, out string message)
             {
-                int damage = 0;
-                damage = source.PhysicalAttack - target.PhysicalDefense + 2;
-                target.Health -= damage;
-                message = source.GetName() + " scratched " + target.GetName() + " with its claws and deals " + damage + " damage!";
-                return damage;
+                float damage = 0;
+                damage = source.PhysicalAttack - source.PhysicalAttack / (target.PhysicalDefense * 5);
+                target.Health -= (int)damage;
+                message = source.GetName() + " hit " + target.GetName() + " and dealt " + damage + " damage!";
+                if (damage < 1)
+                    damage = 1;
+                return (int)damage;
             }
 
             public override string GetName()
@@ -49,6 +51,11 @@ namespace StackNavogatorRPG.Enemies
         public override string GetName()
         {
             return "Goblin";
+        }
+
+        public override int GetExpValue()
+        {
+            return 3;
         }
     }
 }

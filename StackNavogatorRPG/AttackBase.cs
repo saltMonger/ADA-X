@@ -19,15 +19,17 @@ namespace StackNavogatorRPG
     public class Attack_Punch: AttackBase{
         public override int Action(CharacterBase source, CharacterBase target, out string message)
         {
-            int damage = 0;
-            damage = source.PhysicalAttack - target.PhysicalDefense;
-            target.Health -= damage;
-            message = source.GetName() + " punched " + target.GetName() + " and dealt " + damage + " damage!";
-            return damage;
+            float damage = 0;
+            damage = source.PhysicalAttack - source.PhysicalAttack/(target.PhysicalDefense*5);
+            target.Health -= (int)damage;
+            message = source.GetName() + " hit " + target.GetName() + " and dealt " + damage + " damage!";
+            if (damage < 1)
+                damage = 1;
+            return (int)damage;
         }
         public override string GetName()
         {
-            return "Basic Punch";
+            return "Swing Weapon";
         }
     }
 
@@ -35,15 +37,18 @@ namespace StackNavogatorRPG
     {
         public override int Action(CharacterBase source, CharacterBase target, out string message)
         {
-            int damage = 0;
-            damage = source.MagicAttack - target.MagicDefense;
-            target.Health -= damage;
+            float damage = 0;
+            damage = source.MagicAttack - source.MagicAttack / (target.MagicDefense * 5);
+            target.Health -= (int)damage;
             message = source.GetName() + " cast a spell on " + target.GetName() + " and dealt " + damage + " damage!";
-            return damage;
+            if (damage < 1)
+                damage = 1;
+            source.Stamina = source.Stamina - 2;
+            return (int)damage;
         }
         public override string GetName()
         {
-            return "Basic Magic";
+            return "Magic Beam";
         }
         public override int GetManaCost()
         {
@@ -59,6 +64,7 @@ namespace StackNavogatorRPG
             heal = source.MagicAttack + 5;
             source.Health += heal;
             message = source.GetName() + " recovered " + heal + " health!";
+            source.Stamina = source.Stamina - 5;
             return heal;
         }
         public override string GetName()
