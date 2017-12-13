@@ -60,16 +60,19 @@ namespace StackNavogatorRPG
             Item_RustySword rustySword = new Item_RustySword();
             GameManager.Instance.playerCharacter.equipment.Add(rustySword);
 
-            Item_BronzeSword bronzeSword = new Item_BronzeSword();
-            GameManager.Instance.playerCharacter.bag.Add(bronzeSword);
-
             Item_HealthPotion HPPotion = new Item_HealthPotion();
             GameManager.Instance.playerCharacter.bag.Add(HPPotion);
             GameManager.Instance.playerCharacter.UpdateStats();
 
-
-
             PresentViewController(TabView, true, null);
+        }
+
+        public void RemoveViews()
+        {
+            foreach (UIView view in dngNav)
+            {
+                view.RemoveFromSuperview();
+            }
         }
     }
 }

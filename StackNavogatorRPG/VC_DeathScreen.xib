@@ -7,56 +7,74 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Courier.ttc">
-            <string>Courier-Bold</string>
-        </array>
-    </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VC_MapView">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VC_DeathScreen">
             <connections>
-                <outlet property="MapImage" destination="128" id="name-outlet-128"/>
-                <outlet property="MapLabel" destination="798" id="name-outlet-798"/>
                 <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
+                <outlet property="DeadOrEscapeLabel" destination="2824" id="name-outlet-2824"/>
+                <outlet property="SummaryLabel" destination="6309" id="name-outlet-6309"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="2">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background Images/bg-menu.png" translatesAutoresizingMaskIntoConstraints="NO" id="128">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="679" translatesAutoresizingMaskIntoConstraints="NO" image="Background Images/bg-pause.png">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="3252" translatesAutoresizingMaskIntoConstraints="NO" image="Map Images/mapBackground.jpg">
-                    <rect key="frame" x="34" y="41" width="307" height="585"/>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="798">
-                    <rect key="frame" x="34" y="41" width="307" height="585"/>
-                    <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="18"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dead" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2824" translatesAutoresizingMaskIntoConstraints="NO">
+                    <rect key="frame" x="37" y="86" width="215" height="68"/>
+                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="50"/>
+                    <color key="textColor" colorSpace="calibratedRGB" red="0.984313725490196" green="0.00392156862745098" blue="0.023529411764705882" alpha="1"/>
+                    <nil key="highlightedColor"/>
+                    <constraints>
+                        <constraint id="25072" firstItem="2824" firstAttribute="height" constant="68"/>
+                        <constraint id="25341" firstItem="2824" firstAttribute="width" constant="215"/>
+                    </constraints>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Like countless others, you have fallen to the Demon King's dungeons." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6309" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="5">
+                    <rect key="frame" x="47" y="188" width="194" height="120"/>
+                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
+                    <size key="shadowOffset" width="0" height="1"/>
+                    <constraints>
+                        <constraint id="26416" firstItem="6309" firstAttribute="width" constant="194"/>
+                        <constraint id="26685" firstItem="6309" firstAttribute="height" constant="120"/>
+                    </constraints>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="19442" translatesAutoresizingMaskIntoConstraints="NO">
+                    <rect key="frame" x="76" y="490" width="140" height="30"/>
+                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="18"/>
+                    <state key="normal" title="Main Menu">
+                        <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                    </state>
+                    <connections>
+                        <action selector="UIButton19442_TouchUpInside:" destination="-1" id="19711" eventType="touchUpInside"/>
+                    </connections>
+                    <constraints>
+                        <constraint id="29370" firstItem="19442" firstAttribute="width" constant="140"/>
+                        <constraint id="29639" firstItem="19442" firstAttribute="height" constant="30"/>
+                    </constraints>
+                </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="128" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="367"/>
-                <constraint firstItem="128" firstAttribute="top" secondItem="2" secondAttribute="top" id="374"/>
-                <constraint firstAttribute="trailing" secondItem="128" secondAttribute="trailing" id="387"/>
-                <constraint firstAttribute="bottom" secondItem="128" secondAttribute="bottom" id="394"/>
-                <constraint firstItem="798" firstAttribute="leading" secondItem="128" secondAttribute="leading" id="2077" constant="34"/>
-                <constraint firstItem="798" firstAttribute="top" secondItem="128" secondAttribute="top" id="2078" constant="41"/>
-                <constraint firstItem="128" firstAttribute="trailing" secondItem="798" secondAttribute="trailing" id="2079" constant="34"/>
-                <constraint firstItem="128" firstAttribute="bottom" secondItem="798" secondAttribute="bottom" id="2080" constant="41"/>
-                <constraint id="3789" firstItem="3252" firstAttribute="top" secondItem="798" secondAttribute="top"/>
-                <constraint id="4058" firstItem="3252" firstAttribute="leading" secondItem="798" secondAttribute="leading"/>
-                <constraint id="4595" firstItem="798" firstAttribute="trailing" secondItem="3252" secondAttribute="trailing"/>
-                <constraint id="5132" firstItem="798" firstAttribute="bottom" secondItem="3252" secondAttribute="bottom"/>
+                <constraint id="25610" firstItem="2824" firstAttribute="top" secondItem="679" secondAttribute="top" constant="86"/>
+                <constraint id="26954" firstItem="6309" firstAttribute="top" secondItem="2824" secondAttribute="bottom" constant="34"/>
+                <constraint id="28296" firstItem="2824" firstAttribute="leading" secondItem="679" secondAttribute="leading" constant="37"/>
+                <constraint id="29101" firstItem="6309" firstAttribute="leading" secondItem="679" secondAttribute="leading" constant="47"/>
+                <constraint id="29908" firstItem="679" firstAttribute="bottom" secondItem="19442" secondAttribute="bottom" constant="147"/>
+                <constraint id="30177" firstItem="19442" firstAttribute="leading" secondItem="679" secondAttribute="leading" constant="76"/>
+                <constraint id="32551" firstItem="679" firstAttribute="trailing" secondItem="2" secondAttribute="trailing"/>
+                <constraint id="32820" firstItem="679" firstAttribute="leading" secondItem="2" secondAttribute="leading"/>
+                <constraint id="33089" firstItem="679" firstAttribute="top" secondItem="2" secondAttribute="top"/>
+                <constraint id="33358" firstItem="679" firstAttribute="bottom" secondItem="2" secondAttribute="bottom"/>
             </constraints>
         </view>
     </objects>
     <resources>
-        <image name="Map Images/mapBackground.jpg" width="500" height="500"/>
         <image name="Item Images/bronzeSword.png" width="480" height="480"/>
         <image name="Item Images/chestClosed.png" width="480" height="480"/>
         <image name="Item Images/chestOpen.png" width="480" height="480"/>
@@ -123,6 +141,7 @@
         <image name="Enemy Images/minotaur.png" width="810" height="810"/>
         <image name="Enemy Images/rat.png" width="810" height="810"/>
         <image name="Enemy Images/scorpion.png" width="810" height="810"/>
+        <image name="Map Images/mapBackground.jpg" width="500" height="500"/>
         <image name="Map Images/mapBossIcon.png" width="128" height="128"/>
         <image name="Map Images/mapPlayerIconE.png" width="128" height="128"/>
         <image name="Map Images/mapPlayerIconN.png" width="128" height="128"/>

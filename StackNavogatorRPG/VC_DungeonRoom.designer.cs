@@ -24,6 +24,10 @@ namespace StackNavogatorRPG
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton OkLootButton { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton RightButton { get; set; }
 
         [Outlet]
@@ -34,6 +38,10 @@ namespace StackNavogatorRPG
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton TopButton { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel TreasureFoundLabel { get; set; }
+
         [Action ("BottomButton_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void BottomButton_TouchUpInside (UIKit.UIButton sender);
@@ -41,6 +49,10 @@ namespace StackNavogatorRPG
         [Action ("LeftButton_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void LeftButton_TouchUpInside (UIKit.UIButton sender);
+
+        [Action ("OkLootButton_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void OkLootButton_TouchUpInside (UIKit.UIButton sender);
 
         [Action ("RightButton_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -66,6 +78,11 @@ namespace StackNavogatorRPG
                 LeftButton = null;
             }
 
+            if (OkLootButton != null) {
+                OkLootButton.Dispose ();
+                OkLootButton = null;
+            }
+
             if (RightButton != null) {
                 RightButton.Dispose ();
                 RightButton = null;
@@ -79,6 +96,11 @@ namespace StackNavogatorRPG
             if (TopButton != null) {
                 TopButton.Dispose ();
                 TopButton = null;
+            }
+
+            if (TreasureFoundLabel != null) {
+                TreasureFoundLabel.Dispose ();
+                TreasureFoundLabel = null;
             }
         }
     }

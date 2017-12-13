@@ -12,11 +12,11 @@ namespace StackNavogatorRPG.Enemies
             public override int Action(CharacterBase source, CharacterBase target, out string message)
             {
                 float damage = 0;
-                damage = source.PhysicalAttack - source.PhysicalDefense;
+                damage = source.PhysicalAttack - (target.PhysicalDefense / source.PhysicalAttack);
+                if (damage < 1)
+                    damage = 1;
                 target.Health -= (int)damage;
                 message = source.GetName() + " hit " + target.GetName() + " and dealt " + damage + " damage!";
-                if (damage < 0)
-                    damage = 0;
                 return (int)damage;
             }
 
@@ -33,13 +33,13 @@ namespace StackNavogatorRPG.Enemies
             attacks.Add(new Attack_GoblinScratch());
 
             //set stats
-            PhysicalAttack = 5;
+            PhysicalAttack = 10;
             PhysicalDefense = 4;
-            MagicAttack = 0;
-            MagicDefense = 0;
-            MaxHealth = 25;
-            Health = 25;
-            //Level = 1;
+            MagicAttack = 5;
+            MagicDefense = 2;
+            MaxHealth = 30;
+            Health = 30;
+            Level = 3;
         }
 
         public override UIImage GetImage()

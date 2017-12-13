@@ -109,7 +109,7 @@ namespace StackNavogatorRPG
 
             if (attackIndex >= 0 && tableSection >= 0)
             {
-                if (tableSection == 0)
+                if (tableSection == 0 && playerCharacter.Stamina >= playerCharacter.attacks[attackIndex].GetManaCost())
                 {
                     AttackBase playerAttack = playerCharacter.attacks[attackIndex];
                     AttackBase enemyAttack = enemyCharacter.GetRandomAttack();
@@ -127,7 +127,12 @@ namespace StackNavogatorRPG
                     Txt_BattleSummary.Text = "";
                     Txt_BattleSummary.Text += msg1 + '\n';
                     Txt_BattleSummary.Text += msg2 + '\n';
-                }else{
+                }else if (tableSection == 0 && playerCharacter.Stamina < playerCharacter.attacks[attackIndex].GetManaCost())
+                {
+                    Txt_BattleSummary.Text = "Not Enough Mana!";
+                }
+                else
+                {
                     ItemBase playerItem = playerCharacter.bag[attackIndex];
                     Console.WriteLine(attackIndex);
                     string str = playerCharacter.UseItem(attackIndex, playerCharacter);
@@ -143,9 +148,21 @@ namespace StackNavogatorRPG
 
             Tbl_AttackList.ReloadData();
 
-            if(enemyCharacter.Health <= 0){
+            if(enemyCharacter.Health <= 0 && enemyCharacter.IsFinalBoss())
+            {
+                VC_DeathScreen deathScreen = new VC_DeathScreen(true);
+                PresentViewController(deathScreen, true, null);
+            }
+
+            else if(enemyCharacter.Health <= 0){
                 playerCharacter.Experience += enemyCharacter.GetExpValue();
                 this.DismissViewController(true,null);
+            }
+
+            if (playerCharacter.Health <= 0)
+            {
+                VC_DeathScreen deathScreen = new VC_DeathScreen(false);
+                PresentViewController(deathScreen, true, null);
             }
         }
     }

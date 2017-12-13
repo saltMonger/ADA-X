@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using StackNavogatorRPG.Enemies;
+using StackNavogatorRPG.Map;
+using UIKit;
 
 namespace StackNavogatorRPG
 {
     public class GameManager
     {
+
         static GameManager inst;
         public static GameManager Instance{
             get{
@@ -48,11 +51,40 @@ namespace StackNavogatorRPG
         public EnemyCharacter bossEnemy = new Enemy_FinalBoss();
 
         static Random r = new Random();
+
         public EnemyCharacter GetRandomEnemy(){
             int index = r.Next(0, enemyList.Count);
             EnemyCharacter c = enemyList[index];
             c.Reset();
             return c;
+        }
+
+        public EnemyCharacter GetBossEnemy()
+        {
+            EnemyCharacter c = new Enemy_FinalBoss();
+            return c;
+        }
+
+        public void RestartGame()
+        {
+            playerCharacter.PhysicalAttack = 5;
+            playerCharacter.PhysicalDefense = 1;
+            playerCharacter.MagicAttack = 1;
+            playerCharacter.MagicDefense = 0;
+            playerCharacter.MaxHealth = 20;
+            playerCharacter.Health = 20;
+            playerCharacter.MaxStamina = 10;
+            playerCharacter.Stamina = 10;
+            playerCharacter.ExperienceToNextLevel = 10;
+            playerCharacter.Experience = 0;
+
+            playerCharacter.equipment.Clear();
+            playerCharacter.bag.Clear();
+
+            playerCharacter.equipment.Add(new Item_RustySword());
+            playerCharacter.bag.Add(new Item_HealthPotion());
+
+
         }
 
         //Rooms

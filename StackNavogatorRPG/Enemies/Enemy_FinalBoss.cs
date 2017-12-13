@@ -11,11 +11,11 @@ namespace StackNavogatorRPG.Enemies
             public override int Action(CharacterBase source, CharacterBase target, out string message)
             {
                 float damage = 0;
-                damage = source.PhysicalAttack - source.PhysicalDefense;
+                damage = source.PhysicalAttack - (target.PhysicalDefense / source.PhysicalAttack);
+                if (damage < 1)
+                    damage = 1;
                 target.Health -= (int)damage;
                 message = source.GetName() + " burns you " + target.GetName() + " and deals " + damage + " damage!";
-                if (damage < 0)
-                    damage = 0;
                 return (int)damage;
             }
 
@@ -33,13 +33,13 @@ namespace StackNavogatorRPG.Enemies
             attacks.Add(new Attack_Healing());
 
             //set stats
-            PhysicalAttack = 30;
-            PhysicalDefense = 15;
-            MagicAttack = 40;
-            MagicDefense = 30;
-            MaxHealth = 200;
-            Health = 200;
-            //Level = 1;
+            PhysicalAttack = 20;
+            PhysicalDefense = 10;
+            MagicAttack = 20;
+            MagicDefense = 10;
+            MaxHealth = 100;
+            Health = 100;
+            Level = 10;
         }
 
         public override UIImage GetImage()
@@ -54,6 +54,11 @@ namespace StackNavogatorRPG.Enemies
         public override string GetIntro()
         {
             return GetName() + " appears before you...";
+        }
+
+        public override bool IsFinalBoss()
+        {
+            return true;
         }
     }
 }

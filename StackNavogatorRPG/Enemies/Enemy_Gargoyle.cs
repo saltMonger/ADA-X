@@ -12,11 +12,11 @@ namespace StackNavogatorRPG.Enemies
             public override int Action(CharacterBase source, CharacterBase target, out string message)
             {
                 float damage = 0;
-                damage = source.PhysicalAttack - source.PhysicalAttack / (target.PhysicalDefense * 5);
+                damage = source.PhysicalAttack - (target.PhysicalDefense / source.PhysicalAttack);
+                if (damage < 1)
+                    damage = 1;
                 target.Health -= (int)damage;
                 message = source.GetName() + " hit " + target.GetName() + " and dealt " + damage + " damage!";
-                if (damage < 0)
-                    damage = 0;
                 return (int)damage;
             }
 
@@ -46,13 +46,13 @@ namespace StackNavogatorRPG.Enemies
             attacks.Add(new Attack_GargoyleScratch());
 
             //set stats
-            PhysicalAttack = 5;
-            PhysicalDefense = 3;
+            PhysicalAttack = 10;
+            PhysicalDefense = 10;
             MagicAttack = 0;
-            MagicDefense = 1;
-            MaxHealth = 20;
-            Health = 20;
-            //Level = 1;
+            MagicDefense = 0;
+            MaxHealth = 40;
+            Health = 40;
+            Level = 4;
         }
 
         public override UIImage GetImage()

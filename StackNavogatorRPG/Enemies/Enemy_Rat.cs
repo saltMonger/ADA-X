@@ -12,11 +12,11 @@ namespace StackNavogatorRPG.Enemies
             public override int Action(CharacterBase source, CharacterBase target, out string message)
             {
                 float damage = 0;
-                damage = source.PhysicalAttack - target.PhysicalDefense - 1;
+                damage = source.PhysicalAttack - (target.PhysicalDefense/source.PhysicalAttack);
+                if (damage < 1)
+                    damage = 1;
                 target.Health -= (int)damage;
                 message = source.GetName() + " bites " + target.GetName() + " and deals " + damage + " damage!";
-                if (damage < 0)
-                    damage = 0;
                 return (int)damage;
             }
 
@@ -30,11 +30,13 @@ namespace StackNavogatorRPG.Enemies
         {
             public override int Action(CharacterBase source, CharacterBase target, out string message)
             {
-                int damage = source.MagicAttack - target.MagicDefense;
-                if (damage < 0) { damage = 0; }
+                float damage = 0;
+                damage = source.MagicAttack - (target.MagicDefense / source.MagicAttack);
+                target.Health -= (int)damage;
+                if (damage < 1) { damage = 1; }
                 message = source.GetName() + " gathers an army and attacks! -" + damage + " Mana!";
 
-                return damage;
+                return (int)damage;
             }
 
             public override string GetName()
@@ -52,12 +54,12 @@ namespace StackNavogatorRPG.Enemies
 
             //set stats
             PhysicalAttack = 3;
-            PhysicalDefense = 0;
-            MagicAttack = 6;
-            MagicDefense = 4;
-            MaxHealth = 10;
-            Health = 10;
-            //Level = 1;
+            PhysicalDefense = 1;
+            MagicAttack = 4;
+            MagicDefense = 2;
+            MaxHealth = 20;
+            Health = 20;
+            Level = 2;
         }
 
         public override UIImage GetImage()

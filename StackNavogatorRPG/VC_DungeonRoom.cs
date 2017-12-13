@@ -10,6 +10,8 @@ namespace StackNavogatorRPG
         public RoomCell rc;
         public bool firstRoom;
 
+        private ItemGenerator gen = new ItemGenerator();
+
         public Direction LeftButtonDuty
         {
             get;
@@ -46,6 +48,61 @@ namespace StackNavogatorRPG
             base.ViewDidLoad();
             main();
             // Perform any additional setup after loading the view, typically from a nib.
+            TreasureFoundLabel.Hidden = true;
+            OkLootButton.Hidden = true;
+
+            if (rc.Treasure)
+            {
+                //RYAN DO TREASURE HERE
+
+                TreasureFoundLabel.Hidden = false;
+                OkLootButton.Hidden = false;
+                ItemBase item = gen.GenerateItem(1);
+                GameManager.Instance.playerCharacter.bag.Add(item);
+            }
+
+            if (!firstRoom)
+            {
+                if (!rc.Boss)
+                {
+                    Random rng = new Random();
+                    int chance = rng.Next(0, 4);
+                    if (chance == 0)
+                    {
+                        GameManager gm = GameManager.Instance;
+                        EnemyCharacter enemy = gm.GetRandomEnemy();
+                        VC_BattleRoom battle = new VC_BattleRoom(gm.playerCharacter, enemy);
+                        PresentViewController(battle, true, null);
+                    }
+                }
+                else
+                {
+                    GameManager gm = GameManager.Instance;
+                    EnemyCharacter enemy = gm.GetBossEnemy();
+                    VC_BattleRoom battle = new VC_BattleRoom(gm.playerCharacter, enemy);
+                    PresentViewController(battle, true, null);
+                }
+            }
+
+            if (LeftButtonDuty == Direction.None)
+                LeftButton.Hidden = true;
+            else
+                LeftButton.Hidden = false;
+
+            if (RightButtonDuty == Direction.None)
+                RightButton.Hidden = true;
+            else
+                RightButton.Hidden = false;
+
+            if (TopButtonDuty == Direction.None)
+                TopButton.Hidden = true;
+            else
+                TopButton.Hidden = false;
+
+            if (BottomButtonDuty == Direction.None)
+                BottomButton.Hidden = true;
+            else
+                BottomButton.Hidden = false;
         }
 
         public override void DidReceiveMemoryWarning()
@@ -69,34 +126,19 @@ namespace StackNavogatorRPG
             RightButton.SetTitle(RightButtonDuty.ToString(), UIControlState.Normal);
             LeftButton.SetTitle(LeftButtonDuty.ToString(), UIControlState.Normal);
 
+
+            base.ViewDidAppear(animated);
+        }
+
+        partial void OkLootButton_TouchUpInside(UIButton sender)
+        {
+            TreasureFoundLabel.Hidden = true;
+            OkLootButton.Hidden = true;
         }
 
         public override void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
-            if(rc.Treasure){
-                //RYAN DO TREASURE HERE
-            }
-
-            if (!firstRoom)
-            {
-                if (!rc.Boss)
-                {
-                    Random rng = new Random();
-                    int chance = rng.Next(0, 4);
-                    if (chance == 0)
-                    {
-                        GameManager gm = GameManager.Instance;
-                        EnemyCharacter enemy = gm.GetRandomEnemy();
-                        VC_BattleRoom battle = new VC_BattleRoom(gm.playerCharacter, enemy);
-                        PresentViewController(battle, true, null);
-                    }
-                }
-                else
-                {
-                    //boss goes here
-                }
-            }
         }
 
         partial void UIButton547_TouchUpInside(UIButton sender)

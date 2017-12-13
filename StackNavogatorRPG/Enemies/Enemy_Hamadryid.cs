@@ -12,11 +12,11 @@ namespace StackNavogatorRPG.Enemies
             public override int Action(CharacterBase source, CharacterBase target, out string message)
             {
                 float damage = 0;
-                damage = source.PhysicalAttack - source.PhysicalAttack / (target.PhysicalDefense * 5);
+                damage = source.PhysicalAttack - (target.PhysicalDefense / source.PhysicalAttack);
+                if (damage < 1)
+                    damage = 1;
                 target.Health -= (int)damage;
                 message = source.GetName() + " hit " + target.GetName() + " and dealt " + damage + " damage!";
-                if (damage < 0)
-                    damage = 0;
                 return (int)damage;
             }
 
@@ -31,9 +31,9 @@ namespace StackNavogatorRPG.Enemies
             public override int Action(CharacterBase source, CharacterBase target, out string message)
             {
                 float damage = 0;
-                damage = source.MagicAttack - source.MagicDefense;
-                if (damage < 0)
-                    damage = 0;
+                damage = source.MagicAttack - (target.MagicDefense / source.MagicAttack);
+                if (damage < 1)
+                    damage = 1;
                 int heal = (int)(damage / 3);
                 target.Health -= (int)damage;
 
@@ -60,13 +60,13 @@ namespace StackNavogatorRPG.Enemies
             attacks.Add(new Attack_Healing());
 
             //set stats
-            PhysicalAttack = 4;
-            PhysicalDefense = 10;
-            MagicAttack = 8;
-            MagicDefense = 12;
+            PhysicalAttack = 6;
+            PhysicalDefense = 4;
+            MagicAttack = 10;
+            MagicDefense = 6;
             MaxHealth = 50;
             Health = 50;
-            //Level = 1;
+            Level = 5;
         }
 
         public override UIImage GetImage()

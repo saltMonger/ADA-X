@@ -31,6 +31,11 @@ namespace StackNavogatorRPG
             return true;
         }
 
+        public void RestartGame()
+        {
+            Window.RootViewController = new MainMenu();
+        }
+
         public override void OnResignActivation(UIApplication application)
         {
             // Invoked when the application is about to move from active to inactive state.

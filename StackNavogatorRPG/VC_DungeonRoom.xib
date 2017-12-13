@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,6 +16,8 @@
                 <outlet property="TopButton" destination="4120" id="name-outlet-4120"/>
                 <outlet property="RightButton" destination="4291" id="name-outlet-4291"/>
                 <outlet property="BottomButton" destination="4472" id="name-outlet-4472"/>
+                <outlet property="TreasureFoundLabel" destination="19254" id="name-outlet-19254"/>
+                <outlet property="OkLootButton" destination="23827" id="name-outlet-23827"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -127,6 +132,27 @@
                         <action selector="BottomButton_TouchUpInside:" destination="-1" id="4667" eventType="touchUpInside"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="19254" translatesAutoresizingMaskIntoConstraints="NO" text="Loot Found!">
+                    <rect key="frame" x="103" y="391" width="226" height="72"/>
+                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="24"/>
+                    <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                    <nil key="highlightedColor"/>
+                    <constraints>
+                        <constraint id="36454" firstItem="19254" firstAttribute="width" constant="226"/>
+                    </constraints>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="23827" translatesAutoresizingMaskIntoConstraints="NO">
+                    <rect key="frame" x="184" y="439" width="46" height="30"/>
+                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                    <state key="normal" title="OK"/>
+                    <constraints>
+                        <constraint id="30183" firstItem="23827" firstAttribute="width" constant="46"/>
+                        <constraint id="30438" firstItem="23827" firstAttribute="height" constant="30"/>
+                    </constraints>
+                    <connections>
+                        <action selector="OkLootButton_TouchUpInside:" destination="-1" id="30948" eventType="touchUpInside"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -136,15 +162,11 @@
                 <constraint id="2682" firstItem="2680" firstAttribute="top" secondItem="2" secondAttribute="top"/>
                 <constraint id="2683" firstItem="2" firstAttribute="trailing" secondItem="2680" secondAttribute="trailing"/>
                 <constraint id="2684" firstItem="2" firstAttribute="bottom" secondItem="2680" secondAttribute="bottom"/>
-                <constraint id="2694" firstItem="2680" firstAttribute="bottom" secondItem="2690" secondAttribute="bottom" constant="197"/>
                 <constraint id="3667" firstItem="2690" firstAttribute="leading" secondItem="2680" secondAttribute="leading" constant="8"/>
                 <constraint id="3668" firstItem="2690" firstAttribute="top" secondItem="2680" secondAttribute="top" constant="152"/>
                 <constraint id="3685" firstItem="2690" firstAttribute="leading" secondItem="2680" secondAttribute="leading" constant="8"/>
                 <constraint id="3686" firstItem="2680" firstAttribute="trailing" secondItem="2690" secondAttribute="trailing" constant="308"/>
-                <constraint id="4121" firstItem="4120" firstAttribute="leading" secondItem="2690" secondAttribute="trailing" constant="58"/>
                 <constraint id="4122" firstItem="4120" firstAttribute="top" secondItem="2680" secondAttribute="top" constant="250"/>
-                <constraint id="4123" firstItem="2680" firstAttribute="trailing" secondItem="4120" secondAttribute="trailing" constant="165"/>
-                <constraint id="4292" firstItem="4291" firstAttribute="leading" secondItem="4120" secondAttribute="trailing" constant="77"/>
                 <constraint id="4293" firstItem="4291" firstAttribute="top" secondItem="2680" secondAttribute="top" constant="196"/>
                 <constraint id="4294" firstItem="2680" firstAttribute="trailing" secondItem="4291" secondAttribute="trailing" constant="14"/>
                 <constraint id="4477" firstItem="4472" firstAttribute="leading" secondItem="2690" secondAttribute="trailing" constant="65">
@@ -154,6 +176,13 @@
                     <variation key="heightClass=regular-widthClass=compact" constant="1"/>
                 </constraint>
                 <constraint id="4479" firstItem="4472" firstAttribute="top" secondItem="4120" secondAttribute="bottom" constant="55"/>
+                <constraint id="28654" firstItem="19254" firstAttribute="top" secondItem="2680" secondAttribute="centerY" constant="23"/>
+                <constraint id="29419" firstItem="2680" firstAttribute="bottom" secondItem="19254" secondAttribute="bottom" constant="273"/>
+                <constraint id="29928" firstItem="23827" firstAttribute="top" secondItem="19254" secondAttribute="centerY" constant="12"/>
+                <constraint id="30693" firstItem="23827" firstAttribute="centerX" secondItem="4120" secondAttribute="centerX"/>
+                <constraint id="36199" firstItem="19254" firstAttribute="centerX" secondItem="4120" secondAttribute="centerX" constant="9"/>
+                <constraint id="36709" firstItem="4120" firstAttribute="centerX" secondItem="2680" secondAttribute="centerX"/>
+                <constraint id="37726" firstItem="2690" firstAttribute="leading" secondItem="2680" secondAttribute="leading" constant="8"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
@@ -161,10 +190,7 @@
                     <exclude reference="3668"/>
                     <exclude reference="3685"/>
                     <exclude reference="3686"/>
-                    <exclude reference="4121"/>
                     <exclude reference="4122"/>
-                    <exclude reference="4123"/>
-                    <exclude reference="4292"/>
                     <exclude reference="4293"/>
                     <exclude reference="4294"/>
                     <exclude reference="4477"/>
@@ -183,10 +209,7 @@
                     <include reference="3668"/>
                     <include reference="3685"/>
                     <include reference="3686"/>
-                    <include reference="4121"/>
                     <include reference="4122"/>
-                    <include reference="4123"/>
-                    <include reference="4292"/>
                     <include reference="4293"/>
                     <include reference="4294"/>
                     <include reference="4477"/>
@@ -283,6 +306,7 @@
         <image name="Background Images/bg-battle.png" width="810" height="1440"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedScreenMetrics key="destination" type="retina55"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+        <simulatedOrientationMetrics key="orientation"/>
     </simulatedMetricsContainer>
 </document>

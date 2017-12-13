@@ -54,7 +54,7 @@ namespace StackNavogatorRPG
             else
             {
                 bag.Remove(item);
-                drinkPotion(item as ConsumableBase);
+                drinkPotion((ConsumableBase)item);
             }
             UpdateStats();
         }
@@ -94,6 +94,17 @@ namespace StackNavogatorRPG
         {
             Health = Health + potion.restoreHealth;
             Stamina = Stamina + potion.restoreMana;
+
+            if (Health > MaxHealth)
+                Health = MaxHealth;
+            if (Stamina > MaxStamina)
+                Stamina = MaxStamina;
+        }
+
+        public void drinkPotion(int HP, int Mana)
+        {
+            Health = Health + HP;
+            Stamina = Stamina + Mana;
 
             if (Health > MaxHealth)
                 Health = MaxHealth;

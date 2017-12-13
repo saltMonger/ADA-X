@@ -38,6 +38,10 @@ namespace StackNavogatorRPG
         public virtual string GetIntro(){
             return GetName() + " has appeared!";
         }
+
+        public virtual bool IsFinalBoss(){
+            return false;
+        }
     }
 }
 
