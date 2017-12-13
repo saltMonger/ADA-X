@@ -76,14 +76,11 @@ namespace StackNavogatorRPG
             playerCharacter.MaxStamina = 10;
             playerCharacter.Stamina = 10;
             playerCharacter.ExperienceToNextLevel = 10;
-            playerCharacter.Experience = 0;
+            playerCharacter.Level = 0;
+            playerCharacter.UpdateStats();
 
             playerCharacter.equipment.Clear();
             playerCharacter.bag.Clear();
-
-            playerCharacter.equipment.Add(new Item_RustySword());
-            playerCharacter.bag.Add(new Item_HealthPotion());
-
 
         }
 

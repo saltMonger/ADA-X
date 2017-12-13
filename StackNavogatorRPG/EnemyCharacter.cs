@@ -28,7 +28,7 @@ namespace StackNavogatorRPG
         public abstract UIImage GetImage();
 
         public virtual int GetExpValue(){
-            return (MaxHealth + PhysicalAttack + MagicAttack + PhysicalDefense + MagicDefense) / 4;
+            return (MaxHealth + PhysicalAttack + MagicAttack + PhysicalDefense + MagicDefense) / 8;
         }
 
         public void Reset(){
