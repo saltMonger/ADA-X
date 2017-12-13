@@ -72,6 +72,10 @@ namespace MapGenAgentBased
 
             int stepCounter = 0; //local step count for random dig pattern
             Direction diggerDirection = (Direction)rng.Next(0, 4);
+            if(diggerDirection == Direction.None){
+                //superhack
+                diggerDirection = Direction.North;
+            }
             //begin digger step event
             while(RoomCountRunning <= RoomCountThreshold)
             {

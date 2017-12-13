@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StackNavogatorRPG.Map;
+using UIKit;
 
 namespace MapGenAgentBased
 {
@@ -34,7 +36,7 @@ namespace MapGenAgentBased
         public Statue Statue { get; set; }
 
         //NEED TO ACTUALLY IMPLEMENT THE IMAGE
-        public int Image { get; set; }
+        public UIImage Image { get; set; }
 
         public bool Visited;
         public bool Boss;
@@ -90,6 +92,18 @@ namespace MapGenAgentBased
 
             //do image lookup here
             //01010001
+            MapManager man = MapManager.Instance;
+            bool succeed = false;
+            UIImage img;
+            succeed = man.bgimages.TryGetValue(roomLookup, out img);
+            if(succeed){
+                Image = img;
+            }
+            else{
+                Image = UIImage.FromBundle("Background Images/bg-000.png");
+
+            }
+
 
             return roomLookup;
         }

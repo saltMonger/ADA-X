@@ -7,6 +7,9 @@ namespace StackNavogatorRPG
 {
     public partial class MainMenu : UIViewController
     {
+        public static UINavigationController dngNav;
+       
+
         public MainMenu() : base("MainMenu", null)
         {
         }
@@ -32,14 +35,16 @@ namespace StackNavogatorRPG
             //mapman.WriteMap();
 
 
+            dngNav = new UINavigationController(mapman.GetFirstRoom());
 
-            var dungeonRoom = mapman.GetFirstRoom();
+
+            //var dungeonRoom = mapman.GetFirstRoom();
             var mapView = new UIViewController();
             var inventoryView = new VC_Inventory();
 
             List<UIViewController> tabs = new List<UIViewController>();
 
-            tabs.Add(dungeonRoom);
+            tabs.Add(dngNav);
             tabs.Add(mapView);
             tabs.Add(inventoryView);
 
