@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using UIKit;
+using Foundation;
 
 namespace MapGenAgentBased
 {
@@ -70,16 +72,23 @@ namespace MapGenAgentBased
                 }
             }
 
-            unsafe
-            {
-                fixed(byte* ptr = imageBuffer)
-                {
-                    using (Bitmap image = new Bitmap(MaxSizeX, MaxSizeY, MaxSizeX * 4, System.Drawing.Imaging.PixelFormat.Format32bppRgb, new IntPtr(ptr)))
-                    {
-                        image.Save(@"map.png");
-                    }
-                }
-            }
+            //unsafe
+            //{
+            //    fixed(byte* ptr = imageBuffer)
+            //    {
+            //        using (Bitmap image = new Bitmap(MaxSizeX, MaxSizeY, MaxSizeX * 4, System.Drawing.Imaging.PixelFormat.Format32bppRgb, new IntPtr(ptr)))
+            //        {
+            //            image.Save(@"map.png");
+            //        }
+            //    }
+            //
+
+            //creating coregraphics bitmap context is overly difficult,
+            //instead of relying on gfx, we'll make a string array
+
+            //TODO: Implement string array
+
+
         }
 
 

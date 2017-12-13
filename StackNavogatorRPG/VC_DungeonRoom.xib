@@ -8,6 +8,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VC_DungeonRoom">
             <connections>
                 <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
+                <outlet property="RoomImage" destination="2680" id="name-outlet-2680"/>
+                <outlet property="LeftButton" destination="2690" id="name-outlet-2690"/>
+                <outlet property="TopButton" destination="4120" id="name-outlet-4120"/>
+                <outlet property="RightButton" destination="4291" id="name-outlet-4291"/>
+                <outlet property="BottomButton" destination="4472" id="name-outlet-4472"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -24,12 +29,176 @@
                         <action selector="UIButton547_TouchUpInside:" destination="-1" eventType="touchUpInside" id="923"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2680" translatesAutoresizingMaskIntoConstraints="NO" image="Background Images/bg-111.png">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2690" translatesAutoresizingMaskIntoConstraints="NO">
+                    <rect key="frame" x="8" y="152" width="98" height="387"/>
+                    <state key="normal" title="Button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="LeftButton_TouchUpInside:" destination="-1" id="3279" eventType="touchUpInside"/>
+                    </connections>
+                    <constraints>
+                        <constraint id="3465" firstItem="2690" firstAttribute="width" constant="98"/>
+                        <constraint id="3669" firstItem="2690" firstAttribute="height" constant="387"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="3669"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="3669"/>
+                        </mask>
+                    </variation>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4120" translatesAutoresizingMaskIntoConstraints="NO">
+                    <rect key="frame" x="164" y="250" width="85" height="187"/>
+                    <state key="normal" title="Button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <constraints>
+                        <constraint id="4124" firstItem="4120" firstAttribute="height" constant="187"/>
+                        <constraint id="4125" firstItem="4120" firstAttribute="width" constant="85"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="4124"/>
+                            <exclude reference="4125"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="4124"/>
+                            <include reference="4125"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="TopButton_TouchUpInside:" destination="-1" id="4664" eventType="touchUpInside"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4291" translatesAutoresizingMaskIntoConstraints="NO">
+                    <rect key="frame" x="326" y="196" width="74" height="301"/>
+                    <state key="normal" title="Button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <constraints>
+                        <constraint id="4295" firstItem="4291" firstAttribute="height" constant="301"/>
+                        <constraint id="4296" firstItem="4291" firstAttribute="width" constant="74"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="4295"/>
+                            <exclude reference="4296"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="4295"/>
+                            <include reference="4296"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="RightButton_TouchUpInside:" destination="-1" id="4666" eventType="touchUpInside"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4472" translatesAutoresizingMaskIntoConstraints="NO">
+                    <rect key="frame" x="107" y="492" width="218" height="110"/>
+                    <state key="normal" title="Button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <constraints>
+                        <constraint id="4474" firstItem="4472" firstAttribute="height" constant="110"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="4474"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="4474"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="BottomButton_TouchUpInside:" destination="-1" id="4667" eventType="touchUpInside"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="547" firstAttribute="top" secondItem="2" secondAttribute="top" constant="45" id="576"/>
                 <constraint firstItem="547" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="51" id="591"/>
+                <constraint id="2681" firstItem="2680" firstAttribute="leading" secondItem="2" secondAttribute="leading"/>
+                <constraint id="2682" firstItem="2680" firstAttribute="top" secondItem="2" secondAttribute="top"/>
+                <constraint id="2683" firstItem="2" firstAttribute="trailing" secondItem="2680" secondAttribute="trailing"/>
+                <constraint id="2684" firstItem="2" firstAttribute="bottom" secondItem="2680" secondAttribute="bottom"/>
+                <constraint id="2694" firstItem="2680" firstAttribute="bottom" secondItem="2690" secondAttribute="bottom" constant="197"/>
+                <constraint id="3667" firstItem="2690" firstAttribute="leading" secondItem="2680" secondAttribute="leading" constant="8"/>
+                <constraint id="3668" firstItem="2690" firstAttribute="top" secondItem="2680" secondAttribute="top" constant="152"/>
+                <constraint id="3685" firstItem="2690" firstAttribute="leading" secondItem="2680" secondAttribute="leading" constant="8"/>
+                <constraint id="3686" firstItem="2680" firstAttribute="trailing" secondItem="2690" secondAttribute="trailing" constant="308"/>
+                <constraint id="4121" firstItem="4120" firstAttribute="leading" secondItem="2690" secondAttribute="trailing" constant="58"/>
+                <constraint id="4122" firstItem="4120" firstAttribute="top" secondItem="2680" secondAttribute="top" constant="250"/>
+                <constraint id="4123" firstItem="2680" firstAttribute="trailing" secondItem="4120" secondAttribute="trailing" constant="165"/>
+                <constraint id="4292" firstItem="4291" firstAttribute="leading" secondItem="4120" secondAttribute="trailing" constant="77"/>
+                <constraint id="4293" firstItem="4291" firstAttribute="top" secondItem="2680" secondAttribute="top" constant="196"/>
+                <constraint id="4294" firstItem="2680" firstAttribute="trailing" secondItem="4291" secondAttribute="trailing" constant="14"/>
+                <constraint id="4477" firstItem="4472" firstAttribute="leading" secondItem="2690" secondAttribute="trailing" constant="65">
+                    <variation key="heightClass=regular-widthClass=compact" constant="1"/>
+                </constraint>
+                <constraint id="4478" firstItem="4291" firstAttribute="leading" secondItem="4472" secondAttribute="trailing" constant="109">
+                    <variation key="heightClass=regular-widthClass=compact" constant="1"/>
+                </constraint>
+                <constraint id="4479" firstItem="4472" firstAttribute="top" secondItem="4120" secondAttribute="bottom" constant="55"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="3667"/>
+                    <exclude reference="3668"/>
+                    <exclude reference="3685"/>
+                    <exclude reference="3686"/>
+                    <exclude reference="4121"/>
+                    <exclude reference="4122"/>
+                    <exclude reference="4123"/>
+                    <exclude reference="4292"/>
+                    <exclude reference="4293"/>
+                    <exclude reference="4294"/>
+                    <exclude reference="4477"/>
+                    <exclude reference="4478"/>
+                    <exclude reference="4479"/>
+                </mask>
+                <mask key="subviews">
+                    <exclude reference="4120"/>
+                    <exclude reference="4291"/>
+                    <exclude reference="4472"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="constraints">
+                    <include reference="3667"/>
+                    <include reference="3668"/>
+                    <include reference="3685"/>
+                    <include reference="3686"/>
+                    <include reference="4121"/>
+                    <include reference="4122"/>
+                    <include reference="4123"/>
+                    <include reference="4292"/>
+                    <include reference="4293"/>
+                    <include reference="4294"/>
+                    <include reference="4477"/>
+                    <include reference="4478"/>
+                    <include reference="4479"/>
+                </mask>
+                <mask key="subviews">
+                    <include reference="4120"/>
+                    <include reference="4291"/>
+                    <include reference="4472"/>
+                </mask>
+            </variation>
         </view>
     </objects>
     <resources>
@@ -112,4 +281,7 @@
         <image name="Tab Icon Images/ViewTabIcon.png" width="32" height="32"/>
         <image name="Tab Icon Images/itemsTabIcon.png" width="32" height="32"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedScreenMetrics key="destination" type="retina55"/>
+    </simulatedMetricsContainer>
 </document>

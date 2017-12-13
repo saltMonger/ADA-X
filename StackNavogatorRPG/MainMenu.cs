@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using StackNavogatorRPG.Map;
 using UIKit;
 
 namespace StackNavogatorRPG
@@ -27,7 +27,13 @@ namespace StackNavogatorRPG
         {
             var TabView = new UITabBarController();
 
-            var dungeonRoom = new VC_DungeonRoom();
+            MapManager mapman = MapManager.Instance;
+            mapman.GenMap();
+            //mapman.WriteMap();
+
+
+
+            var dungeonRoom = mapman.GetFirstRoom();
             var mapView = new UIViewController();
             var inventoryView = new VC_Inventory();
 
@@ -57,6 +63,8 @@ namespace StackNavogatorRPG
             Item HPPotion = new Item(1);
             HPPotion.SetItem(8);
             GameManager.Instance.playerCharacter.bag.Add(HPPotion);
+
+
 
 
             PresentViewController(TabView, true, null);

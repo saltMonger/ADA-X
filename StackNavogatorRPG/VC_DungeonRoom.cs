@@ -1,11 +1,39 @@
 ﻿using System;
-
+using MapGenAgentBased;
+using StackNavogatorRPG.Map;
 using UIKit;
 
 namespace StackNavogatorRPG
 {
     public partial class VC_DungeonRoom : UIViewController
     {
+        public RoomCell rc;
+
+        public Direction LeftButtonDuty
+        {
+            get;
+            set;
+        }
+
+        public Direction RightButtonDuty
+        {
+            get;
+            set;
+        }
+     
+        public Direction TopButtonDuty
+        {
+            get;
+            set;
+        }
+ 
+        public Direction BottomButtonDuty
+        {
+            get;
+            set;
+        }
+   
+    
         public VC_DungeonRoom() : base("VC_DungeonRoom", null)
         {
         }
@@ -29,12 +57,66 @@ namespace StackNavogatorRPG
 
         }
 
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+            TopButton.SetTitle(TopButtonDuty.ToString(), UIControlState.Normal);
+            BottomButton.SetTitle(BottomButtonDuty.ToString(), UIControlState.Normal);
+            RightButton.SetTitle(RightButtonDuty.ToString(), UIControlState.Normal);
+            LeftButton.SetTitle(LeftButtonDuty.ToString(), UIControlState.Normal);
+
+        }
+
         partial void UIButton547_TouchUpInside(UIButton sender)
         {
             Enemies.Enemy_Goblin enemy = new Enemies.Enemy_Goblin();
 
             VC_BattleRoom battle = new VC_BattleRoom(GameManager.Instance.playerCharacter, enemy);
             PresentViewController(battle, true, null);
+        }
+
+        partial void LeftButton_TouchUpInside(UIButton sender)
+        {
+            if (LeftButtonDuty != Direction.None)
+            {
+                MapManager man = MapManager.Instance;
+                VC_DungeonRoom vc = man.MoveRoom(LeftButtonDuty);
+                PresentViewController(vc, false, null);
+            }
+
+        }
+
+        partial void TopButton_TouchUpInside(UIButton sender)
+        {
+            if (TopButtonDuty != Direction.None)
+            {
+                Console.WriteLine("Top Button Touch");
+                MapManager man = MapManager.Instance;
+                VC_DungeonRoom vc = man.MoveRoom(TopButtonDuty);
+                PresentViewController(vc, false, null);
+            }
+        }
+
+        partial void RightButton_TouchUpInside(UIButton sender)
+        {
+            if (RightButtonDuty != Direction.None)
+            {
+                Console.WriteLine("Right Button Touch");
+                MapManager man = MapManager.Instance;
+                VC_DungeonRoom vc = man.MoveRoom(RightButtonDuty);
+                PresentViewController(vc, false, null);
+            }
+        }
+
+        partial void BottomButton_TouchUpInside(UIButton sender)
+        {
+            if (BottomButtonDuty != Direction.None)
+            {
+                Console.WriteLine("Bottom Button Touch");
+                MapManager man = MapManager.Instance;
+                VC_DungeonRoom vc = man.MoveRoom(BottomButtonDuty);
+                PresentViewController(vc, false, null);
+            }
         }
     }
 }

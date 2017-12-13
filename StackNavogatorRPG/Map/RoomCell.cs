@@ -9,6 +9,7 @@ namespace MapGenAgentBased
 
     public enum Direction
     {
+        None,
         North,
         West,
         South,
@@ -23,7 +24,7 @@ namespace MapGenAgentBased
         public RoomCell South { get; set; }
         public RoomCell East { get; set; }
 
-        public int[2] RoomCoords
+        public int[] RoomCoords
         {
             get;
             set;
@@ -44,7 +45,7 @@ namespace MapGenAgentBased
         // 00 - 00
         // Bottom is the player heading
         // Top are the doors present within RoomCell
-        public void AssignRoomCellImage(Direction fromRoom)
+        public byte AssignRoomCellImage(Direction fromRoom)
         {
             byte roomLookup = 0x00;
 
@@ -72,25 +73,25 @@ namespace MapGenAgentBased
             //1000  8       West Door
             if(North != null)
             {
-                roomLookup &= 0x10;
+                roomLookup |= 0x10;
             }
             if(East != null)
             {
-                roomLookup &= 0x20;
+                roomLookup |= 0x20;
             }
             if (South != null)
             {
-                roomLookup &= 0x40;
+                roomLookup |= 0x40;
             }
             if(West != null)
             {
-                roomLookup &= 0x80;
+                roomLookup |= 0x80;
             }
 
             //do image lookup here
             //01010001
 
-
+            return roomLookup;
         }
 
 

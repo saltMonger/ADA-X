@@ -30,6 +30,18 @@ namespace MapGenAgentBased
         public RoomCell[,] RoomCells { get; set; }
         public Random rng { get; set; }
 
+        public int[] PlayerStartLocation
+        {
+            get;
+            set;
+        }
+
+        public int[] BossLocation
+        {
+            get;
+            set;
+        }
+
         public DiggerAgent(int sizeX, int sizeY, int stepSize)
         {
             MapSizeX = sizeX;
@@ -84,7 +96,18 @@ namespace MapGenAgentBased
                 if(stepCounter >= RandomStep)
                 {
                     //if step threshold is reached, reroll direction and reset counter
-                    diggerDirection = (Direction)rng.Next(0, 4);
+                    int dir = rng.Next(0, 4);
+                    switch(dir){
+                        case 0: diggerDirection = Direction.North;
+                            break;
+                        case 1: diggerDirection = Direction.South;
+                            break;
+                        case 2: diggerDirection = Direction.East;
+                            break;
+                        case 3: diggerDirection = Direction.West;
+                            break;
+
+                    }
                     stepCounter = 0;
                 }
 
@@ -184,6 +207,8 @@ namespace MapGenAgentBased
         /// </summary>
         public void FinalizeMap()
         {
+            int playerY = 0;
+            int playerX = 0;
             for(int x=0; x <= MapSizeX - 1; x++)
             {
                 for (int y = 0; y <= MapSizeY - 1; y++)
@@ -193,6 +218,14 @@ namespace MapGenAgentBased
                     {
                         continue;
                     }
+
+                    //max coord set
+                    if(x > playerX && y > playerY){
+                        playerX = x;
+                        playerY = y;
+
+                    }
+
 
                     //set room coordinates
                     RoomCells[x, y].RoomCoords = new int[2] { x, y };
@@ -260,8 +293,10 @@ namespace MapGenAgentBased
                 }
             }
 
+            PlayerStartLocation = new int[2] { playerX, playerY };
+
             //spin the png
-            MapCharter mapc = new MapCharter(RoomCells, MapSizeX, MapSizeY);
+            //MapCharter mapc = new MapCharter(RoomCells, MapSizeX, MapSizeY);
         }
 
         //send map coords and map upper boundaries
